@@ -8,6 +8,7 @@ import { dir } from 'i18next'
 import TranslationsProvider from '@/libs/i18n/TranslationsProvider'
 import { Noto_Sans_Georgian } from 'next/font/google'
 import { Cormorant_Garamond } from 'next/font/google'
+import Footer from '@/components/footer/Footer'
 
 const georgian = Noto_Sans_Georgian({ subsets: ['latin'] })
 const garamod = Noto_Sans_Georgian({ subsets: ['latin'] })
@@ -39,6 +40,7 @@ export default async function RootLayout({
                     resources={resources}
                 >
                     {children}
+                    <Footer />
                 </TranslationsProvider>
             </body>
         </html>

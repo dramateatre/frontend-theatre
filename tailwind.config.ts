@@ -21,6 +21,9 @@ module.exports = {
                 georgian: ['Noto Sans Georgian', 'sans-serif'],
                 garamond: ['Cormorant Garamond', 'serif'],
             },
+            backgroundImage: {
+                'footer-cover': "url('/imgs/FooterCover.jpg')",
+            },
             colors: {
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',

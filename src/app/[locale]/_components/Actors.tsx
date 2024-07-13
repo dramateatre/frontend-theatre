@@ -12,7 +12,7 @@ import ActorImage from '../../../../public/imgs/actor.jpeg'
 
 export default function Actors() {
     return (
-        <section className="flex w-full flex-col items-center gap-10 bg-white">
+        <section className="flex w-full flex-col items-center gap-10 bg-black">
             <h1 className="font-garamond text-4xl text-black">Our Actors</h1>
             <Image src={ActorsIcon} className="h-auto w-auto" alt="Actors icon" />
             <Carousel

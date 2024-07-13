@@ -1,0 +1,6 @@
+export { default as WhiteFb } from '../../../public/svg/WhiteFb.svg'
+export { default as WhiteInsta } from '../../../public/svg/WhiteInsta.svg'
+export { default as WhiteWatsapp } from '../../../public/svg/WhiteWatsapp.svg'
+export { default as Message } from '../../../public/svg/Message.svg'
+export { default as PhoneCall } from '../../../public/svg/PhoneCall.svg'
+export { default as HomePhoneCall } from '../../../public/svg/HomePhoneCall.svg'
