@@ -3,7 +3,7 @@ import { WhiteFb, WhiteInsta, WhiteWatsapp } from '../svg'
 export const Social = () => {
     return (
         <>
-            <div className="flex flex-row gap-x-6">
+            <div className="flex w-full flex-row gap-x-6 md:justify-end">
                 <a
                     target="_blank"
                     rel="noopener noreferrer"
