@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 export default function Footer() {
     const { t } = useTranslation()
     const params = useParams()
-    console.log(params.locale)
+
     return (
         <section
             className={`flex h-auto w-full flex-col bg-footer-cover bg-cover bg-top bg-no-repeat px-10 pt-12 md:h-auto md:flex-col md:justify-between md:bg-center md:px-5 lg:px-16`}

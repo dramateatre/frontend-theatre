@@ -18,11 +18,12 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                georgian: ['Noto Sans Georgian', 'sans-serif'],
-                garamond: ['Cormorant Garamond', 'serif'],
+                georgian: ['var(--font-georgian)'],
+                playwrite: ['var(--font-playwrite)'],
             },
             backgroundImage: {
                 'footer-cover': "url('/imgs/FooterCover.jpg')",
+                'main-cover': "url('/imgs/Cover.png')",
             },
             colors: {
                 border: 'hsl(var(--border))',
