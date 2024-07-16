@@ -30,7 +30,7 @@ export default function History() {
                     <Image
                         src={New}
                         alt="New Image"
-                        className="h-full w-full border-2 border-white object-cover md:hidden"
+                        className="h-full w-full border border-white object-cover md:hidden"
                     />
                 </div>
             </div>
