@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import Old from '../../../../public/imgs/Old.jpg'
+import Old from '../../../../public/imgs/OldTheatre.jpg'
 import New from '../../../../public/imgs/New.webp'
 
 export default function History() {
