@@ -8,7 +8,7 @@ export default function Paybill() {
             <Carousel>
                 <CarouselContent className="ml-0 lg:px-7 xl:px-10">
                     {Array.from({ length: 5 }).map((_, index) => (
-                        <CarouselItem key={index} className="overflow-hidden px-6 lg:pl-7 xl:px-10">
+                        <CarouselItem key={index} className="px-6 lg:pl-7 xl:px-10">
                             <div className="flex h-auto w-full flex-col overflow-hidden rounded-[12px] border border-white lg:h-full lg:w-auto lg:flex-row lg:gap-5 lg:rounded-none lg:border-none">
                                 <Image
                                     className="h-[220px] w-full border-white object-cover object-center shadow-inner lg:h-full lg:w-3/4 lg:rounded-[12px] lg:border"
