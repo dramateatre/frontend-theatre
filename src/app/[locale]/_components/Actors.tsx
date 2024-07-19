@@ -9,7 +9,6 @@ import {
 } from '@/components/ui/carousel'
 import { Card, CardContent } from '@/components/ui/card'
 import ActorImage from '../../../../public/imgs/actor.jpeg'
-import { Component } from './Paybill'
 
 export default function Actors() {
     return (
@@ -25,7 +24,17 @@ export default function Actors() {
                 <CarouselContent>
                     {Array.from({ length: 12 }).map((_, index) => (
                         <CarouselItem key={index} className="lg:basis-1/6">
-                            <Component />
+                            <div className="p-1">
+                                <Card className="rounded-md p-0">
+                                    <CardContent className="flex aspect-square items-center justify-center p-0">
+                                        <Image
+                                            src={ActorImage}
+                                            alt="123123"
+                                            className="h-full w-full object-cover"
+                                        />
+                                    </CardContent>
+                                </Card>
+                            </div>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
