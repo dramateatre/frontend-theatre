@@ -2,7 +2,7 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import Image from 'next/image'
 import Village from '../../../../public/imgs/village.jpg'
 
-export default function Paybill() {
+export default function Poster() {
     return (
         <div className="w-full py-20 text-white">
             <Carousel>

@@ -2,7 +2,7 @@
 import { useTranslation } from 'react-i18next'
 import Actors from './_components/Actors'
 import Cover from './_components/Cover'
-import Paybill from './_components/Paybill'
+import Poster from './_components/Poster'
 import History from './_components/History'
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between bg-[#1D1B26]">
             <Cover />
-            <Paybill />
+            <Poster />
             <History />
             <Actors />
         </main>
