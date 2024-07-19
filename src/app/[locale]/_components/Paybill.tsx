@@ -15,7 +15,7 @@ export default function Paybill() {
                                     src={Village}
                                     alt="Village"
                                 />
-                                {/* <div className="flex h-auto w-full flex-col items-center justify-between gap-3 border-white bg-[#2c2943] px-5 pb-8 pt-4 shadow-inner lg:order-2 lg:rounded-[12px] lg:border lg:py-8">
+                                <div className="flex h-auto w-full flex-col items-center justify-between gap-3 border-white bg-[#2c2943] px-5 pb-8 pt-4 shadow-inner lg:order-2 lg:rounded-[12px] lg:border lg:py-8">
                                     <p className="text-cente text-xs">ბათუმის დრამატული თეატრი</p>
                                     <div className="flex flex-row items-center gap-3 lg:flex-col">
                                         <p className="text-sm lg:text-5xl">23</p>
@@ -33,7 +33,7 @@ export default function Paybill() {
                                             ბილეთები
                                         </button>
                                     </div>
-                                </div> */}
+                                </div>
                             </div>
                         </CarouselItem>
                     ))}
