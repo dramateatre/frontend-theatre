@@ -25,6 +25,7 @@ module.exports = {
                 'footer-cover': "url('/imgs/FooterCover.jpg')",
                 'main-cover': "url('/imgs/Cover.png')",
                 'bg-body': "url('/imgs/BgBody.jpg')",
+                'bg-cov': "url('/imgs/bg-cov.jpg')",
             },
             colors: {
                 border: 'hsl(var(--border))',

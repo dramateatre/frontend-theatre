@@ -5,7 +5,7 @@ import New from '../../../../public/imgs/New.webp'
 
 export default function History() {
     return (
-        <div className="relative flex h-auto w-full bg-[#F1EFEB] py-10 shadow-lg md:pb-40">
+        <div className="relative flex h-auto w-full  py-10 md:pb-40">
             <div className="grid grid-cols-1 md:grid-cols-2 md:pl-20">
                 <div className="relative">
                     <Image

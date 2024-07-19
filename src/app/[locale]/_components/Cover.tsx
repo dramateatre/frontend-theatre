@@ -7,7 +7,7 @@ export default function Cover() {
     const params = useParams()
     const locale = params.locale
     return (
-        <section className=" shadow-lg bg-main-cover relative h-screen w-full bg-white bg-cover bg-no-repeat md:h-[750px] md:bg-top">
+        <section className="relative h-screen w-full bg-white bg-main-cover bg-cover bg-no-repeat md:h-[750px] md:bg-top">
             <div className="absolute inset-0 h-full w-full bg-black opacity-40"></div>
             <div className="relative z-10 flex h-full items-center justify-center text-white">
                 <h1
