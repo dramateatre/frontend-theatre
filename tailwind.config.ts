@@ -27,6 +27,7 @@ module.exports = {
                 'bg-body': "url('/imgs/BgBody.jpg')",
                 'bg-cov': "url('/imgs/bg-cov.jpg')",
             },
+
             colors: {
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',

@@ -7,13 +7,18 @@ import { useTranslation } from 'react-i18next'
 export default function Footer() {
     const { t } = useTranslation()
     const params = useParams()
+    const locale = params.locale
 
     return (
         <section
             className={`flex h-auto w-full flex-col bg-footer-cover bg-cover bg-top bg-no-repeat px-10 pt-12 md:h-auto md:flex-col md:justify-between md:bg-center md:px-5 lg:px-16`}
         >
             <div className="flex w-full flex-col gap-12 md:flex-row md:items-start md:justify-between md:gap-5">
-                <h1 className="text-center text-xl text-white lg:text-3xl">{t('batumiTheatre')}</h1>
+                <h1
+                    className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-xl text-white lg:text-3xl`}
+                >
+                    {t('batumiTheatre')}
+                </h1>
                 <div className="grid grid-flow-col grid-cols-2 grid-rows-4 items-center gap-5 text-sm text-white lg:gap-x-20">
                     <span className="cursor-pointer underline-offset-2 hover:underline">
                         {t('main')}

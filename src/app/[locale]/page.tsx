@@ -11,8 +11,9 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center justify-between bg-[#1D1B26]">
             <Cover />
             <Poster />
-            <History />
+
             <Actors />
+            <History />
         </main>
     )
 }

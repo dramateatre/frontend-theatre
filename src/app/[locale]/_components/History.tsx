@@ -10,14 +10,14 @@ export default function History() {
     const params = useParams()
     const locale = params.locale
     return (
-        <div className={`relative flex h-auto w-full py-10 md:pb-40`}>
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-0 md:pl-6 lg:pl-20">
+        <div className={`relative flex h-auto w-full bg-[#130f23] pb-40 pt-40`}>
+            <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-0 md:pl-6 lg:pl-6 xl:pl-32">
                 <div className="relative h-full w-full">
                     <div className="flex h-full w-full flex-row justify-start">
                         <Image
                             src={Old}
                             alt="New Image"
-                            className="right-0 h-full w-4/5 border border-white object-cover shadow-inner md:flex md:w-full"
+                            className="right-0 h-[220px] w-4/5 border-4 border-white object-cover shadow-inner md:flex md:h-full md:w-full"
                         />
                         <div className="ml-10 flex h-full w-auto flex-col items-center justify-between text-white md:hidden">
                             <span>{t('1')}</span>
@@ -37,14 +37,25 @@ export default function History() {
                     {t('findMore')}
                 </h1>
 
-                <div className="relative flex w-full flex-col items-end md:items-center">
-                    <h1 className="hidden text-xl text-white md:flex">{t('theatreHistory')}</h1>
+                <div className="relative flex w-full flex-col items-end md:items-center md:pr-10">
+                    <div className="flex w-full flex-col items-center md:gap-3">
+                        <h1
+                            className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} hidden text-center text-4xl tracking-widest text-white md:flex`}
+                        >
+                            {t('theatreHistory')}
+                        </h1>
+                        <span
+                            className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} hidden cursor-pointer text-lg text-white underline md:block`}
+                        >
+                            {t('findMore')}...
+                        </span>
+                    </div>
                     <div className="relative hidden h-full w-full md:block">
                         <div className="relative flex flex-row md:-translate-x-6 md:translate-y-20 lg:-translate-x-20">
                             <Image
                                 src={New}
                                 alt="New Image"
-                                className="h-full w-full border-2 border-white object-cover"
+                                className="h-full w-full border-4 border-white object-cover"
                             />
                         </div>
                     </div>
@@ -61,7 +72,7 @@ export default function History() {
                         <Image
                             src={New}
                             alt="New Image"
-                            className="right-0 h-full w-4/5 border border-white object-cover shadow-inner md:hidden lg:w-full"
+                            className="right-0 h-[220px] w-4/5 border-4 border-white object-cover shadow-inner md:hidden md:h-full lg:w-full"
                         />
                     </div>
                 </div>
