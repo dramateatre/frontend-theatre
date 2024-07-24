@@ -4,7 +4,6 @@ export { default as WhiteWatsapp } from '../../../public/svg/WhiteWatsapp.svg'
 export { default as Message } from '../../../public/svg/Message.svg'
 export { default as PhoneCall } from '../../../public/svg/PhoneCall.svg'
 export { default as HomePhoneCall } from '../../../public/svg/HomePhoneCall.svg'
-
-export { default as FbIcon } from '../../../public/svg/Fb.svg'
+export { default as FbIcon } from '../../../public/svg/FbIcon.svg'
 export { default as InstaIcon } from '../../../public/svg/Insta.svg'
 export { default as WhatsappIcon } from '../../../public/svg/Whatsapp.svg'
