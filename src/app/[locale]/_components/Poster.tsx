@@ -9,10 +9,10 @@ export default function Poster() {
     const params = useParams()
     const locale = params.locale
     return (
-        <div className="w-full pb-20 text-white">
-            <div className="flex w-full flex-row justify-center pt-16">
+        <div className="w-full pb-10 md:pb-20 text-white">
+            <div className="flex w-full flex-row justify-center pt-10">
                 <h1
-                    className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} texet-center text-3xl font-semibold tracking-[20px]`}
+                    className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} texet-center text-3xl tracking-[20px]`}
                 >
                     {t('poster')}
                 </h1>
@@ -30,7 +30,7 @@ export default function Poster() {
                                             alt="Village"
                                         />
                                     </div>
-                                    <div className="flex h-auto flex-col items-center justify-between gap-3 bg-[#23242d] pb-8 pt-4 lg:order-2 lg:w-[30%] lg:py-8 xl:w-[25%]">
+                                    <div className="flex h-auto flex-col items-center justify-between gap-3 bg-[#1a1c2f] pb-8 pt-4 lg:order-2 lg:w-[30%] lg:py-8 xl:w-[25%]">
                                         <p className="text-cente text-xs">
                                             ბათუმის დრამატული თეატრი
                                         </p>

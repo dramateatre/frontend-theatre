@@ -19,6 +19,10 @@ module.exports = {
         extend: {
             boxShadow: {
                 custom: '0 10px 15px rgba(0, 0, 0, 0.2), 0 -10px 15px rgba(0, 0, 0, 0.2), 10px 0 15px rgba(0, 0, 0, 0.2), -10px 0 15px rgba(0, 0, 0, 0.2)',
+                customWhite:
+                    '0 10px 15px rgba(255, 255, 255, 0.2), 0 -10px 15px rgba(255, 255, 255, 0.2), 10px 0 15px rgba(255, 255, 255, 0.2), -10px 0 15px rgba(255, 255, 255, 0.2)',
+                customWhiteSmall:
+                    '0 5px 10px rgba(255, 255, 255, 0.2), 0 -5px 10px rgba(255, 255, 255, 0.2), 5px 0 10px rgba(255, 255, 255, 0.2), -5px 0 10px rgba(255, 255, 255, 0.2)',
             },
             fontFamily: {
                 georgian: ['var(--font-georgian)'],

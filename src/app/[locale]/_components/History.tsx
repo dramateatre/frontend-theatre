@@ -10,14 +10,14 @@ export default function History() {
     const params = useParams()
     const locale = params.locale
     return (
-        <div className={`relative flex h-auto w-full pb-40 pt-40`}>
+        <div className={`relative flex h-auto w-full py-20 md:pb-40 md:pt-20`}>
             <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-0 md:pl-6 lg:pl-6 xl:pl-32">
                 <div className="relative h-full w-full">
                     <div className="flex h-full w-full flex-row justify-start">
                         <Image
                             src={Old}
                             alt="New Image"
-                            className="right-0 h-[220px] w-4/5 border-4 border-white shadow-inner object-cover  md:flex md:h-full md:w-full"
+                            className="shadow-customWhiteSmall h-[220px] w-4/5 rounded-br-[5px] rounded-tr-[5px] border border-white object-cover md:flex md:h-[400px] md:w-full md:rounded-none"
                         />
                         <div className="ml-10 flex h-full w-auto flex-col items-center justify-between text-white md:hidden">
                             <span>{t('1')}</span>
@@ -55,7 +55,7 @@ export default function History() {
                             <Image
                                 src={New}
                                 alt="New Image"
-                                className="h-full w-full border-4 border-white object-cover"
+                                className="shadow-customWhiteSmall h-full w-full border border-white object-cover"
                             />
                         </div>
                     </div>
@@ -72,7 +72,7 @@ export default function History() {
                         <Image
                             src={New}
                             alt="New Image"
-                            className="right-0 h-[220px] w-4/5 border-4 border-white object-cover shadow-inner md:hidden md:h-full lg:w-full"
+                            className="shadow-customWhiteSmall h-[220px] w-4/5 rounded-bl-[5px] rounded-tl-[5px] border border-white object-cover md:hidden md:h-full lg:w-full"
                         />
                     </div>
                 </div>
