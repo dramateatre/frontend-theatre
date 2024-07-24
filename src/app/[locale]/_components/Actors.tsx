@@ -1,13 +1,6 @@
 import Image from 'next/image'
 import ActorsIcon from '../../../../public/imgs/ActorsIcon.png'
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from '@/components/ui/carousel'
-import { Card, CardContent } from '@/components/ui/card'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import Creative from '../../../../public/imgs/Creative.jpg'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
@@ -17,7 +10,7 @@ export default function Actors() {
     const params = useParams()
     const locale = params.locale
     return (
-        <section className="flex w-full flex-col items-center gap-5 border-white bg-[#130f23] lg:gap-10">
+        <section className="flex w-full flex-col items-center gap-5 border-white lg:gap-10">
             <h1
                 className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} px-6 text-left text-2xl text-white md:text-4xl`}
             >

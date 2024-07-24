@@ -17,6 +17,9 @@ module.exports = {
             },
         },
         extend: {
+            boxShadow: {
+                custom: '0 10px 15px rgba(0, 0, 0, 0.2), 0 -10px 15px rgba(0, 0, 0, 0.2), 10px 0 15px rgba(0, 0, 0, 0.2), -10px 0 15px rgba(0, 0, 0, 0.2)',
+            },
             fontFamily: {
                 georgian: ['var(--font-georgian)'],
                 playwrite: ['var(--font-playwrite)'],
