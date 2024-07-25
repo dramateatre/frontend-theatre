@@ -1,14 +1,14 @@
 {
-    "chateau": "Batumi drama theatre",
+    "batumiTheatre": "Batumi drama theatre",
     "address": "Address",
     "addressItem": "Batumi",
     "phone": "Phone",
     "email": "Email",
     "contactUs": "Contact Us",
     "directions": "Get Directions",
-    "firstname": "Firstname *",
-    "lastname": "Lastname *",
-    "message": "Message *",
+    "firstname": "Firstname ",
+    "lastname": "Lastname ",
+    "message": "Message ",
     "emailChoose": "Email",
     "send": "Submit"
 }

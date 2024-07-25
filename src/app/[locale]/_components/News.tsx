@@ -9,7 +9,7 @@ export default function News() {
     const params = useParams()
     const locale = params.locale
     return (
-        <div className="w-full text-white pb-10">
+        <div className="w-full pb-10 text-white">
             <div className="flex w-full flex-row justify-center">
                 <h1
                     className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} texet-center text-3xl tracking-[5px]`}
@@ -17,12 +17,17 @@ export default function News() {
                     სიახლეები
                 </h1>
             </div>
-            <Carousel className="flex justify-center">
-                <CarouselContent className="py-10 pr-2 lg:px-7 xl:px-10">
-                    {Array.from({ length: 6 }).map((_, index) => (
+            <Carousel
+                opts={{
+                    watchDrag: false,
+                }}
+                className="flex justify-center"
+            >
+                <CarouselContent className="py-10 xl:py-16 xl:pl-4 xl:pr-10">
+                    {Array.from({ length: 4 }).map((_, index) => (
                         <>
-                            <CarouselItem key={index} className="md:basis-1/4 pl-6 lg:pl-7 xl:pl-10">
-                                <div className="shadow-custom relative z-50 flex w-full flex-col overflow-hidden rounded-[16px]">
+                            <CarouselItem key={index} className="pl-6 lg:pl-10 md:basis-1/4">
+                                <div className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom">
                                     <div className="h-[200px] w-full">
                                         <Image
                                             className="h-full w-full object-cover object-center"
@@ -30,7 +35,7 @@ export default function News() {
                                             alt="Village"
                                         />
                                     </div>
-                                    <div className="flex h-[150px] flex-col py-2 px-3 items-startg  justify-around bg-[#1a1c2f]">
+                                    <div className="items-startg flex h-[150px] flex-col justify-around bg-[#1a1c2f] px-3 py-2">
                                         <h1>რაც გინახავს ვეღარ ნახავ</h1>
                                         <p className="line-clamp-2 overflow-hidden text-ellipsis text-xs">
                                             თეატრალურ ნიღაბს ორი სახე აქვს, ერთი ტირის, მეორე -
