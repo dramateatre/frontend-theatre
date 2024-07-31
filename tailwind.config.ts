@@ -35,6 +35,7 @@ module.exports = {
                 'main-cover': "url('/imgs/Cover.png')",
                 'bg-body': "url('/imgs/BgBody.jpg')",
                 'bg-cov': "url('/imgs/bg-cov.jpg')",
+                'bg-test': "url('/imgs/Test.jpg')",
             },
 
             colors: {
