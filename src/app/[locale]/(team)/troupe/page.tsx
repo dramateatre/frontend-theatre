@@ -1,5 +1,5 @@
 import React from 'react'
-import Actor from '../../../../public/imgs/Creative.jpg'
+import Actor from '../../../../../public/imgs/Creative.jpg'
 import Image from 'next/image'
 
 export default function Page() {
