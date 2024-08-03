@@ -3,11 +3,16 @@ import Test from '../../../../public/imgs/Test.jpg'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { useMediaQuery } from 'react-responsive'
 
 export default function News() {
     const { t } = useTranslation()
     const params = useParams()
     const locale = params.locale
+
+    const isDesktop = useMediaQuery({
+        query: '(min-width: 768px)',
+    })
     return (
         <div className="w-full pb-10 text-white">
             <div className="flex w-full flex-row justify-center">
@@ -19,14 +24,14 @@ export default function News() {
             </div>
             <Carousel
                 opts={{
-                    watchDrag: false,
+                    watchDrag: !isDesktop,
                 }}
                 className="flex justify-center"
             >
-                <CarouselContent className="py-10 xl:py-16 xl:pl-4 xl:pr-10">
+                <CarouselContent className="py-10 pr-4 xl:py-16 xl:pl-4 xl:pr-10">
                     {Array.from({ length: 4 }).map((_, index) => (
                         <>
-                            <CarouselItem key={index} className="pl-6 lg:pl-10 md:basis-1/4">
+                            <CarouselItem key={index} className="pl-6 md:basis-1/2 lg:basis-1/4 lg:pl-10">
                                 <div className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom">
                                     <div className="h-[200px] w-full">
                                         <Image
