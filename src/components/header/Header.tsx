@@ -11,6 +11,9 @@ export default function Header() {
             <Link href="/news">
                 <h1 className="text-lg text-white">News</h1>
             </Link>
+            <Link href="/troupe">
+                <h1 className="text-lg text-white">Troupe</h1>
+            </Link>
             <Link href="/contact">
                 <h1 className="text-lg text-white">Contact</h1>
             </Link>

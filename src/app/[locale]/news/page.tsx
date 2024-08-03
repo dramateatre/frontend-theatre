@@ -1,13 +1,10 @@
 import Image from 'next/image'
 import React from 'react'
 import NewsImage from '../../../../public/imgs/New.webp'
-import test from '../../../../public/imgs/village.jpg'
-import test2 from '../../../../public/imgs/Test.jpg'
-import { ArrowRight } from '@/components/svg'
 
 export default function page() {
     return (
-        <main className="flex flex-col gap-10 px-5 pb-20 pt-40 md:px-7 lg:px-20 xl:px-64">
+        <main className="flex flex-col gap-10 px-6 pb-20 pt-40 md:px-7 lg:px-20 xl:px-64">
             <div className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:flex-row">
                 <div className="relative h-[200px] w-full md:w-[400px]">
                     <Image

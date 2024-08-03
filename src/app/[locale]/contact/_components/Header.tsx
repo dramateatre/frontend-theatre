@@ -9,7 +9,7 @@ function Header() {
     const params = useParams()
     const locale = params.locale
     return (
-        <section className="flex h-auto w-full flex-col items-center gap-6 px-5 text-white md:gap-10">
+        <section className="flex h-auto w-full flex-col items-center gap-6 px-6 text-white md:gap-10">
             <h1
                 className={`text-center ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} pb-5 text-2xl lg:text-4xl`}
             >
