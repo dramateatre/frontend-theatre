@@ -17,6 +17,7 @@ async function fetchData(locale: string) {
 
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
     const data = await fetchData(locale)
+    console.log(data[0].attributes.Avatar)
 
     return (
         <main className="flex h-full w-full bg-[#1a1c2f] px-6 pb-20 pt-40 md:px-7 lg:px-20">
