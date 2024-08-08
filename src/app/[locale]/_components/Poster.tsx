@@ -1,3 +1,5 @@
+'use client'
+
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import Image from 'next/image'
 import Village from '../../../../public/imgs/village.jpg'
@@ -8,8 +10,9 @@ export default function Poster() {
     const { t } = useTranslation()
     const params = useParams()
     const locale = params.locale
+
     return (
-        <div className="w-full pb-10 md:pb-20 text-white">
+        <section className="w-full pb-10 text-white md:pb-20">
             <div className="flex w-full flex-row justify-center pt-10">
                 <h1
                     className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} texet-center text-3xl tracking-[20px]`}
@@ -22,7 +25,7 @@ export default function Poster() {
                     {Array.from({ length: 4 }).map((_, index) => (
                         <>
                             <CarouselItem key={index} className="pl-6 lg:pl-7 xl:pl-10">
-                                <div className="shadow-custom relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] lg:h-[400px] lg:flex-row">
+                                <div className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom lg:h-[400px] lg:flex-row">
                                     <div className="h-[200px] w-full md:h-[300px] lg:h-full lg:w-[70%] xl:w-[75%]">
                                         <Image
                                             className="h-full w-full object-cover object-center"
@@ -30,24 +33,24 @@ export default function Poster() {
                                             alt="Village"
                                         />
                                     </div>
-                                    <div className="flex h-auto flex-col items-center justify-between gap-3 bg-[#1a1c2f] pb-8 pt-4 lg:order-2 lg:w-[30%] lg:py-8 xl:w-[25%]">
-                                        <p className="text-cente text-xs">
+                                    <div className="flex h-auto flex-col items-center justify-between gap-3 bg-[#0f1017] bg-poster-gradient pb-8 pt-4 lg:order-2 lg:w-[30%] lg:py-8 xl:w-[25%]">
+                                        <span className="text-cente text-xs">
                                             ბათუმის დრამატული თეატრი
-                                        </p>
+                                        </span>
                                         <div className="flex flex-row items-center gap-3 lg:flex-col">
-                                            <p className="text-sm lg:text-5xl">23</p>
-                                            <p className="text-sm">სექტემბერი / შაბათი</p>
+                                            <span className="text-sm lg:text-5xl">23</span>
+                                            <span className="text-sm">სექტემბერი / შაბათი</span>
                                         </div>
                                         <h1 className="text-xl lg:text-2xl">სოფელსა შინა</h1>
-                                        <p className="px-5 text-center text-sm">
+                                        <span className="px-5 text-center text-sm">
                                             მიხეილ ჯავახიშვილის პიესის "შერცხვენილნი" ის მიხედვითqe
-                                        </p>
+                                        </span>
                                         <div className="flex w-full flex-row gap-5 px-5 pt-4 lg:gap-3">
-                                            <button className="flex w-full items-center justify-center rounded-[6px] bg-white py-1 text-sm text-black">
-                                                სრულად
+                                            <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
+                                                {t('viewMore')}
                                             </button>
-                                            <button className="flex w-full items-center justify-center rounded-[6px] bg-white py-1 text-sm text-black">
-                                                ბილეთები
+                                            <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
+                                                {t('tickets')}
                                             </button>
                                         </div>
                                     </div>
@@ -57,6 +60,6 @@ export default function Poster() {
                     ))}
                 </CarouselContent>
             </Carousel>
-        </div>
+        </section>
     )
 }

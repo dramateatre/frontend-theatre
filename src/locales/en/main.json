@@ -1,9 +1,10 @@
 {
-    "batumiTheatre": "Batumi drama theatre",
+    "batumiTheatre": "Batumi Ilia Chavchavadze State Drama Theatre",
+    "batumiTheatreShort": "Batumi drama theatre",
     "main": "Main",
     "news": "News",
     "repertory": "Repertory",
-    "team": "Our team",
+    "team": "Team",
     "about": "About theatre",
     "contact": "Contact",
     "salary": "Salary",
@@ -24,5 +25,8 @@
     "findMore": "Find more",
     "theatreHistory": "Theatre history",
     "creativeGroup": "Creative group",
-    "poster": "Poster"
+    "poster": "Poster",
+    "viewMore": "View more",
+    "viewMoreNews": "View more news",
+    "tickets": "Tickets"
 }

@@ -1,7 +1,9 @@
+'use client'
+
 import Image from 'next/image'
 import ActorsIcon from '../../../../public/imgs/ActorsIcon.png'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
-import Creative from '../../../../public/imgs/Creative.jpg'
+import Creative from '../../../../public/imgs/actor.jpeg'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
 
@@ -24,7 +26,7 @@ export default function Actors() {
                             key={index}
                             className="pl-6 sm:basis-1/2 lg:basis-1/3 lg:pl-7 xl:basis-1/5 xl:pl-10"
                         >
-                            <div className="  flex items-center justify-center overflow-hidden rounded-[5px] border border-white">
+                            <div className="flex items-center justify-center overflow-hidden rounded-[5px] border border-white">
                                 <Image
                                     src={Creative}
                                     alt="123123"

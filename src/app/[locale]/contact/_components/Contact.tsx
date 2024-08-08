@@ -30,7 +30,7 @@ export default function Contact() {
 
     return (
         <section className="h-auto w-full px-6 md:px-7 lg:px-40 xl:px-64">
-            <div className="relative h-full w-full rounded-[10px] bg-[#282837] bg-opacity-100 shadow-custom">
+            <div className="bg-card-gradient relative h-full w-full rounded-[10px] bg-[#0f1017] bg-opacity-100 shadow-custom">
                 <div className="absolute right-6 top-8 flex h-auto w-full flex-row items-center md:right-7 lg:right-64">
                     <div className="h-[1px] w-3/5 bg-white lg:w-4/5"></div>
                     <span className="ml-4 text-sm uppercase text-white">{t('contactUs')}</span>
@@ -58,7 +58,7 @@ export default function Contact() {
                     />
                     <div className="flex h-auto w-full flex-row items-center justify-end">
                         <span className="mr-10 text-[green]">{result}</span>
-                        <Button className="shadow-customWhiteSmaller rounded-[8px] border border-white px-8 text-sm text-white">
+                        <Button className="rounded-[8px] border border-white px-8 text-sm text-white shadow-customWhiteSmaller">
                             {t('send')}
                         </Button>
                     </div>

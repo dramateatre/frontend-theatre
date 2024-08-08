@@ -36,6 +36,11 @@ module.exports = {
                 'bg-body': "url('/imgs/BgBody.jpg')",
                 'bg-cov': "url('/imgs/bg-cov.jpg')",
                 'bg-test': "url('/imgs/Test.jpg')",
+                'poster-gradient':
+                    'radial-gradient(46.99% 43.05% at 97.42% 100%, rgba(46, 48, 56, 0.4) 0%, transparent 100%), radial-gradient(95.18% 75.16% at 87.58% -10.42%, rgba(112, 220, 211, 0.3) 0%, transparent 100%)',
+
+                'card-gradient':
+                    ' radial-gradient(121.65% 100% at 32.68% 0, #3c4155 0, rgba(60, 65, 85, .18) 32.49%, rgba(60, 65, 85, 0) 51.34%), radial-gradient(91.41% 43.04% at 50% 0, #1a1c24 20.67%, rgba(26, 28, 36, 0) 100%), radial-gradient(69.96% 25.89% at 50% 100%, #15171e 22.77%, rgba(19, 21, 27, 0) 100%)',
             },
 
             colors: {

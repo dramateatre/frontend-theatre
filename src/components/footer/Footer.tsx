@@ -17,7 +17,7 @@ export default function Footer() {
                 <h1
                     className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-xl text-white lg:text-3xl`}
                 >
-                    {t('batumiTheatre')}
+                    {t('batumiTheatreShort')}
                 </h1>
                 <div className="grid grid-flow-col grid-cols-2 grid-rows-4 items-center gap-5 text-sm text-white lg:gap-x-20">
                     <span className="cursor-pointer underline-offset-2 hover:underline">

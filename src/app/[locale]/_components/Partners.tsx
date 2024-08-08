@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Test1 from '../../../../public/imgs/partners/326245135_1009278503544266_7557136609059809949_n.png'
@@ -42,7 +44,7 @@ export default function Partners() {
     return (
         <section className="relative my-10 h-full w-full px-6 md:px-60">
             <div className="absolute inset-[20px] z-50 bg-black opacity-50 blur-[25px]"></div>
-            <div className="relative z-20 grid grid-cols-4 items-center justify-center gap-x-5 gap-y-2 md:gap-y-5 md:grid-cols-6">
+            <div className="relative z-20 grid grid-cols-4 items-center justify-center gap-x-5 gap-y-2 md:grid-cols-6 md:gap-y-5">
                 {partnerImages.slice(0, visibleItems).map((image, index) => (
                     <div
                         key={index}
