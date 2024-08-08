@@ -1,38 +1,37 @@
 import Image from 'next/image'
-import React, { useCallback, useEffect, useState } from 'react'
 import NewsImage from '../../../../public/imgs/New.webp'
 import initTranslations from '@/libs/i18n/i18n'
 
 import axiosInstance from '@/AxiosInstance'
-import Pagination from '@/components/shared/Pagination'
+// import Pagination from '@/components/shared/Pagination'
 
-async function fetchData(locale: string, page: number, pageSize: number) {
-    try {
-        const response = await axiosInstance.get('/troupes', {
-            params: {
-                populate: '*',
-                locale: locale,
-                pagination: {
-                    page: 1,
-                    pageSize: 3,
-                },
-            },
-        })
-        return response.data
-    } catch (error) {
-        console.error('Error fetching data:', error)
-        return []
-    }
-}
+// async function fetchData(locale: string, page: number, pageSize: number) {
+//     try {
+//         const response = await axiosInstance.get('/troupes', {
+//             params: {
+//                 populate: '*',
+//                 locale: locale,
+//                 pagination: {
+//                     page: 1,
+//                     pageSize: 3,
+//                 },
+//             },
+//         })
+//         return response.data
+//     } catch (error) {
+//         console.error('Error fetching data:', error)
+//         return []
+//     }
+// }
 
 export default async function page({ params: { locale } }: { params: { locale: string } }) {
     const i18nNamespaces = ['main']
     const { t } = await initTranslations(locale, i18nNamespaces)
-    const page = 1
-    const pageSize = 10
-    const data = await fetchData(locale, page, pageSize)
+    // const page = 1
+    // const pageSize = 10
+    // const data = await fetchData(locale, page, pageSize)
 
-    console.log(data)
+    // console.log(data)
 
     return (
         <main className="flex w-full flex-col justify-center gap-10 px-6 pb-20 pt-10 md:px-7 lg:px-20 xl:px-64">
@@ -115,11 +114,11 @@ export default async function page({ params: { locale } }: { params: { locale: s
                     </div>
                 </div>
             </div>
-            <Pagination
+            {/* <Pagination
                 currentPage={data?.meta?.pagination?.page}
                 totalPages={data?.meta?.pagination?.pageCount}
                 itemsPerPage={data?.meta?.pagination?.pageSize}
-            />
+            /> */}
         </main>
     )
 }
