@@ -30,7 +30,7 @@ const LangChoose = ({ className, spanClassname }: LangChooseProps) => {
     return (
         <>
             <div className={`${className}`} onClick={handleLangSwitch}>
-                <span className={`${spanClassname}`}>{newLocale === 'ka' ? 'GEO' : 'ENG'}</span>
+                <span className={`${spanClassname}` }>{newLocale === 'ka' ? 'GEO' : 'ENG'}</span>
             </div>
         </>
     )

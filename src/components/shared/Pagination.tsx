@@ -5,7 +5,7 @@ import ReactPaginate from 'react-paginate'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { ArrowRight } from '../svg'
 
-export default function Pagination({ currentPage, totalPages, itemsPerPage }: any) {
+export default function Pagination({ currentPage, totalPages }: any) {
     const router = useRouter()
     const searchParams = useSearchParams()
     const pathname = usePathname()
@@ -30,7 +30,7 @@ export default function Pagination({ currentPage, totalPages, itemsPerPage }: an
     useEffect(() => {
         const page = searchParams.get('page')
         if (page) {
-            setPage(parseInt(page, 10))
+            setPage(parseInt(page))
         }
     }, [searchParams])
 

@@ -6,8 +6,11 @@ import { useParams } from 'next/navigation'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { useMediaQuery } from 'react-responsive'
 import { ArrowRight } from '@/components/svg'
+import { BlocksRenderer } from '@strapi/blocks-react-renderer'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
-export default function News() {
+export default function News({ data }: any) {
     const { t } = useTranslation()
     const params = useParams()
     const locale = params.locale
@@ -15,6 +18,8 @@ export default function News() {
     const isDesktop = useMediaQuery({
         query: '(min-width: 768px)',
     })
+
+    console.log(data)
     return (
         <section className="w-full pb-10 text-white">
             <div className="flex w-full flex-row justify-center">
@@ -31,8 +36,8 @@ export default function News() {
                 className="flex justify-center"
             >
                 <CarouselContent className="py-10 pr-4 xl:py-16 xl:pl-4 xl:pr-10">
-                    {Array.from({ length: 4 }).map((_, index) => (
-                        <>
+                    <>
+                        {data?.data?.map((item: any, index: number) => (
                             <CarouselItem
                                 key={index}
                                 className="pl-6 md:basis-1/2 lg:basis-1/4 lg:pl-10"
@@ -41,23 +46,36 @@ export default function News() {
                                     <div className="h-[200px] w-full">
                                         <Image
                                             className="h-full w-full object-cover object-center"
-                                            src={Test}
+                                            src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}`}
                                             alt="Village"
+                                            width={600}
+                                            height={600}
                                         />
                                     </div>
-                                    <div className="items-startg bg-card-gradient flex h-[150px] flex-col justify-around bg-[#0f1017] px-3 py-2">
-                                        <h1>რაც გინახავს ვეღარ ნახავ</h1>
-                                        <p className="line-clamp-2 overflow-hidden text-ellipsis text-xs">
-                                            თეატრალურ ნიღაბს ორი სახე აქვს, ერთი ტირის, მეორე -
-                                            იცინის. თეატრის სამხატვრო ხელმძღვანელმა, ალექსანდრე
-                                            ქანთარიამ ამჯერად თეატრალური ნიღბის ის მხარე აირჩია,
-                                            რომელიც მაყურებელს აღიმებს, მეტიც შეილება ითქვას,
-                                            გულიანად ახარხარებს, რადგან ბათუმის დრამატული თეატრის
-                                            სცენაზე ავქსე
-                                        </p>
+                                    <div className="items-startg flex h-[150px] flex-col justify-around bg-[#0f1017] bg-card-gradient px-3 py-2">
+                                        <h1> {item.attributes.header}</h1>
+                                        {/* <ReactMarkdown
+                                            className="line-clamp-2 overflow-hidden text-ellipsis text-xs"
+                                            remarkPlugins={[remarkGfm]}
+                                        >
+                                            {item.attributes.description}
+                                        </ReactMarkdown> */}
+
+                                        <div className="line-clamp-2 w-full overflow-hidden text-ellipsis text-xs">
+                                            <BlocksRenderer content={item.attributes.description} />
+                                        </div>
                                         <div className="h-[1px] w-full bg-white"></div>
                                         <div className="flex w-full items-center justify-between">
-                                            <span className="text-sm">07.25.2024</span>
+                                            <span className="text-sm">
+                                                {' '}
+                                                {new Date(
+                                                    item.attributes.publishedAt
+                                                ).toLocaleString('en-US', {
+                                                    year: 'numeric',
+                                                    month: 'numeric',
+                                                    day: 'numeric',
+                                                })}
+                                            </span>
                                             <button className="text-sm underline underline-offset-1">
                                                 {t('viewMore')}
                                             </button>
@@ -65,8 +83,8 @@ export default function News() {
                                     </div>
                                 </div>
                             </CarouselItem>
-                        </>
-                    ))}
+                        ))}
+                    </>
                 </CarouselContent>
             </Carousel>
             <div className="hidden w-full justify-end pr-20 md:flex">
