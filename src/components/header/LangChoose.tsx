@@ -1,7 +1,9 @@
 'use client'
 
 import i18nConfig from '@/libs/i18n/i18nConfig'
-import { usePathname, useRouter } from 'next/navigation'
+import { useStore } from '@/zustand/zustand'
+
+import { useParams, usePathname, useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 
 type LangChooseProps = {
@@ -13,8 +15,11 @@ const LangChoose = ({ className, spanClassname }: LangChooseProps) => {
     const currentPathname = usePathname()
     const router = useRouter()
     const { i18n } = useTranslation()
+    const { id } = useParams()
     const currentLocale = i18n.language
     const newLocale = currentLocale === 'ka' ? 'en' : 'ka'
+
+    const newsAlternateLocales = useStore((state) => state.newsAlternateLocales)
 
     const handleLangSwitch = () => {
         const newLocale = currentLocale === 'ka' ? 'en' : 'ka'
@@ -23,6 +28,9 @@ const LangChoose = ({ className, spanClassname }: LangChooseProps) => {
         } else {
             router.push(currentPathname.replace(`/${currentLocale}`, `/${newLocale}`))
         }
+        if (newsAlternateLocales && id) {
+            router.replace(`/${newLocale}/news/${newsAlternateLocales}`)
+        }
 
         router.refresh()
     }
@@ -30,7 +38,7 @@ const LangChoose = ({ className, spanClassname }: LangChooseProps) => {
     return (
         <>
             <div className={`${className}`} onClick={handleLangSwitch}>
-                <span className={`${spanClassname}` }>{newLocale === 'ka' ? 'GEO' : 'ENG'}</span>
+                <span className={`${spanClassname}`}>{newLocale === 'ka' ? 'GEO' : 'ENG'}</span>
             </div>
         </>
     )
