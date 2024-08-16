@@ -36,7 +36,8 @@ export default async function page({
     const page = Number(searchParams.page) || 1
     const pageSize = 10
     const data = await fetchData(locale, page, pageSize)
-    console.log('example', data.data)
+
+    console.log('exampleee', data?.data[0]?.attributes?.image.data?.attributes?.formats?.thumbnail)
 
     return (
         <main className="flex w-full flex-col justify-center gap-10 bg-[#0f1017] px-6 pb-20 pt-10 md:px-7 lg:px-20 xl:px-48">
@@ -49,23 +50,23 @@ export default async function page({
                 <Link href={`/news/${item.id}`}>
                     <div
                         key={index}
-                        className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:h-[200px] md:flex-row"
+                        className="relative z-50 flex h-[410px] w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:h-[200px] md:flex-row"
                     >
-                        <div className="relative h-[200px] w-full md:w-[400px]">
+                        <div className="relative min-h-[200px] w-full md:w-[400px]">
                             <Image
                                 fill
-                                src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}`}
+                                src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                                 alt="Village"
                                 className="object-cover object-center"
                             />
                         </div>
-                        <div className="flex h-auto w-full flex-col items-start justify-between gap-3 bg-[#0f1017] bg-card-gradient px-3 pb-3 pt-3 md:h-auto md:px-6">
+                        <div className="flex h-full w-full flex-col items-start justify-between gap-3 bg-[#0f1017] bg-card-gradient px-3 pb-3 pt-3 md:h-auto md:px-6">
                             <div className="flex w-full flex-col justify-between">
-                                <h1 className="text-center text-base text-white md:text-left md:text-lg">
+                                <h1 className="h-auto overflow-hidden text-ellipsis text-center text-base text-white md:text-left md:text-lg">
                                     {item.attributes.header}
                                 </h1>
                                 <div className="my-2 h-[1px] w-full bg-white"></div>
-                                <div className="line-clamp-6 overflow-hidden text-ellipsis text-xs text-white">
+                                <div className="line-clamp-5 h-20 overflow-hidden text-ellipsis text-xs text-white">
                                     <BlocksRenderer content={item.attributes.description} />
                                 </div>
                             </div>
