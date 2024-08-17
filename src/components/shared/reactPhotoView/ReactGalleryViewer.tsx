@@ -21,7 +21,7 @@ interface ReactGalleryViewerProps {
 }
 
 const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
-    const baseURL = process.env.REACT_APP_BASE_URL || 'http://192.168.100.13:1337'
+    const baseURL = process.env.REACT_APP_BASE_URL || 'https://strapi-4wr0.onrender.com'
 
     return (
         <PhotoProvider>

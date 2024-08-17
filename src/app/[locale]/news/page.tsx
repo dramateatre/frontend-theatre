@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import initTranslations from '@/libs/i18n/i18n'
 import axiosInstance from '@/AxiosInstance'
- 
+
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import Link from 'next/link'
 import Pagination from '@/components/shared/pagination/Pagination'
@@ -37,8 +37,7 @@ export default async function page({
     const page = Number(searchParams.page) || 1
     const pageSize = 10
     const data = await fetchData(locale, page, pageSize)
-
-    console.log('exampleee', data?.data[0]?.attributes?.image.data?.attributes?.formats?.thumbnail)
+    console.log(data)
 
     return (
         <main className="flex w-full flex-col justify-center gap-10 bg-[#0f1017] px-6 pb-20 pt-10 md:px-7 lg:px-20 xl:px-48">
