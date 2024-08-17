@@ -4734,6 +4734,16 @@ react-paginate@^8.2.0:
   dependencies:
     prop-types "^15"
 
+react-photo-album@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/react-photo-album/-/react-photo-album-3.0.1.tgz#7e597cc907a186501761e75f71141e3616e21749"
+  integrity sha512-yk3FJAuQn8UPZufbdYURa1wy+3tVVNaflyMOQ0mC8dlAWbDhlLDWJ0oGKSbbZkHMX7L3SGRIyWieix++AlD+TQ==
+
+react-photo-view@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/react-photo-view/-/react-photo-view-1.2.6.tgz#0302ad35e4590a15a62edb271b5524f76f2777e4"
+  integrity sha512-Fq17yxkMIv0oFp7HOJr39HgCZRP6A9K5T5rixJ4flSUYT2OO3V8vNxEExjhIKgIrfmTu+mDnHYEsI9RRWi1JHw==
+
 react-remove-scroll-bar@^2.3.4:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/react-remove-scroll-bar/-/react-remove-scroll-bar-2.3.6.tgz#3e585e9d163be84a010180b18721e851ac81a29c"

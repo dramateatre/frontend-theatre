@@ -4,11 +4,14 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 import { useStore } from '@/zustand/zustand'
+
 import { ArrowLeft, Calendar, PhotoIcon, VideoIcon } from '@/components/svg'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import MyGallery from '@/components/shared/reactPhotoView/ReactImageGallery'
 import ReactImage from '@/components/shared/reactPhotoView/ReactImage'
+import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
+import ReactGalleryViewer from '@/components/shared/reactPhotoView/ReactGalleryViewer'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -29,8 +32,6 @@ export default function ClientWrapper({ data }: any) {
         setIsClient(true)
     }, [])
 
-    console.log(data)
-
     return (
         <main className="relative h-full w-full overflow-hidden p-5 md:px-7 md:pb-20 lg:px-20">
             {isClient ? (
@@ -46,11 +47,7 @@ export default function ClientWrapper({ data }: any) {
                         <div className="flex w-auto flex-row items-center justify-end gap-1">
                             <Calendar className="h-5 w-5 text-white" />
                             <span className="text-sm text-white md:text-sm">
-                                {new Date(
-                                    data?.attributes?.date
-                                        ? data?.attributes?.date
-                                        : data?.attributes?.publishedAt
-                                ).toLocaleString('en-US', {
+                                {new Date(data?.attributes?.publishedAt).toLocaleString('en-US', {
                                     year: 'numeric',
                                     month: 'numeric',
                                     day: 'numeric',
@@ -59,18 +56,26 @@ export default function ClientWrapper({ data }: any) {
                         </div>
                     </div>
 
-                    {data?.attributes?.image?.data?.attributes?.url && (
+                    {data?.attributes?.image?.data && (
                         <ReactImage
-                            image={`http://localhost:1337${data?.attributes?.image?.data?.attributes?.url}`}
+                            images={[
+                                `http://192.168.100.13:1337${data.attributes.image.data.attributes.url}`,
+                            ]}
                         />
                     )}
 
-                    <div className="w-full">
+                    <ReactPhotoViewer
+                        main={`http://192.168.100.13:1337${data.attributes.image.data.attributes.url}`}
+                    />
+
+                    <div className="w-full pt-5 md:p-0">
                         <h1 className="text-center text-lg text-white md:text-lg">
                             {data?.attributes?.header}
                         </h1>
 
-                        <p className="mt-5 text-sm text-white md:text-sm">
+                        <div className="my-2 h-[1px] w-full bg-white md:my-6"></div>
+
+                        <p className="text-sm text-white md:text-sm">
                             <BlocksRenderer content={data?.attributes?.description} />
                         </p>
                     </div>
@@ -97,13 +102,7 @@ export default function ClientWrapper({ data }: any) {
                         </div>
                     </div>
                     <div className="relative mt-10 h-full w-full">
-                        {data?.attributes?.gallery?.data && (
-                            <MyGallery
-                                images={data.attributes.gallery.data.map(
-                                    (item: any) => `http://localhost:1337${item.attributes.url}`
-                                )}
-                            />
-                        )}
+                        <ReactGalleryViewer data={data} />
                     </div>
                 </div>
             ) : (
