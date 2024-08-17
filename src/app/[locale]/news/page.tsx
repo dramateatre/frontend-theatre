@@ -55,7 +55,7 @@ export default async function page({
                         <div className="relative min-h-[200px] w-full md:w-[400px]">
                             <Image
                                 fill
-                                src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                                src={`https://strapi-4wr0.onrender.com/api${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                                 alt="Village"
                                 className="object-cover object-center"
                             />
