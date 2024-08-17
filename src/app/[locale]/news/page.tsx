@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import initTranslations from '@/libs/i18n/i18n'
 import axiosInstance from '@/AxiosInstance'
-import Pagination from '@/components/shared/Pagination'
+ 
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import Link from 'next/link'
+import Pagination from '@/components/shared/pagination/Pagination'
 
 async function fetchData(locale: string, page: number, pageSize: number) {
     try {
@@ -74,14 +75,15 @@ export default async function page({
                                 <div className="h-[1px] w-full bg-white"></div>
                                 <div className="flex w-full items-center justify-between">
                                     <span className="text-sm text-white">
-                                        {new Date(item.attributes.publishedAt).toLocaleString(
-                                            'en-US',
-                                            {
-                                                year: 'numeric',
-                                                month: 'numeric',
-                                                day: 'numeric',
-                                            }
-                                        )}
+                                        {new Date(
+                                            item.attributes.date
+                                                ? item.attributes.date
+                                                : item.attributes.publishedAt
+                                        ).toLocaleString('en-US', {
+                                            year: 'numeric',
+                                            month: 'numeric',
+                                            day: 'numeric',
+                                        })}
                                     </span>
 
                                     <button className="flex flex-row items-center justify-center text-sm text-white underline-offset-2 hover:underline">

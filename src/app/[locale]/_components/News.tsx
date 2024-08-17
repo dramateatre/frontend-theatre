@@ -73,9 +73,10 @@ export default function News({ data }: any) {
                                             <div className="h-[1px] w-full bg-white"></div>
                                             <div className="flex w-full items-center justify-between">
                                                 <span className="text-sm">
-                                                    {' '}
                                                     {new Date(
-                                                        item.attributes.publishedAt
+                                                        item.attributes.date
+                                                            ? item.attributes.date
+                                                            : item.attributes.publishedAt
                                                     ).toLocaleString('en-US', {
                                                         year: 'numeric',
                                                         month: 'numeric',

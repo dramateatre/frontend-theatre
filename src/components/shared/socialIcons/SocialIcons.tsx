@@ -1,4 +1,4 @@
-import { WhiteFb, WhiteInsta, WhiteWatsapp } from '../svg'
+import { WhiteFb, WhiteInsta, WhiteWatsapp } from '../../svg'
 
 export const Social = () => {
     return (

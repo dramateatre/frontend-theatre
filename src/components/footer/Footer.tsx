@@ -1,6 +1,6 @@
 'use client'
 import { useParams } from 'next/navigation'
-import { Social } from '../shared/SocialIcons'
+import { Social } from '../shared/socialIcons/SocialIcons'
 import { HomePhoneCall, Message, PhoneCall } from '../svg'
 import { useTranslation } from 'react-i18next'
 

@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { ArrowRight } from '../svg'
+import { ArrowRight } from '../../svg'
 
 export default function Pagination({ currentPage, totalPages }: any) {
     const router = useRouter()

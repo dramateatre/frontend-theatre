@@ -8,6 +8,7 @@ async function fetchData(locale?: string, id?: number) {
         const response = await axiosInstance.get(endpoint, {
             params: {
                 populate: '*',
+                locale: locale,
             },
         })
         return response.data.data
