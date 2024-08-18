@@ -23,7 +23,7 @@ export default function Header() {
                 <Link href="/news">
                     <h1 className="text-white">{t('news')}</h1>
                 </Link>
-                <Link href="/repertories">
+                <Link href="/repertory">
                     <h1 className="text-white">{t('repertory')}</h1>
                 </Link>
                 {/* <details className="dropdown">
@@ -65,7 +65,10 @@ export default function Header() {
                     <h1 className="text-white">{t('tickets')}</h1>
                 </Link>
             </div>
-            <LangChoose className="cursor-pointer text-white text-sm md:text-base" spanClassname=" " />
+            <LangChoose
+                className="cursor-pointer text-sm text-white md:text-base"
+                spanClassname=" "
+            />
             <BurgerMenu />
         </div>
     )
