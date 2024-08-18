@@ -4,19 +4,17 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 import { useStore } from '@/zustand/zustand'
-
 import { ArrowLeft, Calendar, PhotoIcon, VideoIcon } from '@/components/svg'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
-import MyGallery from '@/components/shared/reactPhotoView/ReactImageGallery'
-import ReactImage from '@/components/shared/reactPhotoView/ReactImage'
 import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
 import ReactGalleryViewer from '@/components/shared/reactPhotoView/ReactGalleryViewer'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
-    const [isClient, setIsClient] = useState(false)
     const router = useRouter()
+    const [isClient, setIsClient] = useState(false)
+    const [galleryType, setGalleryType] = useState(false)
 
     const setAlternateLocaleId = useStore((state) => state.setNewsAlternateLocales)
 
@@ -55,55 +53,60 @@ export default function ClientWrapper({ data }: any) {
                             </span>
                         </div>
                     </div>
-
-                    {data?.attributes?.image?.data && (
-                        <ReactImage
-                            images={[
-                                `http://192.168.100.13:1337${data.attributes.image.data.attributes.url}`,
-                            ]}
-                        />
-                    )}
-
-                    <ReactPhotoViewer
-                        main={`http://192.168.100.13:1337${data.attributes.image.data.attributes.url}`}
-                    />
-
+                    <ReactPhotoViewer data={data} />
                     <div className="w-full pt-5 md:p-0">
-                        <h1 className="text-center text-lg text-white md:text-lg">
+                        <h1 className="text-center text-lg text-white md:mb-3 md:text-lg">
                             {data?.attributes?.header}
                         </h1>
-
-                        <div className="my-2 h-[1px] w-full bg-white md:my-6"></div>
-
+                        <div className="my-2 h-[1px] w-full bg-white md:my-6 md:hidden"></div>
                         <p className="text-sm text-white md:text-sm">
                             <BlocksRenderer content={data?.attributes?.description} />
                         </p>
                     </div>
+                    {data.attributes.gallery.data && (
+                        <div className="flex w-full flex-col gap-5 pt-10">
+                            <Button className="text text-center text-2xl font-normal italic tracking-widest text-white">
+                                {t('gallery')}
+                            </Button>
+                            <div className="flex w-full items-center justify-between md:text-lg">
+                                <div className="flex items-center gap-5">
+                                    <button
+                                        onClick={() => setGalleryType(false)}
+                                        className="mt-1 h-8 w-6 md:mt-2 md:h-8 md:w-10"
+                                    >
+                                        <PhotoIcon className="h-full w-full fill-white text-white" />
+                                    </button>
+                                    <button
+                                        onClick={() => setGalleryType(true)}
+                                        className="h-7 w-7 md:h-10 md:w-10"
+                                    >
+                                        <VideoIcon className="h-full w-full fill-white text-white" />
+                                    </button>
+                                </div>
 
-                    <div className="flex w-full flex-col gap-5 pt-10">
-                        <Button className="text text-center text-2xl font-normal italic tracking-widest text-white">
-                            {t('gallery')}
-                        </Button>
-                        <div className="flex w-full items-center justify-between md:text-lg">
-                            <div className="flex items-center gap-5">
-                                <button className="mt-1 h-8 w-6 md:mt-2 md:h-8 md:w-10">
-                                    <PhotoIcon className="h-full w-full fill-white text-white" />
-                                </button>
-                                <button className="h-7 w-7 md:h-10 md:w-10">
-                                    <VideoIcon className="h-full w-full fill-white text-white" />
-                                </button>
+                                <div className="flex items-center gap-2 text-sm tracking-widest text-white md:text-base">
+                                    <button
+                                        onClick={() => setGalleryType(false)}
+                                        className={`${!galleryType ? 'border-black bg-white text-black' : 'bg-none text-white'} flex items-center justify-center rounded-[4px] border px-3 py-1`}
+                                    >
+                                        {t('photo')}
+                                    </button>
+                                    -
+                                    <button
+                                        onClick={() => setGalleryType(true)}
+                                        className={`${galleryType ? 'border-black bg-white text-black' : 'bg-none text-white'} flex items-center justify-center rounded-[4px] border px-3 py-1`}
+                                    >
+                                        {t('video')}
+                                    </button>
+                                </div>
                             </div>
-                            <span className="text-lg tracking-widest text-white md:text-xl">
-                                {t('photo')}
-                            </span>
-                            <span className="text-lg tracking-widest text-white md:text-xl">
-                                {t('video')}
-                            </span>
+                            {!galleryType ? (
+                                <ReactGalleryViewer data={data} />
+                            ) : (
+                                <div className="w-full text-center text-white">video </div>
+                            )}
                         </div>
-                    </div>
-                    <div className="relative mt-10 h-full w-full">
-                        <ReactGalleryViewer data={data} />
-                    </div>
+                    )}
                 </div>
             ) : (
                 <div>...loading</div>

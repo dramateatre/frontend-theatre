@@ -1,14 +1,13 @@
 'use client'
 import Image from 'next/image'
-import Test from '../../../../public/imgs/Test.jpg'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { useMediaQuery } from 'react-responsive'
 import { ArrowRight } from '@/components/svg'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+// import ReactMarkdown from 'react-markdown'
+// import remarkGfm from 'remark-gfm'
 import Link from 'next/link'
 
 export default function News({ data }: any) {
@@ -20,7 +19,6 @@ export default function News({ data }: any) {
         query: '(min-width: 768px)',
     })
 
-    console.log(data)
     return (
         <section className="w-full pb-10 text-white">
             <div className="flex w-full flex-row justify-center">
@@ -96,10 +94,12 @@ export default function News({ data }: any) {
                 </CarouselContent>
             </Carousel>
             <div className="hidden w-full justify-end pr-20 md:flex">
-                <button className="flex w-auto items-center gap-2 text-sm underline-offset-2 hover:underline">
-                    {t('viewMoreNews')}
-                    <ArrowRight className="mt-1" />
-                </button>
+                <Link href="/news">
+                    <button className="flex w-auto items-center gap-2 text-sm underline-offset-2 hover:underline">
+                        {t('viewMoreNews')}
+                        <ArrowRight className="mt-1" />
+                    </button>
+                </Link>
             </div>
         </section>
     )
