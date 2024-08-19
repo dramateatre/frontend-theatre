@@ -44,7 +44,7 @@ export default async function page({
             >
                 {t('news')}
             </h1>
-            {data?.data.map((item: any, index: number) => (
+            {data?.data?.map((item: any, index: number) => (
                 <Link href={`/news/${item.id}`}>
                     <div
                         key={index}

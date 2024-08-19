@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Village from '../../../../public/imgs/village.jpg'
 import initTranslations from '@/libs/i18n/i18n'
 import axiosInstance from '@/AxiosInstance'
 import Pagination from '@/components/shared/pagination/Pagination'
@@ -40,57 +39,77 @@ export default async function page({
     return (
         <section className="min-h-screen w-full px-6 py-10 md:px-7 lg:px-20 xl:px-40">
             <div
-                className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} flex w-full flex-col gap-10 text-white`}
+                className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} flex w-full flex-col gap-16 text-white`}
             >
                 <div className="flex w-full flex-row justify-center">
                     <h1 className={`text-center text-2xl tracking-[20px] md:text-3xl`}>
                         {t('repertoires')}
                     </h1>
                 </div>
+                {data?.data?.map((item: any, index: any) => (
+                    <div
+                        key={index}
+                        className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:h-[380px] md:flex-row"
+                    >
+                        <div className="relative h-[200px] w-full md:h-full md:w-[60%] lg:w-[70%]">
+                            <Image
+                                className="h-full w-full object-cover object-center"
+                                fill
+                                src={`http://localhost:1337${item?.attributes.image.data.attributes.url}`}
+                                alt="Village"
+                            />
+                        </div>
+                        <div className="flex h-full flex-col justify-between gap-3 bg-[#0f1017] bg-poster-gradient pb-4 pt-2 md:order-2 md:w-[40%] md:py-6 lg:w-[30%]">
+                            <h1 className="text-center text-xl">{item.attributes?.header}</h1>
+                            <div className="flex h-full flex-col justify-center gap-2 px-2 md:px-6">
+                                <span>
+                                    <span className="text-sm font-bold">{t('author')}</span>
+                                    <span className="ml-2 text-sm">{item.attributes?.author}</span>
+                                </span>
+                                <span>
+                                    <span className="text-sm font-bold">{t('director')}</span>
+                                    <span className="ml-2 text-sm">
+                                        {item.attributes?.director}
+                                    </span>
+                                </span>
+                                <span>
+                                    <span className="text-sm font-bold">{t('duration')}</span>
+                                    <span className="ml-2 text-sm">
+                                        {item.attributes?.duration
+                                            ?.split(':')
+                                            .slice(0, 2)
+                                            .join(':')}{' '}
+                                        {t('hour')}
+                                    </span>
+                                </span>
+                                <span>
+                                    <span className="text-sm font-bold">{t('pemierDate')}</span>
+                                    <span className="ml-2 text-sm">
+                                        {item.attributes?.premierDate}
+                                    </span>
+                                </span>
+                                <span>
+                                    <span className="text-sm font-bold">{t('performance')}</span>
+                                    <span className="ml-2 text-sm">
+                                        {item.attributes?.performance}
+                                    </span>
+                                </span>
+                                <span className="text-center"></span>
+                            </div>
+                            <div className="flex w-full flex-row gap-5 px-5 md:gap-3 md:pt-4">
+                                <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
+                                    {t('viewMore')}
+                                </button>
+                                {item.attributes?.poster && (
+                                    <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
+                                        {t('tickets')}
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                ))}
 
-                <div className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:h-[380px] md:flex-row">
-                    <div className="h-[200px] w-full md:h-full md:w-[60%] lg:w-[70%]">
-                        <Image
-                            className="h-full w-full object-cover object-center"
-                            src={Village}
-                            alt="Village"
-                        />
-                    </div>
-                    <div className="flex h-full flex-col justify-between gap-3 bg-[#0f1017] bg-poster-gradient pb-4 pt-2 md:order-2 md:w-[40%] md:py-6 lg:w-[30%]">
-                        <h1 className="text-center text-xl">მე ვხედავ მზეს</h1>
-                        <div className="flex h-full flex-col justify-center gap-2 px-2 md:px-4">
-                            <span>
-                                <span className="text-sm font-bold">{t('author')}</span>
-                                <span className="ml-2 text-sm">ლადო ასამბაძე</span>
-                            </span>
-                            <span>
-                                <span className="text-sm font-bold">{t('director')}</span>
-                                <span className="ml-2 text-sm">გივი ხალვაშიე</span>
-                            </span>
-                            <span>
-                                <span className="text-sm font-bold">{t('duration')}</span>
-                                <span className="ml-2 text-sm">80 წთ</span>
-                            </span>
-                            <span>
-                                <span className="text-sm font-bold">{t('pemierDate')}</span>
-                                <span className="ml-2 text-sm">20/01/2025</span>
-                            </span>
-                            <span>
-                                <span className="text-sm font-bold">{t('performance')}</span>
-                                <span className="ml-2 text-sm">ერთ მოქმედებად</span>
-                            </span>
-                            <span className="text-center"></span>
-                        </div>
-                        <div className="flex w-full flex-row gap-5 px-5 md:gap-3 md:pt-4">
-                            <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
-                                {t('viewMore')}
-                            </button>
-                            <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
-                                {t('tickets')}
-                            </button>
-                        </div>
-                    </div>
-                </div>
                 <Pagination
                     currentPage={data?.meta?.pagination?.page}
                     totalPages={data?.meta?.pagination?.pageCount}

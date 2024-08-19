@@ -24,13 +24,34 @@ async function fetchData(locale: string, page: number, pageSize: number) {
     }
 }
 
+async function fetchPoster(locale: string) {
+    try {
+        const response = await axiosInstance.get('/repertoires', {
+            params: {
+                populate: '*',
+                locale: locale,
+                filters: {
+                    poster: {
+                        $eq: true,
+                    },
+                },
+            },
+        })
+        return response.data
+    } catch (error) {
+        console.error('Error fetching data:', error)
+        return []
+    }
+}
+
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
     const newsData = await fetchData(locale, 1, 4)
+    const posterData = await fetchPoster(locale)
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between bg-[#07070981] pb-10">
             <Cover />
-            <Poster />
+            <Poster posterData={posterData} />
             <News data={newsData} />
             <Actors />
             <History />
