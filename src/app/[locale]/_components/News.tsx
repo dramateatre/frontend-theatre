@@ -52,24 +52,24 @@ export default function News({ data }: any) {
                                                 height={600}
                                             />
                                         </div>
-                                        <div className="relative flex h-[200px] w-full flex-col justify-around bg-[#0f1017] bg-card-gradient px-3 py-2">
-                                            <h1 className="inline h-auto overflow-hidden text-center">
+                                        <div className="relative flex h-auto w-full flex-col gap-2 bg-[#0f1017] bg-card-gradient px-3 py-2">
+                                            <h1 className="line-clamp-1 h-6 overflow-hidden text-center">
                                                 {item.attributes.header}
                                             </h1>
+                                            <div className="h-[1px] w-full bg-white"></div>
                                             {/* <ReactMarkdown
-                                            className="line-clamp-2 overflow-hidden text-ellipsis text-xs"
+                                               className="line-clamp-2 overflow-hidden text-ellipsis text-xs"
                                             remarkPlugins={[remarkGfm]}
-                                        >
-                                            {item.attributes.description}
-                                        </ReactMarkdown> */}
-
-                                            <div className="line-clamp-4 inline h-16 w-full overflow-hidden text-ellipsis text-xs">
+                                                   >
+                                             {item.attributes.description}
+                                                <   /ReactMarkdown> */}
+                                            <div className="h-18 line-clamp-4 w-full overflow-hidden text-ellipsis text-xs">
                                                 <BlocksRenderer
                                                     content={item.attributes.description}
                                                 />
                                             </div>
                                             <div className="h-[1px] w-full bg-white"></div>
-                                            <div className="flex w-full items-center justify-between">
+                                            <div className="flex h-6 w-full items-center justify-between">
                                                 <span className="text-sm">
                                                     {new Date(
                                                         item.attributes.date

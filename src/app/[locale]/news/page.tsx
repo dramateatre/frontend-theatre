@@ -4,6 +4,7 @@ import axiosInstance from '@/AxiosInstance'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import Link from 'next/link'
 import Pagination from '@/components/shared/pagination/Pagination'
+import { Calendar } from '@/components/svg'
 
 async function fetchData(locale: string, page: number, pageSize: number) {
     try {
@@ -58,30 +59,33 @@ export default async function page({
                                 className="object-cover object-center"
                             />
                         </div>
-                        <div className="flex h-full w-full flex-col items-start justify-between gap-3 bg-[#0f1017] bg-card-gradient px-3 pb-3 pt-3 md:h-auto md:px-6">
+                        <div className="flex h-full w-full flex-col items-start justify-between gap-3 bg-[#0f1017] bg-card-gradient px-3 pb-3 pt-3 md:px-6">
                             <div className="flex w-full flex-col justify-between">
-                                <h1 className="h-auto overflow-hidden text-ellipsis text-center text-base text-white md:text-left md:text-lg">
+                                <h1 className="line-clamp-1 h-7 overflow-hidden text-ellipsis text-center text-base text-white md:text-left md:text-lg">
                                     {item.attributes.header}
                                 </h1>
                                 <div className="my-2 h-[1px] w-full bg-white"></div>
-                                <div className="line-clamp-5 h-20 overflow-hidden text-ellipsis text-xs text-white">
+                                <div className="line-clamp-7 h-24 overflow-hidden text-ellipsis text-xs text-white">
                                     <BlocksRenderer content={item.attributes.description} />
                                 </div>
                             </div>
                             <div className="flex w-full flex-col gap-1">
                                 <div className="h-[1px] w-full bg-white"></div>
                                 <div className="flex w-full items-center justify-between">
-                                    <span className="text-sm text-white">
-                                        {new Date(
-                                            item.attributes.date
-                                                ? item.attributes.date
-                                                : item.attributes.publishedAt
-                                        ).toLocaleString('en-US', {
-                                            year: 'numeric',
-                                            month: 'numeric',
-                                            day: 'numeric',
-                                        })}
-                                    </span>
+                                    <div className="flex items-center gap-2">
+                                        <Calendar />
+                                        <span className="text-sm text-white">
+                                            {new Date(
+                                                item.attributes.date
+                                                    ? item.attributes.date
+                                                    : item.attributes.publishedAt
+                                            ).toLocaleString('en-US', {
+                                                year: 'numeric',
+                                                month: 'numeric',
+                                                day: 'numeric',
+                                            })}
+                                        </span>
+                                    </div>
 
                                     <button className="flex flex-row items-center justify-center text-sm text-white underline-offset-2 hover:underline">
                                         {t('viewMore')}
