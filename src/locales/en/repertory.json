@@ -1,9 +1,10 @@
 {
-    "author": "Author:",
-    "director": "Director:",
-    "duration": "Duration:",
-    "pemierDate": "Premiere date:",
+    "author": "author:",
+    "director": "director:",
+    "duration": "duration:",
+    "pemierDate": "premiere date:",
     "repertoires": "Repertoires",
     "tickets": "Tickets",
-    "viewMore": "View more"
+    "viewMore": "View more",
+    "performance": "performance:"
 }
