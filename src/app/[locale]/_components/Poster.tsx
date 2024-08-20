@@ -2,6 +2,8 @@
 
 import { Calendar, Clock } from '@/components/svg'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { formatDate } from '@/utils/formatDate'
+import { formatTime } from '@/utils/formatTime'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
@@ -10,23 +12,6 @@ export default function Poster({ posterData }: any) {
     const { t } = useTranslation()
     const params = useParams()
     const locale = params.locale
-
-    function formatDate(dateString: Date) {
-        const date = new Date(dateString)
-        const day = String(date.getDate()).padStart(2, '0')
-        const month = String(date.getMonth() + 1).padStart(2, '0') // Months are 0-indexed
-        const year = date.getFullYear()
-
-        return `${day}-${month}-${year} `
-    }
-
-    function formatTime(dateString: Date) {
-        const date = new Date(dateString)
-        const hours = String(date.getHours()).padStart(2, '0')
-        const minutes = String(date.getMinutes()).padStart(2, '0')
-
-        return ` ${hours}:${minutes}`
-    }
 
     return (
         <section

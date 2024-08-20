@@ -2,6 +2,9 @@ import Image from 'next/image'
 import initTranslations from '@/libs/i18n/i18n'
 import axiosInstance from '@/AxiosInstance'
 import Pagination from '@/components/shared/pagination/Pagination'
+import { Calendar, Clock } from '@/components/svg'
+import { formatDate } from '@/utils/formatDate'
+import { formatTime } from '@/utils/formatTime'
 
 async function fetchData(locale: string, page: number, pageSize: number) {
     try {
@@ -51,7 +54,7 @@ export default async function page({
                 {data?.data?.map((item: any, index: any) => (
                     <div
                         key={index}
-                        className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:h-[380px] md:flex-row"
+                        className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:h-[400px] md:flex-row"
                     >
                         <div className="relative h-[200px] w-full md:h-full md:w-[60%] lg:w-[70%]">
                             <Image
@@ -61,17 +64,23 @@ export default async function page({
                                 alt="Village"
                             />
                         </div>
-                        <div className="flex h-full flex-col justify-between gap-1 bg-[#0f1017] bg-poster-gradient pb-4 pt-2 md:order-2 md:w-[40%] md:py-6 lg:w-[30%]">
+                        <div className="flex h-full flex-col justify-between gap-1 bg-[#0f1017] bg-poster-gradient py-2 md:order-2 md:w-[40%] md:py-4 lg:w-[30%]">
                             <h1 className="text-center text-xl">{item.attributes?.header}</h1>
-                            <div className="flex h-full flex-col justify-center gap-2 px-2 md:px-6">
+                            <div className="flex h-full flex-col justify-center gap-1 px-2 md:px-6">
                                 <span className="line-clamp-2">
                                     <span className="text-sm">{t('author')}</span>
-                                    <span className="ml-2 text-sm">{item.attributes?.author} </span>
+                                    <span className="ml-2 text-sm">{item.attributes?.author}</span>
                                 </span>
                                 <span className="line-clamp-2">
                                     <span className="text-sm">{t('director')}</span>
                                     <span className="ml-2 text-sm">
                                         {item.attributes?.director}
+                                    </span>
+                                </span>
+                                <span className="line-clamp-1">
+                                    <span className="text-sm">{t('performance')}</span>
+                                    <span className="ml-2 text-sm">
+                                        {item.attributes?.performance}
                                     </span>
                                 </span>
                                 <span className="line-clamp-2">
@@ -84,24 +93,85 @@ export default async function page({
                                         {t('hour')}
                                     </span>
                                 </span>
+
                                 <span className="line-clamp-2">
-                                    <span className="text-sm">{t('pemierDate')}</span>
-                                    <span className="ml-2 text-sm">
-                                        {item.attributes?.premiereDate}
-                                    </span>
-                                </span>
-                                <span>
-                                    <span className="text-sm">{t('performance')}</span>
-                                    <span className="ml-2 text-sm">
-                                        {item.attributes?.performance}
-                                    </span>
-                                </span>
-                                <span>
                                     <span className="text-sm">{t('ticketPrice')}</span>
                                     <span className="ml-2 text-sm">
                                         {item.attributes?.ticketPrice} ₾
                                     </span>
                                 </span>
+                                {item.attributes?.poster && (
+                                    <>
+                                        {item.attributes?.premiereDate1 && (
+                                            <span className="flex flex-row items-center gap-2">
+                                                <Calendar className="text-base" />
+                                                <span className="text-sm">
+                                                    {formatDate(item.attributes?.premiereDate1)}
+                                                </span>
+                                                <Clock className="fill-zinc-300 text-base" />
+                                                <span className="text-sm">
+                                                    {formatTime(item.attributes?.premiereDate1)}
+                                                </span>
+                                                {item.attributes?.premiere && (
+                                                    <span className="animate-fade ml-3 text-sm text-[red]">
+                                                        {t('premiere')}
+                                                    </span>
+                                                )}
+                                            </span>
+                                        )}
+                                        {item.attributes?.premiereDate2 && (
+                                            <span className="flex flex-row items-center gap-2">
+                                                <Calendar className="text-base" />
+                                                <span className="text-sm">
+                                                    {formatDate(item.attributes?.premiereDate2)}
+                                                </span>
+                                                <Clock className="fill-zinc-300 text-base" />
+                                                <span className="text-sm">
+                                                    {formatTime(item.attributes?.premiereDate2)}
+                                                </span>
+                                                {item.attributes?.premiere && (
+                                                    <span className="animate-fade ml-3 text-sm text-[red]">
+                                                        {t('premiere')}
+                                                    </span>
+                                                )}
+                                            </span>
+                                        )}
+                                        {item.attributes?.premiereDate3 && (
+                                            <span className="flex flex-row items-center gap-2">
+                                                <Calendar className="text-base" />
+                                                <span className="text-sm">
+                                                    {formatDate(item.attributes?.premiereDate3)}
+                                                </span>
+                                                <Clock className="fill-zinc-300 text-base" />
+                                                <span className="text-sm">
+                                                    {formatTime(item.attributes?.premiereDate3)}
+                                                </span>
+                                                {item.attributes?.premiere && (
+                                                    <span className="animate-fade ml-3 text-sm text-[red]">
+                                                        {t('premiere')}
+                                                    </span>
+                                                )}
+                                            </span>
+                                        )}
+                                        {item.attributes?.premiereDate4 && (
+                                            <span className="flex flex-row items-center gap-2">
+                                                <Calendar className="text-base" />
+                                                <span className="text-sm">
+                                                    {formatDate(item.attributes?.premiereDate4)}
+                                                </span>
+                                                <Clock className="fill-zinc-300 text-base" />
+                                                <span className="text-sm">
+                                                    {formatTime(item.attributes?.premiereDate4)}
+                                                </span>
+                                                {item.attributes?.premiere && (
+                                                    <span className="animate-fade ml-3 text-sm text-[red]">
+                                                        {t('premiere')}
+                                                    </span>
+                                                )}
+                                            </span>
+                                        )}
+                                    </>
+                                )}
                             </div>
                             <div className="flex w-full flex-row gap-5 px-5 md:gap-3 md:pt-4">
                                 <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
