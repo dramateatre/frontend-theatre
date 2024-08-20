@@ -1,11 +1,13 @@
 {
-    "author": "author:",
-    "director": "director:",
-    "duration": "duration:",
-    "pemierDate": "premiere date:",
+    "author": "Author:",
+    "director": "Director:",
+    "duration": "Duration:",
+    "pemierDate": "Premiere date:",
     "repertoires": "Repertoires",
     "tickets": "Tickets",
     "viewMore": "View more",
-    "performance": "performance:",
-    "hour": "hr"
+    "performance": "Performance:",
+    "hour": "hr",
+    "ticketPrice": "Ticket price:",
+    "premiere": "Premiere"
 }

@@ -39,10 +39,12 @@ export default async function page({
     return (
         <section className="min-h-screen w-full px-6 py-10 md:px-7 lg:px-20 xl:px-40">
             <div
-                className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} flex w-full flex-col gap-16 text-white`}
+                className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex w-full flex-col gap-16 text-white`}
             >
                 <div className="flex w-full flex-row justify-center">
-                    <h1 className={`text-center text-2xl tracking-[20px] md:text-3xl`}>
+                    <h1
+                        className={`text-center ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-2xl tracking-[20px] md:text-3xl`}
+                    >
                         {t('repertoires')}
                     </h1>
                 </div>
@@ -59,21 +61,21 @@ export default async function page({
                                 alt="Village"
                             />
                         </div>
-                        <div className="flex h-full flex-col justify-between gap-3 bg-[#0f1017] bg-poster-gradient pb-4 pt-2 md:order-2 md:w-[40%] md:py-6 lg:w-[30%]">
+                        <div className="flex h-full flex-col justify-between gap-1 bg-[#0f1017] bg-poster-gradient pb-4 pt-2 md:order-2 md:w-[40%] md:py-6 lg:w-[30%]">
                             <h1 className="text-center text-xl">{item.attributes?.header}</h1>
                             <div className="flex h-full flex-col justify-center gap-2 px-2 md:px-6">
-                                <span>
-                                    <span className="text-sm font-bold">{t('author')}</span>
-                                    <span className="ml-2 text-sm">{item.attributes?.author}</span>
+                                <span className="line-clamp-2">
+                                    <span className="text-sm">{t('author')}</span>
+                                    <span className="ml-2 text-sm">{item.attributes?.author} </span>
                                 </span>
-                                <span>
-                                    <span className="text-sm font-bold">{t('director')}</span>
+                                <span className="line-clamp-2">
+                                    <span className="text-sm">{t('director')}</span>
                                     <span className="ml-2 text-sm">
                                         {item.attributes?.director}
                                     </span>
                                 </span>
-                                <span>
-                                    <span className="text-sm font-bold">{t('duration')}</span>
+                                <span className="line-clamp-2">
+                                    <span className="text-sm">{t('duration')}</span>
                                     <span className="ml-2 text-sm">
                                         {item.attributes?.duration
                                             ?.split(':')
@@ -82,19 +84,24 @@ export default async function page({
                                         {t('hour')}
                                     </span>
                                 </span>
-                                <span>
-                                    <span className="text-sm font-bold">{t('pemierDate')}</span>
+                                <span className="line-clamp-2">
+                                    <span className="text-sm">{t('pemierDate')}</span>
                                     <span className="ml-2 text-sm">
-                                        {item.attributes?.premierDate}
+                                        {item.attributes?.premiereDate}
                                     </span>
                                 </span>
                                 <span>
-                                    <span className="text-sm font-bold">{t('performance')}</span>
+                                    <span className="text-sm">{t('performance')}</span>
                                     <span className="ml-2 text-sm">
                                         {item.attributes?.performance}
                                     </span>
                                 </span>
-                                <span className="text-center"></span>
+                                <span>
+                                    <span className="text-sm">{t('ticketPrice')}</span>
+                                    <span className="ml-2 text-sm">
+                                        {item.attributes?.ticketPrice} ₾
+                                    </span>
+                                </span>
                             </div>
                             <div className="flex w-full flex-row gap-5 px-5 md:gap-3 md:pt-4">
                                 <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">

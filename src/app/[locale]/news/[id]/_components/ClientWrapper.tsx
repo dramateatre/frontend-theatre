@@ -58,7 +58,7 @@ export default function ClientWrapper({ data }: any) {
                         <h1 className="text-center text-lg text-white md:mb-3 md:text-lg">
                             {data?.attributes?.header}
                         </h1>
-                        <div className="my-2 h-[1px] w-full bg-white md:my-6 md:hidden"></div>
+                        <div className="my-2 h-[1px] w-full bg-white md:my-6"></div>
                         <p className="text-sm text-white md:text-sm">
                             <BlocksRenderer content={data?.attributes?.description} />
                         </p>

@@ -1,8 +1,8 @@
 'use client'
 
+import { Calendar, Clock } from '@/components/svg'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import Image from 'next/image'
-
 import { useParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 
@@ -11,8 +11,27 @@ export default function Poster({ posterData }: any) {
     const params = useParams()
     const locale = params.locale
 
+    function formatDate(dateString: Date) {
+        const date = new Date(dateString)
+        const day = String(date.getDate()).padStart(2, '0')
+        const month = String(date.getMonth() + 1).padStart(2, '0') // Months are 0-indexed
+        const year = date.getFullYear()
+
+        return `${day}-${month}-${year} `
+    }
+
+    function formatTime(dateString: Date) {
+        const date = new Date(dateString)
+        const hours = String(date.getHours()).padStart(2, '0')
+        const minutes = String(date.getMinutes()).padStart(2, '0')
+
+        return ` ${hours}:${minutes}`
+    }
+
     return (
-        <section className="w-full pb-10 text-white md:pb-20">
+        <section
+            className={`${locale === 'en' ? 'italic' : 'font-georgian'} w-full pb-10 text-white md:pb-20`}
+        >
             <div className="flex w-full flex-row justify-center pt-10">
                 <h1
                     className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} texet-center text-3xl tracking-[20px]`}
@@ -22,16 +41,18 @@ export default function Poster({ posterData }: any) {
             </div>
             <Carousel
                 opts={{
-                    watchDrag: posterData?.data.length > 1,
+                    watchDrag: posterData?.data?.length > 1,
                 }}
                 className="flex justify-center"
             >
-                <CarouselContent className="py-10 pr-2 lg:px-7 xl:px-20">
+                <CarouselContent className="py-10 pr-2 lg:px-7 xl:px-10">
                     {posterData.data.map((item: any, index: any) => (
                         <>
                             <CarouselItem key={index} className="pl-6 lg:pl-7 xl:pl-10">
-                                <div className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom lg:h-[400px] lg:flex-row">
-                                    <div className="relative h-[200px] w-full md:h-[300px] lg:h-full lg:w-[70%]">
+                                <div
+                                    className={`relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom lg:h-[400px] lg:flex-row`}
+                                >
+                                    <div className="relative h-[250px] w-full md:h-[300px] lg:h-full lg:w-[70%]">
                                         <Image
                                             fill
                                             className="h-full w-full object-cover object-center"
@@ -39,22 +60,116 @@ export default function Poster({ posterData }: any) {
                                             alt="Village"
                                         />
                                     </div>
-                                    <div className="flex h-auto flex-col items-center justify-between gap-3 bg-[#0f1017] bg-poster-gradient pb-8 pt-4 lg:order-2 lg:w-[30%] lg:py-8">
-                                        <span className="text-cente text-xs">
-                                            ბათუმის დრამატული თეატრი
+                                    <div className="flex h-[305px] flex-col justify-center gap-1 bg-[#0f1017] bg-poster-gradient px-4 py-3 lg:order-2 lg:h-auto lg:w-[30%] lg:py-6">
+                                        <span className="hidden text-center text-xs md:block">
+                                            {item.attributes?.place}
                                         </span>
-                                        <div className="flex flex-row items-center gap-3 lg:flex-col">
-                                            <span className="text-sm">
-                                                {item.attributes?.premierDate}
-                                            </span>
-                                        </div>
-                                        <h1 className="text-xl lg:text-2xl">
+
+                                        <h1 className="text-center text-xl">
                                             {item.attributes?.header}
                                         </h1>
-                                        <span className="px-5 text-center text-sm">
-                                            მიხეილ ჯავახიშვილის პიესის "შერცხვენილნი" ის მიხედვითqe
-                                        </span>
-                                        <div className="flex w-full flex-row gap-5 px-5 pt-4 lg:gap-3">
+
+                                        <div className="flex h-full flex-col justify-center gap-1 px-2 md:px-6">
+                                            <span className="line-clamp-1 lg:line-clamp-2">
+                                                <span className="text-sm">{t('author')}</span>
+                                                <span className="ml-2 text-sm">
+                                                    {item.attributes?.author}
+                                                </span>
+                                            </span>
+                                            <span className="line-clamp-1 lg:line-clamp-2">
+                                                <span className="text-sm">{t('director')}</span>
+                                                <span className="ml-2 text-sm">
+                                                    {item.attributes?.director}
+                                                </span>
+                                            </span>
+                                            <span className="line-clamp-1 lg:line-clamp-2">
+                                                <span className="text-sm">{t('duration')}</span>
+                                                <span className="ml-2 text-sm">
+                                                    {item.attributes?.duration
+                                                        ?.split(':')
+                                                        .slice(0, 2)
+                                                        .join(':')}{' '}
+                                                    {t('hour')}
+                                                </span>
+                                            </span>
+
+                                            <span className="line-clamp-1 lg:line-clamp-2">
+                                                <span className="text-sm">{t('ticketPrice')}</span>
+                                                <span className="ml-2 text-sm">
+                                                    {item.attributes?.ticketPrice} ₾
+                                                </span>
+                                            </span>
+
+                                            {item.attributes?.premiereDate1 && (
+                                                <span className="flex flex-row items-center gap-2">
+                                                    <Calendar className="text-base" />
+                                                    <span className="text-sm">
+                                                        {formatDate(item.attributes?.premiereDate1)}
+                                                    </span>
+                                                    <Clock className="fill-zinc-300 text-base" />
+                                                    <span className="text-sm">
+                                                        {formatTime(item.attributes?.premiereDate1)}
+                                                    </span>
+                                                    {item.attributes?.premiere && (
+                                                        <span className="animate-fade ml-3 text-sm text-[red]">
+                                                            {t('premiere')}
+                                                        </span>
+                                                    )}
+                                                </span>
+                                            )}
+                                            {item.attributes?.premiereDate2 && (
+                                                <span className="flex flex-row items-center gap-2">
+                                                    <Calendar className="text-base" />
+                                                    <span className="text-sm">
+                                                        {formatDate(item.attributes?.premiereDate2)}
+                                                    </span>
+                                                    <Clock className="fill-zinc-300 text-base" />
+                                                    <span className="text-sm">
+                                                        {formatTime(item.attributes?.premiereDate2)}
+                                                    </span>
+                                                    {item.attributes?.premiere && (
+                                                        <span className="animate-fade ml-3 text-sm text-[red]">
+                                                            {t('premiere')}
+                                                        </span>
+                                                    )}
+                                                </span>
+                                            )}
+                                            {item.attributes?.premiereDate3 && (
+                                                <span className="flex flex-row items-center gap-2">
+                                                    <Calendar className="text-base" />
+                                                    <span className="text-sm">
+                                                        {formatDate(item.attributes?.premiereDate3)}
+                                                    </span>
+                                                    <Clock className="fill-zinc-300 text-base" />
+                                                    <span className="text-sm">
+                                                        {formatTime(item.attributes?.premiereDate3)}
+                                                    </span>
+                                                    {item.attributes?.premiere && (
+                                                        <span className="animate-fade ml-3 text-sm text-[red]">
+                                                            {t('premiere')}
+                                                        </span>
+                                                    )}
+                                                </span>
+                                            )}
+                                            {item.attributes?.premiereDate4 && (
+                                                <span className="flex flex-row items-center gap-2">
+                                                    <Calendar className="text-base" />
+                                                    <span className="text-sm">
+                                                        {formatDate(item.attributes?.premiereDate4)}
+                                                    </span>
+                                                    <Clock className="fill-zinc-300 text-base" />
+                                                    <span className="text-sm">
+                                                        {formatTime(item.attributes?.premiereDate4)}
+                                                    </span>
+                                                    {item.attributes?.premiere && (
+                                                        <span className="animate-fade ml-3 text-sm text-[red]">
+                                                            {t('premiere')}
+                                                        </span>
+                                                    )}
+                                                </span>
+                                            )}
+                                        </div>
+                                        <div className="flex w-full flex-row gap-5 px-5 pt-1 md:pt-4 lg:gap-3">
                                             <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
                                                 {t('viewMore')}
                                             </button>

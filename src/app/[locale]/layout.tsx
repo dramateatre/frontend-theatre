@@ -38,7 +38,7 @@ export default async function RootLayout({
     children: ReactNode
     params: { locale: string }
 }) {
-    const i18nNamespaces = ['contact', 'main']
+    const i18nNamespaces = ['contact', 'main', 'repertory']
     const { resources } = await initTranslations(locale, i18nNamespaces)
 
     return (

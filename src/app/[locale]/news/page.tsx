@@ -39,7 +39,9 @@ export default async function page({
     const data = await fetchData(locale, page, pageSize)
 
     return (
-        <main className="flex w-full flex-col justify-center gap-10 bg-[#0f1017] px-6 pb-20 pt-10 md:px-7 lg:px-20 xl:px-48">
+        <main
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex w-full flex-col justify-center gap-10 bg-[#0f1017] px-6 pb-20 pt-10 md:px-7 lg:px-20 xl:px-48`}
+        >
             <h1
                 className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-3xl tracking-[5px] text-white`}
             >

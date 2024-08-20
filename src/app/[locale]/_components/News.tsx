@@ -20,7 +20,9 @@ export default function News({ data }: any) {
     })
 
     return (
-        <section className="w-full pb-10 text-white">
+        <section
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} w-full pb-10 text-white`}
+        >
             <div className="flex w-full flex-row justify-center">
                 <h1
                     className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} texet-center text-3xl tracking-[5px]`}
