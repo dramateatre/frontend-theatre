@@ -63,7 +63,7 @@ export default function ClientWrapper({ data }: any) {
                             <BlocksRenderer content={data?.attributes?.description} />
                         </p>
                     </div>
-                    {data.attributes.gallery.data && (
+                    {data.attributes?.gallery?.data && (
                         <div className="flex w-full flex-col gap-5 pt-10">
                             <Button className="text text-center text-2xl font-normal italic tracking-widest text-white">
                                 {t('gallery')}

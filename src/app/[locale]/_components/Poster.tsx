@@ -31,7 +31,7 @@ export default function Poster({ posterData }: any) {
                 className="flex justify-center"
             >
                 <CarouselContent className="py-10 pr-2 lg:px-7 xl:px-10">
-                    {posterData.data.map((item: any, index: any) => (
+                    {posterData?.data?.map((item: any, index: any) => (
                         <>
                             <CarouselItem key={index} className="pl-6 lg:pl-7 xl:pl-10">
                                 <div
@@ -96,7 +96,7 @@ export default function Poster({ posterData }: any) {
                                                         {formatTime(item.attributes?.premiereDate1)}
                                                     </span>
                                                     {item.attributes?.premiere && (
-                                                        <span className="animate-fade ml-3 text-sm text-[red]">
+                                                        <span className="ml-3 animate-fade text-sm text-[red]">
                                                             {t('premiere')}
                                                         </span>
                                                     )}
@@ -113,7 +113,7 @@ export default function Poster({ posterData }: any) {
                                                         {formatTime(item.attributes?.premiereDate2)}
                                                     </span>
                                                     {item.attributes?.premiere && (
-                                                        <span className="animate-fade ml-3 text-sm text-[red]">
+                                                        <span className="ml-3 animate-fade text-sm text-[red]">
                                                             {t('premiere')}
                                                         </span>
                                                     )}
@@ -130,7 +130,7 @@ export default function Poster({ posterData }: any) {
                                                         {formatTime(item.attributes?.premiereDate3)}
                                                     </span>
                                                     {item.attributes?.premiere && (
-                                                        <span className="animate-fade ml-3 text-sm text-[red]">
+                                                        <span className="ml-3 animate-fade text-sm text-[red]">
                                                             {t('premiere')}
                                                         </span>
                                                     )}
@@ -147,7 +147,7 @@ export default function Poster({ posterData }: any) {
                                                         {formatTime(item.attributes?.premiereDate4)}
                                                     </span>
                                                     {item.attributes?.premiere && (
-                                                        <span className="animate-fade ml-3 text-sm text-[red]">
+                                                        <span className="ml-3 animate-fade text-sm text-[red]">
                                                             {t('premiere')}
                                                         </span>
                                                     )}

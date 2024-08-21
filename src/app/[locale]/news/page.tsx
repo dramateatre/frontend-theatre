@@ -37,6 +37,7 @@ export default async function page({
     const page = Number(searchParams.page) || 1
     const pageSize = 10
     const data = await fetchData(locale, page, pageSize)
+    console.log(data)
 
     return (
         <main
@@ -56,7 +57,7 @@ export default async function page({
                         <div className="relative min-h-[200px] w-full md:w-[400px]">
                             <Image
                                 fill
-                                src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                                src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}`}
                                 alt="Village"
                                 className="object-cover object-center"
                             />
