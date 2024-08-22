@@ -40,8 +40,8 @@ export default function ClientWrapper({ data }: any) {
                 <main
                     className={` ${locale === 'en' ? 'italic' : 'font-georgian'} min-h-screen w-full text-white xl:px-20`}
                 >
-                    <div className="flex h-full flex-col md:flex-row">
-                        <div className="relative min-h-[400px] min-w-[600px]">
+                    <div className="flex h-full flex-col md:flex-row md:py-10">
+                        <div className="relative h-[250px] md:min-h-[400px]   w-full md:min-w-[600px]">
                             <Image
                                 className="h-full w-full object-cover object-center"
                                 fill
@@ -208,7 +208,9 @@ export default function ClientWrapper({ data }: any) {
                                     </div>
                                 </div>
                                 {!galleryType ? (
-                                    <ReactGalleryViewer data={data} />
+                                    <div>
+                                        <ReactGalleryViewer data={data} />
+                                    </div>
                                 ) : (
                                     <div className="w-full text-center">video </div>
                                 )}

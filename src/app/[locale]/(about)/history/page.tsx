@@ -1,26 +1,40 @@
-'use client'
-
-import React from 'react'
-import History from '../../_components/History'
-import { useTranslation } from 'react-i18next'
-import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import New from '../../../../../public/imgs/New.webp'
 import Old from '../../../../../public/imgs/OldTheatre.jpg'
+import axiosInstance from '@/AxiosInstance'
+import initTranslations from '@/libs/i18n/i18n'
+import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 
-export default function page() {
-    const { t } = useTranslation()
-    const params = useParams()
-    const locale = params.locale
+async function fetchData(locale: string) {
+    try {
+        const response = await axiosInstance.get('/theatre-histories', {
+            params: {
+                populate: '*',
+                locale: locale,
+            },
+        })
+        return response.data
+    } catch (error) {
+        console.error('Error fetching data:', error)
+        return []
+    }
+}
+
+export default async function page({ params: { locale } }: { params: { locale: string } }) {
+    const { data } = await fetchData(locale)
+
+    const i18nNamespaces = ['main']
+    const { t } = await initTranslations(locale, i18nNamespaces)
+
     return (
-        <div className={`relative flex h-auto w-full flex-col pt-32 mdpt-40 md:pb-44`}>
+        <div className={`relative flex h-auto w-full flex-col md:py-10`}>
             <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-0 md:pl-6 lg:pl-6 xl:pl-32">
                 <div className="relative h-full w-full">
                     <div className="flex h-full w-full flex-row justify-start">
                         <Image
                             src={Old}
                             alt="New Image"
-                            className="h-[220px] w-4/5 rounded-br-[5px] rounded-tr-[5px] border border-white object-cover shadow-customWhiteSmall md:flex md:h-[250px] md:w-full md:rounded-none lg:h-[400px]"
+                            className="h-[220px] w-4/5 border border-white object-cover shadow-customWhiteSmall md:flex md:h-[250px] md:w-full md:rounded-none lg:h-[400px]"
                         />
                         <div className="ml-10 flex h-full w-auto flex-col items-center justify-between text-white md:hidden">
                             <span>{t('1')}</span>
@@ -63,18 +77,14 @@ export default function page() {
                         <Image
                             src={New}
                             alt="New Image"
-                            className="h-[220px] w-4/5 rounded-bl-[5px] rounded-tl-[5px] border border-white object-cover shadow-customWhiteSmall md:hidden md:h-full lg:w-full"
+                            className="h-[220px] w-4/5 border border-white object-cover shadow-customWhiteSmall md:hidden md:h-full lg:w-full"
                         />
                     </div>
                 </div>
             </div>
-            <p className="px-6 py-6  md:pt-14 lg:px-6 xl:px-32 text-white">
-                121312312 12 123 123 123 112 123 123 123 112 123 123 123 112 123 123 123 112 123 123
-                123 112 123 123 123 112 123 123 123 112 123 123 123 112 123 123 123 112 123 123 123
-                112 123 123 123 112 123 123 123 112 123 123 123 112 123 123 123 112 123 123 123 112
-                123 123 123 112 123 123 123 112 123 123 123 112 123 123 123 112 123 123 123 112 123
-                123 123 112 123 123 123 112 123 123 123 112 123 123 123 1123 123 123 123
-            </p>
+            <div className="px-3 py-10 text-sm text-white md:px-6 md:py-20 lg:px-6 xl:px-32">
+                <BlocksRenderer content={data[0]?.attributes?.description} />
+            </div>
         </div>
     )
 }

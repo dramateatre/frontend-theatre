@@ -24,7 +24,7 @@ const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
     const baseURL = process.env.REACT_APP_BASE_URL || 'http://localhost:1337'
 
     return (
-        <div className="mt-10 grid w-full grid-cols-2 gap-2 md:grid-cols-5">
+        <div className="mt-10 relative grid w-full grid-cols-2 gap-2 md:grid-cols-5">
             <PhotoProvider>
                 {data.attributes.gallery.data.map((item) => {
                     const src = `${baseURL}${item.attributes.url}`
