@@ -6,6 +6,18 @@ import LangChoose from './LangChoose'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
 import { BurgerMenu } from './BurgerMenu'
+import { DropdownMenu, DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu'
+import { Button } from '../ui/button'
+import {
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuShortcut,
+} from '../ui/dropdown-menu'
+import { ArrowRight } from 'lucide-react'
+import { ArrowDown } from '../svg'
 
 export default function Header() {
     const { t } = useTranslation()
@@ -26,38 +38,33 @@ export default function Header() {
                 <Link href="/repertory">
                     <h1 className="text-white">{t('repertory')}</h1>
                 </Link>
-                {/* <details className="dropdown">
-                <summary className="btn order-2 m-1 cursor-pointer text-white">{t('team')}</summary>
-                <ul className="menu dropdown-content absolute z-[1] mt-3 flex w-52 flex-col gap-5 overflow-hidden rounded-[6px] bg-[#282837] p-4 text-white shadow">
-                    <li>
-                        <h>
-                            <Link href="/troupe" className="btn text-white">
-                                Troupe
-                            </Link>
-                        </h>
-                    </li>
-                    <li>
-                        <a>სამხატვრო გუნდი</a>
-                    </li>
-                </ul>
-            </details> */}
-                {/* <details className="dropdown">
-                <summary className="btn order-2 m-1 cursor-pointer text-white">
-                    {t('about')}
-                </summary>
-                <ul className="menu dropdown-content absolute z-[1] mt-3 flex w-52 flex-col gap-5 overflow-hidden rounded-[6px] bg-[#282837] p-4 text-white shadow">
-                    <li>
-                        <a>თეატრის ისტორია</a>
-                    </li>
-                    <li>
-                        <a>სპეკტაკლოგრაფია</a>
-                    </li>
-                    <li>
-                        <a>მუზეუმი</a>
-                    </li>
-                </ul>
-            </details> */}
 
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <div className="flex cursor-pointer flex-row items-center gap-2">
+                            <span className="text-white outline-none">{t('about')}</span>
+                            <ArrowDown className="mt-1 fill-white text-xs" />
+                        </div>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="inset-0 overflow-hidden text-white bg-blue-300">
+                        <DropdownMenuGroup>
+                            <DropdownMenuItem asChild>
+                                <Link href="/history">
+                                    <DropdownMenuLabel className="cursor-pointer">
+                                        {t('theatreHistory')}
+                                    </DropdownMenuLabel>
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/museum">
+                                    <DropdownMenuLabel className="cursor-pointer">
+                                        {t('museum')}
+                                    </DropdownMenuLabel>
+                                </Link>
+                            </DropdownMenuItem>
+                        </DropdownMenuGroup>
+                    </DropdownMenuContent>
+                </DropdownMenu>
                 <Link href="/contact">
                     <h1 className="text-white">{t('contact')}</h1>
                 </Link>

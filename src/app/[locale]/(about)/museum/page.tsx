@@ -18,5 +18,6 @@ async function fetchData(locale: string) {
 
 export default async function page({ params: { locale } }: { params: { locale: string } }) {
     const { data } = await fetchData(locale)
+ 
     return <ClientWrapper data={data} />
 }

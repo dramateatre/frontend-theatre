@@ -3,23 +3,35 @@
 import ReactGalleryViewer from '@/components/shared/reactPhotoView/ReactGalleryViewer'
 import { PhotoIcon, VideoIcon } from '@/components/svg'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
-import Image from 'next/image'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
+import { useParams } from 'next/navigation'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
+    const params = useParams()
+    const locale = params.locale
     const [galleryType, setGalleryType] = useState(false)
+
     return (
-        <div className="min-h-screen w-full">
-            <div className="flex flex-col md:flex-row">
-                <Image  />
-                <div className="px-3 py-10 text-sm text-white md:px-6 md:py-20 lg:px-6 xl:px-32">
+        <div
+            className={`${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full flex-col gap-5 px-6 py-10 text-white md:px-7 xl:px-20`}
+        >
+            <h1
+                className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-3xl tracking-widest md:mb-5 md:text-4xl`}
+            >
+                {t('museum')}
+            </h1>
+            <div className="flex w-full flex-col gap-5 md:flex-row">
+                <ReactPhotoViewer data={data[0]} />
+
+                <div className="w-full text-sm md:text-base">
                     <BlocksRenderer content={data[0]?.attributes?.description} />
                 </div>
             </div>
-            {data?.attributes?.gallery?.data && (
-                <div className="flex w-full flex-col gap-5 pt-10">
+            {data[0]?.attributes?.gallery?.data && (
+                <div className="flex w-full flex-col gap-5">
                     <button className="text text-center text-2xl font-normal italic tracking-widest">
                         {t('gallery')}
                     </button>
@@ -57,7 +69,7 @@ export default function ClientWrapper({ data }: any) {
                     </div>
                     {!galleryType ? (
                         <div>
-                            <ReactGalleryViewer data={data} />
+                            <ReactGalleryViewer data={data[0]} />
                         </div>
                     ) : (
                         <div className="w-full text-center">video </div>

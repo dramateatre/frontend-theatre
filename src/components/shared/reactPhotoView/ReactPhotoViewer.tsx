@@ -9,7 +9,7 @@ const ReactPhotoViewer = ({ data }: any) => {
     return (
         <PhotoProvider>
             <PhotoView src={src}>
-                <div className="relative mb-5 h-[250px] w-full sm:h-[400px] md:float-left md:mr-7 md:w-[400px] lg:w-[600px]">
+                <div className="relative mb-5 h-[250px] w-full overflow-hidden rounded-[4px] sm:h-[400px] md:float-left md:mr-7 md:w-[400px] lg:w-[600px]">
                     <Image src={src} fill alt="w-full h-full object-cover object-center" />
                 </div>
             </PhotoView>
