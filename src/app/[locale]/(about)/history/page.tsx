@@ -27,7 +27,9 @@ export default async function page({ params: { locale } }: { params: { locale: s
     const { t } = await initTranslations(locale, i18nNamespaces)
 
     return (
-        <div className={`relative flex h-auto w-full flex-col  py-5 md:py-10`}>
+        <div
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative flex h-auto w-full flex-col py-5  md:pt-16`}
+        >
             <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-0 md:pl-6 lg:pl-6 xl:pl-32">
                 <div className="relative h-full w-full">
                     <div className="flex h-full w-full flex-row justify-start">
@@ -82,7 +84,7 @@ export default async function page({ params: { locale } }: { params: { locale: s
                     </div>
                 </div>
             </div>
-            <div className="px-3 py-10 text-sm text-white md:px-6 md:py-20 lg:px-6 xl:px-32">
+            <div className="px-3 py-10 text-sm text-white md:px-6 md:py-20 md:text-base lg:px-6 xl:px-32">
                 <BlocksRenderer content={data[0]?.attributes?.description} />
             </div>
         </div>

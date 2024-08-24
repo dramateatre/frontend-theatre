@@ -11,6 +11,7 @@ import Image from 'next/image'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -38,24 +39,16 @@ export default function ClientWrapper({ data }: any) {
         <>
             {isClient ? (
                 <main
-                    className={` ${locale === 'en' ? 'italic' : 'font-georgian'} min-h-screen w-full text-white xl:px-20`}
+                    className={` ${locale === 'en' ? 'italic' : 'font-georgian'} min-h-screen w-full text-white md:px-7 xl:px-20`}
                 >
-                    <div className="flex h-full flex-col md:flex-row md:py-10">
-                        <div className="relative h-[250px] md:min-h-[400px]   w-full md:min-w-[600px]">
-                            <Image
-                                className="h-full w-full object-cover object-center"
-                                fill
-                                src={
-                                    data?.attributes?.image?.data?.attributes?.url
-                                        ? `http://localhost:1337${data.attributes.image.data.attributes.url}`
-                                        : Village
-                                }
-                                alt="Village"
-                            />
+                    <div className="flex h-full flex-col gap-5 md:flex-row md:py-10">
+                        <div className="relative h-[280px] w-full md:float-left md:min-h-[400px] md:min-w-[320px]">
+                            <ReactPhotoViewer data={data} />
                         </div>
-                        <div className="flex h-full w-full flex-col justify-between gap-5 px-6 py-3">
+
+                        <div className="flex h-full w-full flex-col justify-between gap-5 px-6 py-3 md:px-0 md:py-0">
                             <h1 className="text-center text-xl">{data.attributes?.header}</h1>
-                            <div className="flex h-full flex-col justify-center gap-1 px-2 md:px-6">
+                            <div className="flex h-full flex-col justify-center gap-1 px-2">
                                 <span className="line-clamp-2">
                                     <span className="text-sm">{t('author')}</span>
                                     <span className="ml-2 text-sm">{data.attributes?.author}</span>

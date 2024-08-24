@@ -7,16 +7,12 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
 import { BurgerMenu } from './BurgerMenu'
 import { DropdownMenu, DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu'
-import { Button } from '../ui/button'
 import {
     DropdownMenuContent,
     DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuShortcut,
 } from '../ui/dropdown-menu'
-import { ArrowRight } from 'lucide-react'
 import { ArrowDown } from '../svg'
 
 export default function Header() {
@@ -46,7 +42,7 @@ export default function Header() {
                             <ArrowDown className="mt-1 fill-white text-xs" />
                         </div>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="inset-0 overflow-hidden text-white bg-blue-300">
+                    <DropdownMenuContent className="inset-0 overflow-hidden bg-blue-300 text-white">
                         <DropdownMenuGroup>
                             <DropdownMenuItem asChild>
                                 <Link href="/history">

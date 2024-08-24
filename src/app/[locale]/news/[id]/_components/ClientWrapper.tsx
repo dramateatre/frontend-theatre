@@ -6,13 +6,15 @@ import { useEffect, useState } from 'react'
 import { useStore } from '@/zustand/zustand'
 import { ArrowLeft, Calendar, PhotoIcon, VideoIcon } from '@/components/svg'
 import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
 import ReactGalleryViewer from '@/components/shared/reactPhotoView/ReactGalleryViewer'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
     const router = useRouter()
+    const params = useParams()
+    const locale = params.locale
     const [isClient, setIsClient] = useState(false)
     const [galleryType, setGalleryType] = useState(false)
 
@@ -31,7 +33,9 @@ export default function ClientWrapper({ data }: any) {
     }, [])
 
     return (
-        <main className="relative h-full w-full overflow-hidden p-5 md:px-7 md:pb-20 lg:px-20">
+        <main
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative h-full w-full overflow-hidden p-5 md:px-7 md:pb-20 lg:px-20`}
+        >
             {isClient ? (
                 <div className="h-auto w-full">
                     <div className="mb-4 flex w-full justify-between md:justify-end">
@@ -53,13 +57,15 @@ export default function ClientWrapper({ data }: any) {
                             </span>
                         </div>
                     </div>
-                    <ReactPhotoViewer data={data} />
+                    <div className="relative h-[280px] w-full md:float-left md:mr-5 md:h-[400px] md:w-[500px] lg:w-[600px]">
+                        <ReactPhotoViewer data={data} />
+                    </div>
                     <div className="w-full pt-5 md:p-0">
                         <h1 className="text-center text-lg text-white md:mb-3 md:text-lg">
                             {data?.attributes?.header}
                         </h1>
                         <div className="my-2 h-[1px] w-full bg-white md:my-6"></div>
-                        <p className="text-sm text-white md:text-sm">
+                        <p className="text-sm text-white md:text-base">
                             <BlocksRenderer content={data?.attributes?.description} />
                         </p>
                     </div>

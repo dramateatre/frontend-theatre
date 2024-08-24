@@ -6,6 +6,7 @@ import Old from '../../../../public/imgs/OldTheatre.jpg'
 import New from '../../../../public/imgs/New.webp'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
+import Link from 'next/link'
 
 export default function History() {
     const { t } = useTranslation()
@@ -46,11 +47,13 @@ export default function History() {
                         >
                             {t('theatreHistory')}
                         </h1>
-                        <span
-                            className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} hidden cursor-pointer text-lg text-white underline md:block`}
-                        >
-                            {t('findMore')}...
-                        </span>
+                        <Link href="/history">
+                            <span
+                                className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} hidden cursor-pointer text-lg text-white underline md:block`}
+                            >
+                                {t('findMore')}...
+                            </span>
+                        </Link>
                     </div>
                     <div className="relative hidden h-full w-full md:block">
                         <div className="relative flex flex-row md:-translate-x-6 md:translate-y-20 lg:-translate-x-20">
