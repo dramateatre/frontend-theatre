@@ -10,7 +10,7 @@ import Link from 'next/link'
 
 async function fetchData(locale: string, id?: number) {
     try {
-        const endpoint = id ? `/troupes/${id}` : '/troupes'
+        const endpoint = id ? `/creative-groups/${id}` : '/creative-groups'
         const response = await axiosInstance.get(endpoint, {
             params: {
                 populate: '*',
@@ -32,6 +32,7 @@ export default async function Page({
     const data = await fetchData(locale, id)
     const i18nNamespaces = ['main']
     const { t } = await initTranslations(locale, i18nNamespaces)
+    console.log(data)
 
     return (
         <main
@@ -44,7 +45,7 @@ export default async function Page({
                 <div className="w-full px-3">
                     <div className="flex flex-row items-center gap-2 py-2">
                         <span className="my-1 text-lg">{data?.attributes?.firstname}</span>
-                        <span className="my-1 text-lg">{data?.attributes?.Lastname}</span>
+                        <span className="my-1 text-lg">{data?.attributes?.lastname}</span>
                         <span>-</span>
                         <span className="text-[#838CAC]">16.04.2022</span>
                     </div>

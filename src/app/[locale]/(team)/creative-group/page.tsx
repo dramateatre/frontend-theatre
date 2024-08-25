@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 async function fetchData(locale: string) {
     try {
-        const response = await axiosInstance.get('/troupes', {
+        const response = await axiosInstance.get('/creative-groups', {
             params: {
                 populate: '*',
                 locale: locale,
@@ -28,11 +28,11 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             <h1
                 className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-2xl tracking-widest md:text-2xl`}
             >
-                {t('troupe')}
+                {t('creativeGroup')}
             </h1>
             <div className="grid h-auto w-full grid-cols-2 gap-x-5 gap-y-7 md:grid-cols-6 md:gap-y-10">
                 {data.map((item: any, index: number) => (
-                    <Link href={`/troupe/${item.id}`}>
+                    <Link href={`/creative-group/${item.id}`}>
                         <div
                             key={index}
                             className="group relative z-10 h-40 w-full cursor-pointer overflow-hidden rounded-lg shadow-lg transition-all duration-300 ease-in-out md:h-48 md:hover:z-10 md:hover:scale-110"
@@ -49,10 +49,10 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                             <div className="absolute bottom-0 left-0 right-0 p-4">
                                 <div className="flex flex-row gap-2">
                                     <h3 className="text-md md:text-base">
-                                        {item.attributes && item.attributes.Firstname}
+                                        {item.attributes && item.attributes.firstname}
                                     </h3>
                                     <h3 className="text-md md:text-base">
-                                        {item.attributes && item.attributes.Lastname}
+                                        {item.attributes && item.attributes.lastname}
                                     </h3>
                                 </div>
                             </div>
