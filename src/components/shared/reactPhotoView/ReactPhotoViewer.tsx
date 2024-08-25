@@ -5,7 +5,7 @@ import 'react-photo-view/dist/react-photo-view.css'
 const ReactPhotoViewer = ({ data }: any) => {
     const baseURL = process.env.REACT_APP_BASE_URL || 'http://localhost:1337'
     const src = `${baseURL}${data?.attributes?.image?.data?.attributes?.url}`
- )
+
     return (
         <PhotoProvider>
             <PhotoView src={src}>
