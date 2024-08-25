@@ -1,4 +1,5 @@
 import axiosInstance from '@/AxiosInstance'
+import initTranslations from '@/libs/i18n/i18n'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -19,9 +20,16 @@ async function fetchData(locale: string) {
 
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
     const data = await fetchData(locale)
+    const i18nNamespaces = ['main']
+    const { t } = await initTranslations(locale, i18nNamespaces)
 
     return (
-        <main className="flex h-full w-full bg-[#1a1c2f] px-6 pb-20 pt-40 md:px-7 lg:px-20">
+        <main className="flex min-h-screen w-full flex-col gap-10 bg-card-gradient px-6 py-10 text-white md:px-7 lg:px-20">
+            <h1
+                className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-2xl tracking-wider md:text-2xl`}
+            >
+                {t('troupe')}
+            </h1>
             <div className="grid h-auto w-full grid-cols-2 gap-x-5 gap-y-7 md:grid-cols-6 md:gap-y-10">
                 {data.map((item: any, index: number) => (
                     <Link href={`/troupe/${item.id}`}>
@@ -38,7 +46,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                                 />
                             )}
                             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70" />
-                            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <div className="absolute bottom-0 left-0 right-0 p-4">
                                 <div className="flex flex-row gap-2">
                                     <h3 className="text-md md:text-base">
                                         {item.attributes && item.attributes.Firstname}

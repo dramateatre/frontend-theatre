@@ -54,8 +54,8 @@ export default function News({ data }: any) {
                                                 height={600}
                                             />
                                         </div>
-                                        <div className="relative flex h-auto w-full flex-col gap-2 bg-[#0f1017] bg-card-gradient px-3 py-2">
-                                            <h1 className="line-clamp-1 h-6 overflow-hidden text-center">
+                                        <div className="relative flex h-40 md:h-40 w-full flex-col gap-2 bg-[#0f1017] bg-card-gradient px-3 py-2">
+                                            <h1 className="line-clamp-1 h-14 overflow-hidden text-center">
                                                 {item.attributes.header}
                                             </h1>
                                             <div className="h-[1px] w-full bg-white"></div>
@@ -65,7 +65,7 @@ export default function News({ data }: any) {
                                                    >
                                              {item.attributes.description}
                                                 <   /ReactMarkdown> */}
-                                            <div className="h-18 line-clamp-4 w-full overflow-hidden text-ellipsis text-xs">
+                                            <div className="line-clamp-4 h-full w-full overflow-hidden text-ellipsis text-xs">
                                                 <BlocksRenderer
                                                     content={item.attributes.description}
                                                 />

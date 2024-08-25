@@ -61,6 +61,39 @@ export default function Header() {
                         </DropdownMenuGroup>
                     </DropdownMenuContent>
                 </DropdownMenu>
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <div className="flex cursor-pointer flex-row items-center gap-2">
+                            <span className="text-white outline-none">{t('team')}</span>
+                            <ArrowDown className="mt-1 fill-white text-xs" />
+                        </div>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="inset-0 overflow-hidden bg-blue-300 text-white">
+                        <DropdownMenuGroup>
+                            <DropdownMenuItem asChild>
+                                <Link href="/administration">
+                                    <DropdownMenuLabel className="cursor-pointer">
+                                        {t('administration')}
+                                    </DropdownMenuLabel>
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/troupe">
+                                    <DropdownMenuLabel className="cursor-pointer">
+                                        {t('troupe')}
+                                    </DropdownMenuLabel>
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/creativeGroup">
+                                    <DropdownMenuLabel className="cursor-pointer">
+                                        {t('creativeGroup')}
+                                    </DropdownMenuLabel>
+                                </Link>
+                            </DropdownMenuItem>
+                        </DropdownMenuGroup>
+                    </DropdownMenuContent>
+                </DropdownMenu>
                 <Link href="/contact">
                     <h1 className="text-white">{t('contact')}</h1>
                 </Link>

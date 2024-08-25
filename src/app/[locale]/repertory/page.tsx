@@ -40,7 +40,7 @@ export default async function page({
     const page = Number(searchParams.page) || 1
     const pageSize = 10
     const data = await fetchData(locale, page, pageSize)
-    console.log(data)
+    
 
     return (
         <section className="min-h-screen w-full px-6 py-10 md:px-7 lg:px-20 xl:px-40">
