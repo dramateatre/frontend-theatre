@@ -37,7 +37,6 @@ export default async function page({
     const page = Number(searchParams.page) || 1
     const pageSize = 10
     const data = await fetchData(locale, page, pageSize)
-    console.log(data)
 
     return (
         <main

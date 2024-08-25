@@ -32,7 +32,7 @@ export default async function Page({
     const data = await fetchData(locale, id)
     const i18nNamespaces = ['main']
     const { t } = await initTranslations(locale, i18nNamespaces)
-    console.log(data)
+   
 
     return (
         <main
