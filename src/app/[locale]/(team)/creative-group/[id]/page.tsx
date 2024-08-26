@@ -32,13 +32,12 @@ export default async function Page({
     const data = await fetchData(locale, id)
     const i18nNamespaces = ['main']
     const { t } = await initTranslations(locale, i18nNamespaces)
-   
 
     return (
         <main
             className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative flex h-full w-full justify-center overflow-hidden text-white md:py-20`}
         >
-            <div className="l h-auto w-full overflow-hidden rounded-[4px] border border-slate-300 bg-[#0f1017] bg-opacity-100 bg-card-gradient pb-5 shadow-md md:w-2/3">
+            <div className="h-auto w-full overflow-hidden rounded-[4px] border border-slate-300 bg-[#0f1017] bg-opacity-100 bg-card-gradient pb-5 shadow-md md:w-2/3">
                 <div className="relative mr-5 h-[250px] w-[400px] md:float-left md:h-[300px]">
                     <AvatarImage data={data} />
                 </div>
@@ -51,18 +50,7 @@ export default async function Page({
                     </div>
                     <div className="h-[1px] w-full bg-white"></div>
                     <p className="py-5 text-sm md:text-base">
-                        {/* <BlocksRenderer content={data?.attributes?.description} /> */}
-                        2005 წლიდან ბათუმის დრამატული თეატრის მსახიობი დაიბადა 1980 წლის 2
-                        დეკემბერს. 2004 წელს დაამთავრა ბათუმის ხელოვნების სახელმწიფო ინსტიტუტის
-                        სამსახიობო ფაკულტეტი. მნიშვნელოვანი როლები: დედაო (ვატერპოლოო); მკვლელი ქალი
-                        საუკეთესო მსახიობი ქალი. 2005 წლიდან ბათუმის დრამატული თეატრის მსახიობი
-                        დაიბადა 1980 წლის 2 დეკემბერს. 2004 წელს დაამთავრა ბათუმის ხელოვნების
-                        სახელმწიფო ინსტიტუტის სამსახიობო ფაკულტეტი. მნიშვნელოვანი როლები: დედაო
-                        (ვატერპოლოო); მკვლელი ქალი საუკეთესო მსახიობი ქალი. 2005 წლიდან ბათუმის
-                        დრამატული თეატრის მსახიობი დაიბადა 1980 წლის 2 დეკემბერს. 2004 წელს
-                        დაამთავრა ბათუმის ხელოვნების სახელმწიფო ინსტიტუტის სამსახიობო ფაკულტეტი.
-                        მნიშვნელოვანი როლები: დედაო (ვატერპოლოო); მკვლელი ქალი საუკეთესო მსახიობი
-                        ქალი.
+                        <BlocksRenderer content={data?.attributes?.description} />
                     </p>
                     {data?.attributes?.repertuaris?.data?.length > 0 ? (
                         <div className="flex flex-col gap-4">

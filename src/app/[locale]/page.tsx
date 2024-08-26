@@ -43,17 +43,32 @@ async function fetchPoster(locale: string) {
         return []
     }
 }
+async function fetchCreativeGroup(locale: string) {
+    try {
+        const response = await axiosInstance.get('/creative-groups', {
+            params: {
+                populate: '*',
+                locale: locale,
+            },
+        })
+        return response.data.data
+    } catch (error) {
+        console.error('Error fetching data:', error)
+        return []
+    }
+}
 
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
     const newsData = await fetchData(locale, 1, 4)
     const posterData = await fetchPoster(locale)
+    const creativeGroupData = await fetchCreativeGroup(locale)
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between bg-[#07070981] pb-10">
             <Cover />
             <Poster posterData={posterData} />
             <News data={newsData} />
-            <Actors />
+            <Actors data={creativeGroupData} />
             <History />
         </main>
     )

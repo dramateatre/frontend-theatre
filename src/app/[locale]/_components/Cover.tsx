@@ -1,6 +1,5 @@
 'use client'
 import { useParams } from 'next/navigation'
-import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 export default function Cover() {

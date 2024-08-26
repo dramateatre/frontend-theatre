@@ -1,9 +1,32 @@
 import Image from 'next/image'
-import New from '../../../../../public/imgs/New.webp'
-import Old from '../../../../../public/imgs/OldTheatre.jpg'
+import New from '@images/New.webp'
+import Old from '@images/OldTheatre.jpg'
 import axiosInstance from '@/AxiosInstance'
 import initTranslations from '@/libs/i18n/i18n'
-import { BlocksRenderer } from '@strapi/blocks-react-renderer'
+import { ContentWithToggle } from './_componenets/Paragraph'
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+    const i18nNamespaces = ['meta']
+    const { t } = await initTranslations(locale, i18nNamespaces)
+
+    return {
+        title: t('historyPage'),
+        description: t('descriptionAbout'),
+        openGraph: {
+            title: t('historyPage'),
+            description: t('descriptionHistory'),
+            type: 'website',
+            locale: locale,
+            url: 'https://batumitheatre.ge/history',
+            siteName: 'Batumi Theatre',
+            images: [
+                {
+                    url: './../imgs/OldTheatre.jpg',
+                },
+            ],
+        },
+    }
+}
 
 async function fetchData(locale: string) {
     try {
@@ -28,7 +51,7 @@ export default async function page({ params: { locale } }: { params: { locale: s
 
     return (
         <div
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative flex h-auto w-full flex-col py-5  md:pt-16`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative flex h-auto w-full flex-col py-5 md:pt-16`}
         >
             <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-0 md:pl-6 lg:pl-6 xl:pl-32">
                 <div className="relative h-full w-full">
@@ -84,9 +107,7 @@ export default async function page({ params: { locale } }: { params: { locale: s
                     </div>
                 </div>
             </div>
-            <div className="px-3 py-10 text-sm text-white md:px-6 md:py-20 md:text-base lg:px-6 xl:px-32">
-                <BlocksRenderer content={data[0]?.attributes?.description} />
-            </div>
+            <ContentWithToggle content={data[0]?.attributes?.description} />
         </div>
     )
 }
