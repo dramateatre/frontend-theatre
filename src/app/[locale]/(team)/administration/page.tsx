@@ -2,6 +2,16 @@ import axiosInstance from '@/AxiosInstance'
 import { EmailSms, PhoneCall } from '@/components/svg'
 import initTranslations from '@/libs/i18n/i18n'
 
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+    const i18nNamespaces = ['meta']
+    const { t } = await initTranslations(locale, i18nNamespaces)
+
+    return {
+        title: t('administration'),
+        description: t('descriptionAdministration'),
+    }
+}
+
 async function fetchData(locale: string) {
     try {
         const response = await axiosInstance.get('/administrations', {
@@ -31,7 +41,7 @@ export default async function page({ params: { locale } }: { params: { locale: s
                 {t('administration')}
             </h1>
 
-            <div className="h-auto w-full border-x border-t border-white bg-opacity-100 bg-card-gradient shadow-custom md:w-2/3">
+            <div className="h-auto w-full border-t border-white bg-opacity-100 bg-card-gradient md:w-2/3 md:border-x">
                 {data?.map((item: any, index: any) => (
                     <div
                         key={index}
@@ -46,15 +56,22 @@ export default async function page({ params: { locale } }: { params: { locale: s
                             <span>{item.attributes.position}</span>
                         </div>
                         <div className="flex flex-row gap-4 px-3 md:px-10">
-                            <div className="flex cursor-pointer flex-row items-center gap-1">
+                            <a
+                                href={`mailto:${item.attributes.email}`}
+                                className="flex cursor-pointer flex-row items-center gap-1"
+                            >
                                 <EmailSms className="h-5 w-5" />
                                 <span>{item.attributes.email}</span>
-                            </div>
+                            </a>
                             <span>-</span>
-                            <div className="flex cursor-pointer flex-row items-center gap-1">
+
+                            <a
+                                href={`tel:${item.attributes.phone}`}
+                                className="flex cursor-pointer flex-row items-center gap-1"
+                            >
                                 <PhoneCall className="h-3 w-3" />
                                 <span>{item.attributes.phone}</span>
-                            </div>
+                            </a>
                         </div>
                         <div className="h-[1px] w-full bg-slate-200"></div>
                     </div>
