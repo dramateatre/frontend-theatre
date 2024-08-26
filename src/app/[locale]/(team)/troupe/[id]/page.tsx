@@ -7,6 +7,7 @@ import { ArrowLeft } from '@/components/svg'
 import initTranslations from '@/libs/i18n/i18n'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import Link from 'next/link'
+import Paragraph from './_components/Paragraph'
 
 async function fetchData(locale: string, id?: number) {
     try {
@@ -32,43 +33,35 @@ export default async function Page({
     const data = await fetchData(locale, id)
     const i18nNamespaces = ['main']
     const { t } = await initTranslations(locale, i18nNamespaces)
+    console.log(data?.attributes?.description)
 
     return (
         <main
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative flex h-full w-full justify-center overflow-hidden text-white md:py-20`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full justify-center overflow-hidden text-white md:py-10`}
         >
-            <div className="l h-auto w-full overflow-hidden rounded-[4px] border border-slate-300 bg-[#0f1017] bg-opacity-100 bg-card-gradient pb-5 shadow-md md:w-2/3">
-                <div className="relative mr-5 h-[250px] w-[400px] md:float-left md:h-[300px]">
+            <div className="h-full w-full overflow-hidden rounded-[4px] border border-slate-400 bg-[#0f1017] bg-opacity-100 bg-card-gradient  shadow-md md:w-2/3">
+                <div className="relative mr-5 h-[250px] w-full md:float-left md:h-[300px] md:w-[400px]">
                     <AvatarImage data={data} />
                 </div>
                 <div className="w-full px-3">
                     <div className="flex flex-row items-center gap-2 py-2">
                         <span className="my-1 text-lg">{data?.attributes?.firstname}</span>
-                        <span className="my-1 text-lg">{data?.attributes?.Lastname}</span>
+                        <span className="my-1 text-lg">{data?.attributes?.lastname}</span>
                         <span>-</span>
                         <span className="text-[#838CAC]">16.04.2022</span>
                     </div>
                     <div className="h-[1px] w-full bg-white"></div>
-                    <p className="py-5 text-sm md:text-base">
-                        {/* <BlocksRenderer content={data?.attributes?.description} /> */}
-                        2005 წლიდან ბათუმის დრამატული თეატრის მსახიობი დაიბადა 1980 წლის 2
-                        დეკემბერს. 2004 წელს დაამთავრა ბათუმის ხელოვნების სახელმწიფო ინსტიტუტის
-                        სამსახიობო ფაკულტეტი. მნიშვნელოვანი როლები: დედაო (ვატერპოლოო); მკვლელი ქალი
-                        საუკეთესო მსახიობი ქალი. 2005 წლიდან ბათუმის დრამატული თეატრის მსახიობი
-                        დაიბადა 1980 წლის 2 დეკემბერს. 2004 წელს დაამთავრა ბათუმის ხელოვნების
-                        სახელმწიფო ინსტიტუტის სამსახიობო ფაკულტეტი. მნიშვნელოვანი როლები: დედაო
-                        (ვატერპოლოო); მკვლელი ქალი საუკეთესო მსახიობი ქალი. 2005 წლიდან ბათუმის
-                        დრამატული თეატრის მსახიობი დაიბადა 1980 წლის 2 დეკემბერს. 2004 წელს
-                        დაამთავრა ბათუმის ხელოვნების სახელმწიფო ინსტიტუტის სამსახიობო ფაკულტეტი.
-                        მნიშვნელოვანი როლები: დედაო (ვატერპოლოო); მკვლელი ქალი საუკეთესო მსახიობი
-                        ქალი.
-                    </p>
+                    {data?.attributes?.description && (
+                        <div className="py-5 text-sm md:text-base">
+                            <Paragraph content={data && data?.attributes?.description} />
+                        </div>
+                    )}
                     {data?.attributes?.repertuaris?.data?.length > 0 ? (
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-4 pb-10">
                             <h2 className="text-center text-xl">ნათამაშები სპექტაკლები</h2>
                             {data.attributes.repertuaris.data.map((item: any, index: any) => (
                                 <Link key={item.id} href={`/repertory/${item.id}`}>
-                                    <span>
+                                    <span className="cursor-pointer">
                                         {index + 1}. {item.attributes.header}
                                     </span>
                                 </Link>

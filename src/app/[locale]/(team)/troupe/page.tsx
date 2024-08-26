@@ -3,6 +3,16 @@ import initTranslations from '@/libs/i18n/i18n'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+    const i18nNamespaces = ['meta']
+    const { t } = await initTranslations(locale, i18nNamespaces)
+
+    return {
+        title: t('troupe'),
+        description: t('descriptionTroupe'),
+    }
+}
+
 async function fetchData(locale: string) {
     try {
         const response = await axiosInstance.get('/troupes', {
@@ -49,10 +59,10 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                             <div className="absolute bottom-0 left-0 right-0 p-4">
                                 <div className="flex flex-row gap-2">
                                     <h3 className="text-md md:text-base">
-                                        {item.attributes && item.attributes.Firstname}
+                                        {item.attributes && item.attributes.firstname}
                                     </h3>
                                     <h3 className="text-md md:text-base">
-                                        {item.attributes && item.attributes.Lastname}
+                                        {item.attributes && item.attributes.lastname}
                                     </h3>
                                 </div>
                             </div>
