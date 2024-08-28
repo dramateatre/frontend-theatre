@@ -64,7 +64,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
     const creativeGroupData = await fetchCreativeGroup(locale)
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between bg-[#07070981] pb-10">
+        <main className="flex min-h-screen flex-col items-center justify-between bg-[#0f1017] pb-10">
             <Cover />
             <Poster posterData={posterData} />
             <News data={newsData} />

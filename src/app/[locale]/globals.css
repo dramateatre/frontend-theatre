@@ -30,3 +30,21 @@ body {
     transform: rotate(180deg);
     white-space: nowrap;
 }
+.dropdown-gradient {
+    background-image: radial-gradient(
+            121.65% 100% at 60.68% 0,
+            rgba(40, 45, 65, 0.6) 0,
+            rgba(60, 65, 65, 0.3) 32.49%,
+            rgba(40, 45, 65, 0) 79.34%
+        ),
+        radial-gradient(
+            91.41% 93.04% at 50% 0,
+            rgba(16, 18, 26, 0.5) 20.67%,
+            rgba(16, 18, 26, 0) 100%
+        ),
+        radial-gradient(
+            69.96% 65.89% at 50% 100%,
+            rgba(11, 13, 20, 0.5) 22.77%,
+            rgba(9, 11, 17, 0) 100%
+        );
+}

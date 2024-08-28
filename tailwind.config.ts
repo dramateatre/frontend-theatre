@@ -41,6 +41,10 @@ module.exports = {
 
                 'card-gradient':
                     ' radial-gradient(121.65% 100% at 32.68% 0, #3c4155 0, rgba(60, 65, 85, .18) 32.49%, rgba(60, 65, 85, 0) 51.34%), radial-gradient(91.41% 43.04% at 50% 0, #1a1c24 20.67%, rgba(26, 28, 36, 0) 100%), radial-gradient(69.96% 25.89% at 50% 100%, #15171e 22.77%, rgba(19, 21, 27, 0) 100%)',
+                'dropdown-gradient':
+                    'radial-gradient(121.65% 100% at 60.68% 0, #3c4155 0, rgba(80, 85, 65, 0.7) 122.49%, rgba(60, 65, 85, 0) 190.34%), radial-gradient(91.41% 93.04% at 50% 0, #1a1c24 20.67%, rgba(26, 28, 36, 0) 100%), radial-gradient(69.96% 65.89% at 50% 100%, #15171e 22.77%, rgba(19, 21, 27, 0) 100%)',
+                'header-gradient':
+                    'radial-gradient(121.65% 100% at 60.68% 0, #3c4155 0, rgba(15, 16, 23, 1) 122.49%, rgba(60, 65, 85, 0) 190.34%), radial-gradient(91.41% 93.04% at 50% 0, #1a1c24 20.67%, rgba(26, 28, 36, 0) 100%), radial-gradient(69.96% 65.89% at 50% 100%, #15171e 22.77%, rgba(19, 21, 27, 0) 100%)',
             },
 
             colors: {

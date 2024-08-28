@@ -1,11 +1,6 @@
 import axiosInstance from '@/AxiosInstance'
-import Image from 'next/image'
-import React from 'react'
-import Temporary from '../../../../../../public/imgs/actor.jpeg'
 import AvatarImage from './_components/AvatarImage'
-import { ArrowLeft } from '@/components/svg'
 import initTranslations from '@/libs/i18n/i18n'
-import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import Link from 'next/link'
 import Paragraph from './_components/Paragraph'
 
@@ -39,7 +34,7 @@ export default async function Page({
         <main
             className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full justify-center overflow-hidden text-white md:py-10`}
         >
-            <div className="h-full w-full overflow-hidden rounded-[4px] border border-slate-400 bg-[#0f1017] bg-opacity-100 bg-card-gradient  shadow-md md:w-2/3">
+            <div className="h-full w-full overflow-hidden rounded-[4px] border border-slate-400 bg-[#0f1017] bg-opacity-100 bg-card-gradient shadow-md md:w-2/3">
                 <div className="relative mr-5 h-[250px] w-full md:float-left md:h-[300px] md:w-[400px]">
                     <AvatarImage data={data} />
                 </div>
