@@ -5,7 +5,6 @@ import Pagination from '@/components/shared/pagination/Pagination'
 import { Calendar, Clock } from '@/components/svg'
 import { formatDate } from '@/utils/formatDate'
 import { formatTime } from '@/utils/formatTime'
-import Village from '../../../../public/imgs/village.jpg'
 import Link from 'next/link'
 
 async function fetchData(locale: string, page: number, pageSize: number) {
@@ -40,7 +39,6 @@ export default async function page({
     const page = Number(searchParams.page) || 1
     const pageSize = 10
     const data = await fetchData(locale, page, pageSize)
-    
 
     return (
         <section className="min-h-screen w-full px-6 py-10 md:px-7 lg:px-20 xl:px-40">
@@ -67,7 +65,7 @@ export default async function page({
                                     src={
                                         item?.attributes?.image?.data?.attributes?.url
                                             ? `http://localhost:1337${item?.attributes.image.data.attributes.url}`
-                                            : Village
+                                            : `http://localhost:1337${item?.attributes.image.data.attributes.url}`
                                     }
                                     alt="Village"
                                 />
