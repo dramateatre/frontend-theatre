@@ -37,5 +37,9 @@
     "museum": "Museum",
     "administration": "Administration",
     "troupe": "Troupe",
-    "viewLess": "View less"
+    "viewLess": "View less",
+    "boxOffice": "Box Office",
+    "stage": "Stage",
+    "smallStage": "Small stage",
+    "bigStage": "Big stage"
 }

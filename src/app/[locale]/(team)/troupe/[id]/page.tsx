@@ -28,13 +28,12 @@ export default async function Page({
     const data = await fetchData(locale, id)
     const i18nNamespaces = ['main']
     const { t } = await initTranslations(locale, i18nNamespaces)
-    console.log(data?.attributes?.description)
 
     return (
         <main
             className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full justify-center overflow-hidden text-white md:py-10`}
         >
-            <div className="h-full w-full overflow-hidden rounded-[4px] border border-slate-400 bg-[#0f1017] bg-opacity-100 bg-card-gradient shadow-md md:w-2/3">
+            <div className="h-full w-full overflow-hidden rounded-[4px]  bg-[#0f1017] bg-opacity-10 bg-card-gradient shadow-custom md:w-2/3">
                 <div className="relative mr-5 h-[250px] w-full md:float-left md:h-[300px] md:w-[400px]">
                     <AvatarImage data={data} />
                 </div>

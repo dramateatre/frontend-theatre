@@ -21,7 +21,7 @@ export function BurgerMenu() {
                     <div className="flex flex-col gap-5 text-sm">
                         <SheetTrigger asChild>
                             <Link href="/">
-                                <span className={isActive(['/', '/en']) ? ' underline' : ''}>
+                                <span className={isActive(['/', '/en']) ? 'underline' : ''}>
                                     {t('main')}
                                 </span>
                             </Link>
@@ -29,18 +29,18 @@ export function BurgerMenu() {
                         <SheetTrigger asChild>
                             <Link href="/news">
                                 <span
-                                    className={isActive(['/news', , '/en/news']) ? ' underline' : ''}
+                                    className={isActive(['/news', , '/en/news']) ? 'underline' : ''}
                                 >
                                     {t('news')}
                                 </span>
                             </Link>
                         </SheetTrigger>
                         <SheetTrigger asChild>
-                            <Link href="/repertorie">
+                            <Link href="/repertory">
                                 <span
                                     className={
-                                        isActive(['/repertorie', , '/en/repertorie'])
-                                            ? ' underline'
+                                        isActive(['/repertory', , '/en/repertory'])
+                                            ? 'underline'
                                             : ''
                                     }
                                 >
@@ -52,7 +52,7 @@ export function BurgerMenu() {
                             <Link href="/contact">
                                 <span
                                     className={
-                                        isActive(['/contact', '/en/contact']) ? ' underline' : ''
+                                        isActive(['/contact', '/en/contact']) ? 'underline' : ''
                                     }
                                 >
                                     {t('contact')}
@@ -63,7 +63,7 @@ export function BurgerMenu() {
                             <Link href="/tickets">
                                 <span
                                     className={
-                                        isActive(['/tickets', '/en/tickets']) ? ' underline' : ''
+                                        isActive(['/tickets', '/en/tickets']) ? 'underline' : ''
                                     }
                                 >
                                     {t('tickets')}

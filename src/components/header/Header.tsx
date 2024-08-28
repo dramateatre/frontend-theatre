@@ -24,7 +24,7 @@ export default function Header() {
 
     return (
         <div
-            className={` ${locale === 'en' ? 'text-base' : 'text-base'} bg-header-gradient shadow-xs relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-[#151721] px-6 py-5   backdrop-blur-none md:h-28 md:pr-7 lg:px-20`}
+            className={` ${locale === 'en' ? 'text-base' : 'text-base'} bg-header-gradient shadow-xs relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-[#151721] px-6 py-5 backdrop-blur-none md:h-28 md:pr-7 lg:px-20`}
         >
             <Link href="/" className="h-full w-auto cursor-pointer">
                 <Image src={Logo2} alt="Logo" className="h-full w-full object-cover" />
@@ -92,7 +92,7 @@ export default function Header() {
                                     </Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem asChild>
-                                    <Link href="/creativeGroup">
+                                    <Link href="/creative-group">
                                         <DropdownMenuLabel className="cursor-pointer">
                                             {t('creativeGroup')}
                                         </DropdownMenuLabel>

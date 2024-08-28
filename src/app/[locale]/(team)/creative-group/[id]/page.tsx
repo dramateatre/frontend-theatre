@@ -35,9 +35,9 @@ export default async function Page({
 
     return (
         <main
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative flex h-full w-full justify-center overflow-hidden text-white md:py-20`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative flex h-full w-full justify-center overflow-hidden text-white md:py-10`}
         >
-            <div className="h-auto w-full overflow-hidden rounded-[4px] border border-slate-300 bg-[#0f1017] bg-opacity-100 bg-card-gradient pb-5 shadow-md md:w-2/3">
+            <div className="h-auto w-full overflow-hidden rounded-[4px] bg-[#0f1017] bg-opacity-100 bg-card-gradient   pb-5 shadow-custom   md:w-2/3">
                 <div className="relative mr-5 h-[250px] w-[400px] md:float-left md:h-[300px]">
                     <AvatarImage data={data} />
                 </div>
