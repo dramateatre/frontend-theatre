@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { BurgerIcon, Email, FbIcon, InstaIcon, PhoneCall, WhatsappIcon } from '../svg'
+import { Accordion } from '@radix-ui/react-accordion'
+import { AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion'
 
 export function BurgerMenu() {
     const { t } = useTranslation()
@@ -17,7 +19,7 @@ export function BurgerMenu() {
                 <BurgerIcon className="block h-6 w-6 cursor-pointer fill-slate-500 lg:hidden" />
             </SheetTrigger>
             <SheetContent className="bg-[#0f1017] text-white">
-                <div className="flex h-full w-full flex-col justify-between pt-10">
+                <div className="flex h-full w-full flex-col justify-between pt-5">
                     <div className="flex flex-col gap-5 text-sm">
                         <SheetTrigger asChild>
                             <Link href="/">
@@ -48,6 +50,22 @@ export function BurgerMenu() {
                                 </span>
                             </Link>
                         </SheetTrigger>
+
+                        <Accordion type="single" collapsible className="w-full">
+                            <AccordionItem value="item-1">
+                                <AccordionTrigger>{t('team')}</AccordionTrigger>
+                                <AccordionContent>{t('troupe')}</AccordionContent>
+                                <AccordionContent>{t('creativeGroup')}</AccordionContent>
+                                <AccordionContent>{t('administration')}</AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                        <Accordion type="single" collapsible className="w-full">
+                            <AccordionItem value="item-1">
+                                <AccordionTrigger>{t('about')}</AccordionTrigger>
+                                <AccordionContent>{t('theatreHistory')}</AccordionContent>
+                                <AccordionContent>{t('museum')}</AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
                         <SheetTrigger asChild>
                             <Link href="/contact">
                                 <span
@@ -71,7 +89,7 @@ export function BurgerMenu() {
                             </Link>
                         </SheetTrigger>
                     </div>
-                    <div className="flex flex-col pb-20">
+                    <div className="flex flex-col pb-0">
                         <div className="flex w-full flex-row items-center">
                             <PhoneCall className="h-4 w-4 fill-[#484848]" />
                             <a
