@@ -4,7 +4,7 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export function ContentWithToggle({ content }: any) {
+export function ContentWithToggle({ data }: any) {
     const { t } = useTranslation()
     const [isExpanded, setIsExpanded] = useState(false)
 
@@ -12,12 +12,14 @@ export function ContentWithToggle({ content }: any) {
         setIsExpanded((prev) => !prev)
     }
 
+    if (!data) return null
+
     return (
         <div className="w-full px-3 py-10 text-sm text-white md:px-6 md:py-20 md:text-base lg:px-6 xl:px-32">
             <div
                 className={`overflow-hidden ${isExpanded ? '' : 'line-clamp-[20]'} transition-all duration-300`}
             >
-                <BlocksRenderer content={content} />
+                <BlocksRenderer content={data[0]?.attributes?.description} />
             </div>
             <div className="mt-4 text-center">
                 <button className="text-base underline" onClick={toggleView}>

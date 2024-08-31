@@ -66,7 +66,7 @@ export default async function Home({ params: { locale } }: { params: { locale: s
     return (
         <main className="flex min-h-screen flex-col items-center justify-between bg-[#0f1017] pb-10">
             <Cover />
-            <Poster posterData={posterData} />
+            <Poster data={posterData} />
             <News data={newsData} />
             <Actors data={creativeGroupData} />
             <History />

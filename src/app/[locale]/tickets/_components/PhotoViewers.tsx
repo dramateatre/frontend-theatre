@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next'
 
 export default function PhotoViewers({ data }: any) {
     const { t } = useTranslation()
+
+    if (!data) return null
     return (
         <div className="relative flex h-full w-full flex-col justify-between gap-10 text-white md:flex-row">
             <div className="flex w-full flex-col gap-5">

@@ -8,10 +8,12 @@ import Image from 'next/image'
 import { useParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 
-export default function Poster({ posterData }: any) {
+export default function Poster({ data }: any) {
     const { t } = useTranslation()
     const params = useParams()
     const locale = params.locale
+
+    if (data) return null
 
     return (
         <section
@@ -26,12 +28,12 @@ export default function Poster({ posterData }: any) {
             </div>
             <Carousel
                 opts={{
-                    watchDrag: posterData?.data?.length > 1,
+                    watchDrag: data?.data?.length > 1,
                 }}
                 className="flex justify-center"
             >
                 <CarouselContent className="py-10 pr-2 lg:px-7 xl:px-10">
-                    {posterData?.data?.map((item: any, index: any) => (
+                    {data?.data?.map((item: any, index: any) => (
                         <>
                             <CarouselItem key={index} className="pl-6 lg:pl-7 xl:pl-10">
                                 <div

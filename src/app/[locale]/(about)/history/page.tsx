@@ -21,7 +21,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: 'Batumi Theatre',
             images: [
                 {
-                    url: './../imgs/OldTheatre.jpg',
+                    url: '/imgs/OldTheatre.jpg', // Updated to use an absolute path
                 },
             ],
         },
@@ -36,15 +36,17 @@ async function fetchData(locale: string) {
                 locale: locale,
             },
         })
-        return response.data
+        return { data: response.data, error: null }
     } catch (error) {
-        console.error('Error fetching data:', error)
-        return []
+        console.warn('Error fetching data:', error)
+        return {
+            data: [],
+        }
     }
 }
 
-export default async function page({ params: { locale } }: { params: { locale: string } }) {
-    const { data } = await fetchData(locale)
+export default async function Page({ params: { locale } }: { params: { locale: string } }) {
+    const { data, error } = await fetchData(locale)
 
     const i18nNamespaces = ['main']
     const { t } = await initTranslations(locale, i18nNamespaces)
@@ -58,17 +60,13 @@ export default async function page({ params: { locale } }: { params: { locale: s
                     <div className="flex h-full w-full flex-row justify-start">
                         <Image
                             src={Old}
-                            alt="New Image"
+                            alt="Old Theatre"
                             className="h-[220px] w-4/5 border border-white object-cover shadow-customWhiteSmall md:flex md:h-[250px] md:w-full md:rounded-none lg:h-[400px]"
                         />
                         <div className="ml-10 flex h-full w-auto flex-col items-center justify-between text-white md:hidden">
-                            <span>{t('1')}</span>
-                            <span>{t('2')}</span>
-                            <span>{t('3')}</span>
-                            <span>{t('4')}</span>
-                            <span>{t('5')}</span>
-                            <span>{t('6')}</span>
-                            <span>{t('7')}</span>
+                            {[1, 2, 3, 4, 5, 6, 7].map((num) => (
+                                <span key={num}>{t(num.toString())}</span>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -84,30 +82,30 @@ export default async function page({ params: { locale } }: { params: { locale: s
                         <div className="relative flex flex-row md:-translate-x-6 md:translate-y-8 lg:-translate-x-20">
                             <Image
                                 src={New}
-                                alt="New Image"
+                                alt="New Theatre"
                                 className="h-full w-full border border-white object-cover shadow-customWhiteSmall md:h-[250px] lg:h-[400px]"
                             />
                         </div>
                     </div>
                     <div className="flex w-full flex-row justify-end">
                         <div className="mr-10 flex h-full w-auto flex-col items-center justify-between text-white md:hidden">
-                            <span>{t('8')}</span>
-                            <span>{t('9')}</span>
-                            <span>{t('10')}</span>
-                            <span>{t('11')}</span>
-                            <span>{t('12')}</span>
-                            <span>{t('13')}</span>
-                            <span>{t('14')}</span>
+                            {[8, 9, 10, 11, 12, 13, 14].map((num) => (
+                                <span key={num}>{t(num.toString())}</span>
+                            ))}
                         </div>
                         <Image
                             src={New}
-                            alt="New Image"
+                            alt="New Theatre"
                             className="h-[220px] w-4/5 border border-white object-cover shadow-customWhiteSmall md:hidden md:h-full lg:w-full"
                         />
                     </div>
                 </div>
             </div>
-            <ContentWithToggle content={data[0]?.attributes?.description} />
+            {error ? (
+                <div className="mt-4 text-center text-white">{error}</div>
+            ) : (
+                <ContentWithToggle data={data[0]?.attributes?.description} />
+            )}
         </div>
     )
 }

@@ -19,6 +19,8 @@ export default function News({ data }: any) {
         query: '(min-width: 768px)',
     })
 
+    if (!data) return null
+
     return (
         <section
             className={` ${locale === 'en' ? 'italic' : 'font-georgian'} w-full pb-10 text-white`}
@@ -54,7 +56,7 @@ export default function News({ data }: any) {
                                                 height={600}
                                             />
                                         </div>
-                                        <div className="relative flex h-40 md:h-40 w-full flex-col gap-2 bg-[#0f1017] bg-card-gradient px-3 py-2">
+                                        <div className="relative flex h-40 w-full flex-col gap-2 bg-[#0f1017] bg-card-gradient px-3 py-2 md:h-40">
                                             <h1 className="line-clamp-1 h-14 overflow-hidden text-center">
                                                 {item.attributes.header}
                                             </h1>

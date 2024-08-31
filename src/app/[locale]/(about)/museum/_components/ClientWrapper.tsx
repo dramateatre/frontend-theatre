@@ -14,6 +14,8 @@ export default function ClientWrapper({ data }: any) {
     const locale = params.locale
     const [galleryType, setGalleryType] = useState(false)
 
+    if (!data) return null
+
     return (
         <div
             className={`${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full flex-col gap-5 px-6 py-10 text-white md:px-7 xl:px-20`}

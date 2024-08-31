@@ -11,6 +11,8 @@ export default function Actors({ data }: any) {
     const { t } = useTranslation()
     const params = useParams()
     const locale = params.locale
+
+    if (!data) return null
     return (
         <section className="flex w-full flex-col items-center gap-5 lg:gap-10">
             <h1
