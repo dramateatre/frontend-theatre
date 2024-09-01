@@ -36,7 +36,9 @@ async function fetchData(locale: string) {
         return response.data
     } catch (error) {
         console.warn('Error fetching data:', error)
-        return []
+        return {
+            data: [],
+        }
     }
 }
 
