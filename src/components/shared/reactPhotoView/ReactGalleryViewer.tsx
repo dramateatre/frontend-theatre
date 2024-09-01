@@ -22,7 +22,7 @@ interface ReactGalleryViewerProps {
 }
 
 const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
-    const baseURL = process.env.REACT_APP_BASE_URL || 'http://localhost:1337'
+    const baseURL = process.env.REACT_APP_BASE_URL || 'https://api.batumitheatre.ge'
 
     return (
         <div className="relative mt-10 grid w-full grid-cols-2 gap-2 md:grid-cols-5 md:gap-10">

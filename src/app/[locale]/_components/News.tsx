@@ -50,7 +50,7 @@ export default function News({ data }: any) {
                                         <div className="h-[200px] w-full">
                                             <Image
                                                 className="h-full w-full object-cover object-center"
-                                                src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}`}
+                                                src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
                                                 alt="Village"
                                                 width={600}
                                                 height={600}

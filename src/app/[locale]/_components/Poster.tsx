@@ -43,7 +43,7 @@ export default function Poster({ data }: any) {
                                         <Image
                                             fill
                                             className="h-full w-full object-cover object-center"
-                                            src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}`}
+                                            src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
                                             alt="Village"
                                         />
                                     </div>

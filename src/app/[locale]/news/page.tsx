@@ -56,7 +56,7 @@ export default async function page({
                         <div className="relative min-h-[200px] w-full md:w-[400px]">
                             <Image
                                 fill
-                                src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}`}
+                                src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
                                 alt="Village"
                                 className="object-cover object-center"
                             />

@@ -32,7 +32,7 @@ export default function Actors({ data }: any) {
                                 <div className="relative flex h-[220px] w-full items-center justify-center overflow-hidden rounded-[5px] border border-white">
                                     <Image
                                         fill
-                                        src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}`}
+                                        src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
                                         alt="123123"
                                         className="h-fullw-full object-cover"
                                     />

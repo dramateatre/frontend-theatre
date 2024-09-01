@@ -49,7 +49,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                         >
                             {item?.attributes?.image?.data && (
                                 <Image
-                                    src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.url}`}
+                                    src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
                                     alt={`Actor ${index + 1}`}
                                     className="h-full w-full object-cover transition-all duration-300 ease-in-out md:group-hover:scale-105"
                                     layout="fill"

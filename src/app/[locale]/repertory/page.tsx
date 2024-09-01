@@ -64,8 +64,8 @@ export default async function page({
                                     fill
                                     src={
                                         item?.attributes?.image?.data?.attributes?.url
-                                            ? `http://localhost:1337${item?.attributes.image.data.attributes.url}`
-                                            : `http://localhost:1337${item?.attributes.image.data.attributes.url}`
+                                            ? `https://api.batumitheatre.ge${item?.attributes.image.data.attributes.url}`
+                                            : `https://api.batumitheatre.ge${item?.attributes.image.data.attributes.url}`
                                     }
                                     alt="Village"
                                 />
