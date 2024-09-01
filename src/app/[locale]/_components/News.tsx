@@ -19,6 +19,8 @@ export default function News({ data }: any) {
         query: '(min-width: 768px)',
     })
 
+    console.log(data)
+
     if (!data) return null
 
     return (

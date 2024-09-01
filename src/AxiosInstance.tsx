@@ -5,7 +5,7 @@ const axiosInstance = axios.create({
     baseURL: 'https://api.batumitheatre.ge/api',
     headers: {
         Authorization:
-            'Bearer 27b41c58ad3fe514d81d59b96750a6e0a9aee093ef06ba0503c8dffc7efe77d26ccdaf4bf4f7ac91891beb235db87cfb2b6b2983367c5cec098a17b2997abc5adc0850330d1e97b2f2b0b7eda0290481486f5cd3521855ec111253aa948601f578838b20d6981990760829a765dc982ad8fa6f658be18def32bd35e61fccffef',
+            'Bearer c0888f50533d9ef6a8afdea3386ce61cf0b8f2c443b0184cd8e9aca4978f2f6a7a8a343a68c51a501a07cd492eb32d265ed3b71e4eb24287ef73e659878c34f05bdf7dd3eba11118b2a1c6c7ea4df08b720491d47aa31f6f6cb082702adac43d7d414289123eee484ddd76ba403e6257d540cef72eecfbba6f6924bf80d2bab9',
     },
 })
 
