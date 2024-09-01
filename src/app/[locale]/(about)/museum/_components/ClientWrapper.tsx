@@ -26,13 +26,16 @@ export default function ClientWrapper({ data }: any) {
                 {t('museum')}
             </h1>
             <div className="flex w-full flex-col gap-5 md:block">
-                <div className="relative h-[280px] w-full cursor-zoom-in rounded-[4px] border border-white md:float-left md:mr-5 md:h-[400px] md:w-[400px]">
-                    <ReactPhotoViewer data={data[0]} />
-                </div>
-
-                <div className="w-full text-sm md:text-base">
-                    <BlocksRenderer content={data[0]?.attributes?.description} />
-                </div>
+                {data.length && (
+                    <div className="relative h-[280px] w-full cursor-zoom-in rounded-[4px] border border-white md:float-left md:mr-5 md:h-[400px] md:w-[400px]">
+                        <ReactPhotoViewer data={data} />
+                    </div>
+                )}
+                {data.length && (
+                    <div className="w-full text-sm md:text-base">
+                        <BlocksRenderer content={data[0]?.attributes?.description} />
+                    </div>
+                )}
             </div>
             {data[0]?.attributes?.gallery?.data && (
                 <div className="flex w-full flex-col gap-5">
