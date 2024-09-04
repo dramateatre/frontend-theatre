@@ -34,7 +34,7 @@ export default function ClientWrapper({ data }: any) {
 
     return (
         <main
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative h-full w-full overflow-hidden p-5 md:px-7 md:pb-20 lg:px-20`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative min-h-screen w-full overflow-hidden p-5 pb-10 md:px-7 md:pb-20 lg:px-20`}
         >
             {isClient ? (
                 <div className="h-auto w-full">
@@ -57,14 +57,14 @@ export default function ClientWrapper({ data }: any) {
                             </span>
                         </div>
                     </div>
-                    <div className="relative h-[280px] w-full md:float-left md:mr-5 md:h-[400px] md:w-[500px] lg:w-[600px]">
+                    <div className="relative h-[280px] w-full overflow-hidden rounded-[4px] md:float-left md:mb-5 md:mr-8 md:h-[350px] md:w-[400px] lg:w-[500px]">
                         <ReactPhotoViewer data={data} />
                     </div>
                     <div className="w-full pt-5 md:p-0">
-                        <h1 className="text-center text-lg text-white md:mb-3 md:text-lg">
+                        <h1 className="text-center text-lg text-white md:mb-4 md:text-xl">
                             {data?.attributes?.header}
                         </h1>
-                        <div className="my-2 h-[1px] w-full bg-white md:my-6"></div>
+                        <div className="my-4 h-[1px] w-full bg-white"></div>
                         <p className="text-sm text-white md:text-base">
                             <BlocksRenderer content={data?.attributes?.description} />
                         </p>
@@ -109,7 +109,7 @@ export default function ClientWrapper({ data }: any) {
                             {!galleryType ? (
                                 <ReactGalleryViewer data={data} />
                             ) : (
-                                <div className="w-full text-center text-white">video </div>
+                                <div className="w-full text-center text-white">video</div>
                             )}
                         </div>
                     )}
