@@ -13,7 +13,7 @@ export default function Poster({ data }: any) {
     const params = useParams()
     const locale = params.locale
 
-    if (!data) return null
+    if (!data.data.length) return null
 
     return (
         <section
