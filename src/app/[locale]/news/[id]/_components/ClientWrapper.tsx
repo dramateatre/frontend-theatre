@@ -57,18 +57,20 @@ export default function ClientWrapper({ data }: any) {
                             </span>
                         </div>
                     </div>
-                    <div className="relative h-[280px] w-full overflow-hidden rounded-[4px] md:float-left md:mb-5 md:mr-8 md:h-[350px] md:w-[400px] lg:w-[500px]">
+                    <h1 className="text-center text-lg text-white md:mb-4 md:text-xl">
+                        {data?.attributes?.header}
+                    </h1>
+                    <div className="my-4 h-[1px] w-full bg-white"></div>
+                    <div className="relative h-[280px] w-full cursor-zoom-in overflow-hidden rounded-[4px] md:float-left md:mr-8 md:h-[350px] md:w-[400px] lg:w-[500px]">
                         <ReactPhotoViewer data={data} />
                     </div>
+
                     <div className="w-full pt-5 md:p-0">
-                        <h1 className="text-center text-lg text-white md:mb-4 md:text-xl">
-                            {data?.attributes?.header}
-                        </h1>
-                        <div className="my-4 h-[1px] w-full bg-white"></div>
                         <p className="text-sm text-white md:text-base">
                             <BlocksRenderer content={data?.attributes?.description} />
                         </p>
                     </div>
+
                     {data.attributes?.gallery?.data && (
                         <div className="flex w-full flex-col gap-5 pt-10">
                             <Button className="text text-center text-2xl font-normal italic tracking-widest text-white">
@@ -89,7 +91,6 @@ export default function ClientWrapper({ data }: any) {
                                         <VideoIcon className="h-full w-full fill-white text-white" />
                                     </button>
                                 </div>
-
                                 <div className="flex items-center gap-2 text-sm tracking-widest text-white md:text-base">
                                     <button
                                         onClick={() => setGalleryType(false)}

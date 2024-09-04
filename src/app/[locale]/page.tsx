@@ -15,11 +15,11 @@ async function fetchData(locale: string, page: number, pageSize: number) {
                     page: page,
                     pageSize: pageSize,
                 },
+                sort: 'date:desc',
             },
         })
         return response.data
     } catch (error) {
-        console.error('Error fetching data:', error)
         return []
     }
 }
@@ -39,7 +39,6 @@ async function fetchPoster(locale: string) {
         })
         return response.data
     } catch (error) {
-        console.error('Error fetching data:', error)
         return []
     }
 }
@@ -53,7 +52,6 @@ async function fetchCreativeGroup(locale: string) {
         })
         return response.data.data
     } catch (error) {
-        console.error('Error fetching data:', error)
         return []
     }
 }
