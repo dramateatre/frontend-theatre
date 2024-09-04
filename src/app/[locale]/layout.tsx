@@ -20,10 +20,6 @@ const georgian = localFont({
     variable: '--font-georgian',
 })
 
-export function generateStaticParams() {
-    return i18nConfig.locales.map((locale) => ({ locale }))
-}
-
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
     const i18nNamespaces = ['meta']
     const { t } = await initTranslations(locale, i18nNamespaces)
