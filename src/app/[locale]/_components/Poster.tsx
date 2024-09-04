@@ -1,61 +1,20 @@
 'use client'
 
-import axiosInstance from '@/AxiosInstance'
 import { Calendar, Clock } from '@/components/svg'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { formatDate } from '@/utils/formatDate'
 import { formatTime } from '@/utils/formatTime'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function Poster() {
+export default function Poster({ data }: any) {
     const { t } = useTranslation()
     const params = useParams()
     const locale = params.locale
+   
 
-    const [data, setData] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState(null)
-
-    // Assuming 'axiosInstance' is already configured for API calls
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axiosInstance.get('/repertoires', {
-                    params: {
-                        populate: '*',
-                        locale: locale,
-                        filters: {
-                            poster: {
-                                $eq: true,
-                            },
-                        },
-                    },
-                })
-                setData(response.data.data)
-            } catch (error) {
-                console.error('Error fetching data:', error)
-            } finally {
-                setIsLoading(false)
-            }
-        }
-
-        fetchData()
-    }, [locale])
-
-    if (isLoading) {
-        return <p>Loading...</p> // Loading indicator
-    }
-
-    if (error) {
-        return <p>Error</p> // Error handling
-    }
-
-    if (!data.length) {
-        return null // Handle no data scenario
-    }
+    if (!data.data.length) return null
 
     return (
         <section
@@ -70,12 +29,12 @@ export default function Poster() {
             </div>
             <Carousel
                 opts={{
-                    watchDrag: data?.length > 1,
+                    watchDrag: data?.data?.length > 1,
                 }}
                 className="flex justify-center"
             >
                 <CarouselContent className="py-10 pr-2 lg:px-7 xl:px-10">
-                    {data?.map((item: any, index: any) => (
+                    {data?.data?.map((item: any, index: any) => (
                         <>
                             <CarouselItem key={index} className="pl-6 lg:pl-7 xl:pl-10">
                                 <div
