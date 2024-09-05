@@ -21,7 +21,7 @@ export default function News({ data }: any) {
 
     return (
         <section
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} w-full py-10 text-white`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} w-full py-5 text-white`}
         >
             <div className="flex w-full flex-row justify-center">
                 <h1

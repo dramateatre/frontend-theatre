@@ -13,11 +13,7 @@ async function fetchData(locale: string) {
         })
         return response.data
     } catch (error) {
-        console.warn('Error fetching data:', error)
-        // Return a fallback data structure
-        return {
-            data: [],
-        }
+        return []
     }
 }
 
@@ -26,6 +22,8 @@ export default async function Page({ params: { locale } }: { params: { locale: s
     const { t } = await initTranslations(locale, i18nNamespaces)
 
     const data = await fetchData(locale)
+
+    if (!data.data.length) return null
 
     return (
         <main className="flex min-h-screen w-full justify-center px-6 py-10 md:px-7 lg:px-40 xl:px-64">

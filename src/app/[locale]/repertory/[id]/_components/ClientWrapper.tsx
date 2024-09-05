@@ -13,7 +13,6 @@ import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewe
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
-    const router = useRouter()
     const params = useParams()
     const locale = params.locale
     const [isClient, setIsClient] = useState(false)

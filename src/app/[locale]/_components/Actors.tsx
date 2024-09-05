@@ -33,23 +33,23 @@ export default function Actors({ data }: any) {
                 }}
                 className="flex w-full justify-center"
             >
-                <CarouselContent className="w-full py-5 pr-10 lg:pr-7 xl:pl-6 xl:pr-10">
+                <CarouselContent className="w-full py-5 pr-16 lg:pr-7 xl:pl-6 xl:pr-10">
                     {data.map((item: any, index: any) => (
                         <CarouselItem
                             key={index}
-                            className="pl-8 sm:basis-1/2 lg:basis-1/3 lg:pl-7 xl:basis-1/5 xl:pl-6"
+                            className="pl-10 sm:basis-1/2 lg:basis-1/3 lg:pl-7 xl:basis-1/5 xl:pl-6"
                         >
                             <Link href={`/creative-group/${item.id}`}>
-                                <div className="relative flex h-[220px] w-full items-center justify-center overflow-hidden rounded-[5px]">
+                                <div className="relative flex h-[240px] w-full items-center justify-center overflow-hidden rounded-[5px]">
                                     <Image
                                         fill
                                         src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
                                         alt="123123"
                                         className="h-fullw-full object-cover"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                                        <div className="flex w-full flex-row justify-center gap-2">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90" />
+                                    <div className="absolute bottom-0 left-0 right-0">
+                                        <div className="flex w-full flex-row items-center justify-center gap-1 bg-white/20 pb-2 pt-1">
                                             <h3>{item.attributes && item.attributes.firstname}</h3>
                                             <h3>{item.attributes && item.attributes.lastname}</h3>
                                         </div>

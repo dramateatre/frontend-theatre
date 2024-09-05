@@ -20,18 +20,33 @@ const LangChoose = ({ className, spanClassname }: LangChooseProps) => {
     const newLocale = currentLocale === 'ka' ? 'en' : 'ka'
 
     const newsAlternateLocales = useStore((state) => state.newsAlternateLocales)
+    const creativeGroupAlternateLocales = useStore((state) => state.creativeGroupAlternateLocales)
+    const troupeAlternateLocales = useStore((state) => state.troupeAlternateLocales)
 
     const handleLangSwitch = () => {
         const newLocale = currentLocale === 'ka' ? 'en' : 'ka'
+
+        let newPath = ''
+
         if (currentLocale === i18nConfig.defaultLocale) {
-            router.push('/' + newLocale + currentPathname)
+            newPath = '/' + newLocale + currentPathname
         } else {
-            router.push(currentPathname.replace(`/${currentLocale}`, `/${newLocale}`))
-        }
-        if (newsAlternateLocales && id) {
-            router.replace(`/${newLocale}/news/${newsAlternateLocales}`)
+            newPath = currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
         }
 
+        if (newsAlternateLocales && currentPathname.includes('/news/') && id) {
+            newPath = `/${newLocale}/news/${newsAlternateLocales}`
+        } else if (
+            creativeGroupAlternateLocales &&
+            currentPathname.includes('/creative-group/') &&
+            id
+        ) {
+            newPath = `/${newLocale}/creative-group/${creativeGroupAlternateLocales}`
+        } else if (troupeAlternateLocales && currentPathname.includes('/troupe/') && id) {
+            newPath = `/${newLocale}/troupe/${troupeAlternateLocales}`
+        }
+
+        router.push(newPath)
         router.refresh()
     }
 
