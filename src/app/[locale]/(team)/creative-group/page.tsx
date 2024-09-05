@@ -13,7 +13,6 @@ async function fetchData(locale: string) {
         })
         return response.data.data
     } catch (error) {
-        console.error('Error fetching data:', error)
         return []
     }
 }
@@ -30,12 +29,12 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             >
                 {t('creativeGroup')}
             </h1>
-            <div className="grid h-auto w-full grid-cols-2 gap-x-5 gap-y-7 md:grid-cols-6 md:gap-y-10">
+            <div className="grid h-auto w-full grid-cols-2 gap-x-10 gap-y-7 md:grid-cols-4 md:gap-y-10">
                 {data.map((item: any, index: number) => (
                     <Link href={`/creative-group/${item.id}`}>
                         <div
                             key={index}
-                            className="group relative z-10 h-40 w-full cursor-pointer overflow-hidden rounded-lg shadow-lg transition-all duration-300 ease-in-out md:h-48 md:hover:z-10 md:hover:scale-110"
+                            className="group relative z-10 h-40 w-full cursor-pointer overflow-hidden rounded-lg shadow-lg transition-all duration-300 ease-in-out md:h-72 md:hover:z-10 md:hover:scale-110"
                         >
                             {item?.attributes?.image?.data && (
                                 <Image
