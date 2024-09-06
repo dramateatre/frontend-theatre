@@ -72,7 +72,7 @@ export default async function page({
                                         {item.attributes.header}
                                     </h1>
                                     <div className="my-2 h-[1px] w-full bg-white"></div>
-                                    <div className="line-clamp-7 h-24 overflow-hidden text-ellipsis text-xs text-white">
+                                    <div className="line-clamp-7 h-20 overflow-hidden text-ellipsis text-sm text-white">
                                         <BlocksRenderer content={item.attributes.description} />
                                     </div>
                                 </div>

@@ -11,26 +11,26 @@ export default function Contact() {
     const { t } = useTranslation()
 
     const onSubmit = async (event: any) => {
-        // event.preventDefault()
-        // setResult('Sending....')
-        // const formData = new FormData(event.target)
-        // formData.append('access_key', `${process.env.ACCESS_KEY}`)
-        // const response = await fetch('https://api.web3forms.com/submit', {
-        //     method: 'POST',
-        //     body: formData,
-        // })
-        // const data = await response.json()
-        // if (data.success) {
-        //     setResult('Form Submitted Successfully')
-        //     event.target.reset()
-        // } else {
-        //     setResult(data.message)
-        // }
+        event.preventDefault()
+        setResult('Sending....')
+        const formData = new FormData(event.target)
+        formData.append('access_key', `${process.env.NEXT_PUBLIC_ACCESS_KEY}`)
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData,
+        })
+        const data = await response.json()
+        if (data.success) {
+            setResult(t('successfullySend'))
+            event.target.reset()
+        } else {
+            setResult(data.message)
+        }
     }
 
     return (
         <section className="h-auto w-full px-6 md:px-7 lg:px-40 xl:px-64">
-            <div className="bg-card-gradient relative h-full w-full rounded-[10px] bg-[#0f1017] bg-opacity-100 shadow-custom">
+            <div className="relative h-full w-full rounded-[10px] bg-[#0f1017] bg-opacity-100 bg-card-gradient shadow-custom">
                 <div className="absolute right-6 top-8 flex h-auto w-full flex-row items-center md:right-7 lg:right-64">
                     <div className="h-[1px] w-3/5 bg-white lg:w-4/5"></div>
                     <span className="ml-4 text-sm uppercase text-white">{t('contactUs')}</span>

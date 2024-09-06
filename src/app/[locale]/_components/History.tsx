@@ -33,12 +33,13 @@ export default function History() {
                         </div>
                     </div>
                 </div>
-
-                <h1
-                    className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-lg text-white md:hidden`}
-                >
-                    {t('findMore')}
-                </h1>
+                <Link href="/history">
+                    <span
+                        className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-lg text-white underline md:hidden`}
+                    >
+                        {t('findMore')}
+                    </span>
+                </Link>
 
                 <div className="relative flex w-full flex-col items-end md:items-center md:pr-10">
                     <div className="flex w-full flex-col items-center md:gap-3">

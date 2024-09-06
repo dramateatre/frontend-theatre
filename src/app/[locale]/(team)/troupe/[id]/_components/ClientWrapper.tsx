@@ -40,7 +40,7 @@ export default function ClientWrapper({ data }: any) {
                             <AvatarImage data={data} />
                         </div>
                         <div className="w-full px-3">
-                            <div className="flex flex-row items-center gap-2 py-2 md:hidden">
+                            <div className="flex flex-row items-center justify-center gap-2 py-2 md:hidden">
                                 <span className="my-1 text-lg">{data?.attributes?.firstname}</span>
                                 <span className="my-1 text-lg">{data?.attributes?.lastname}</span>
                             </div>

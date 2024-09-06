@@ -8,5 +8,10 @@
     "administration": "Administration",
     "descriptionAdministration": "Theatre administration",
     "troupe": "Troupe",
-    "descriptionTrouep": "Batumi Theater Troupe"
+    "descriptionTrouep": "Batumi Theater Troupe",
+    "salaryTickets": "Tickets",
+    "descriptionTickets": "Buy tickets both at the theater box office and online.",
+    "contact": "Contact",
+    "descriptionContact": "Batumi Drama Theatre - Rustaveli avenue #1; Small stage- A. Melashvili #32",
+    "succesfullySend": "Successfuyl"
 }

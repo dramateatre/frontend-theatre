@@ -3,6 +3,24 @@ import initTranslations from '@/libs/i18n/i18n'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import PhotoViewers from './_components/PhotoViewers'
 
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+    const i18nNamespaces = ['meta']
+    const { t } = await initTranslations(locale, i18nNamespaces)
+
+    return {
+        title: t('salaryTickets'),
+        description: t('descriptionTickets'),
+        openGraph: {
+            title: t('salaryTickets'),
+            description: t('descriptionTickets'),
+            type: 'website',
+            locale: locale,
+            url: 'https://batumitheatre.ge/tickets',
+            siteName: 'Batumi Theatre',
+        },
+    }
+}
+
 async function fetchData(locale: string) {
     try {
         const response = await axiosInstance.get('/box-offices', {
@@ -20,7 +38,6 @@ async function fetchData(locale: string) {
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
     const i18nNamespaces = ['main']
     const { t } = await initTranslations(locale, i18nNamespaces)
-
     const data = await fetchData(locale)
 
     if (!data.data.length) return null
