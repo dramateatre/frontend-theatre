@@ -26,7 +26,7 @@ export default function Header() {
         <div
             className={` ${locale === 'en' ? 'text-base' : 'text-base'} shadow-xs relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-[#151721] bg-header-gradient px-6 py-5 backdrop-blur-none md:h-28 md:pr-7 lg:px-20`}
         >
-            <Link href="/" className="relative h-full w-auto cursor-pointer">
+            <Link href="/" className="relative h-12 w-24 cursor-pointer md:h-full md:w-auto">
                 <Image src={Logo2} alt="Logo" className="h-full w-full object-cover" />
             </Link>
 
