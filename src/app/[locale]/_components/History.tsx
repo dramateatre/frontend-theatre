@@ -33,13 +33,12 @@ export default function History() {
                         </div>
                     </div>
                 </div>
-                <Link href="/history">
-                    <span
-                        className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-lg text-white underline md:hidden`}
-                    >
-                        {t('findMore')}
-                    </span>
-                </Link>
+
+                <span
+                    className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-lg text-white underline md:hidden`}
+                >
+                    <Link href="/history">{t('findMore')}</Link>
+                </span>
 
                 <div className="relative flex w-full flex-col items-end md:items-center md:pr-10">
                     <div className="flex w-full flex-col items-center md:gap-3">
@@ -61,7 +60,7 @@ export default function History() {
                             <Image
                                 src={New}
                                 alt="New Image"
-                                className="h-full w-full border border-white object-cover shadow-customWhiteSmall md:h-[250px] lg:h-[400px]"
+                                className="h-full w-full border border-white object-cover shadow-customWhiteSmall md:h-[220px] lg:h-[400px]"
                             />
                         </div>
                     </div>

@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { useMediaQuery } from 'react-responsive'
+import { ArrowRight } from '@/components/svg'
 
 export default function Actors({ data }: any) {
     const { t } = useTranslation()
@@ -40,7 +41,7 @@ export default function Actors({ data }: any) {
                             className="pl-10 sm:basis-1/2 lg:basis-1/3 lg:pl-7 xl:basis-1/5 xl:pl-6"
                         >
                             <Link href={`/creative-group/${item.id}`}>
-                                <div className="relative flex h-[240px] w-full items-center justify-center overflow-hidden rounded-[5px]">
+                                <div className="relative flex h-[240px] w-full items-center justify-center overflow-hidden rounded-[8px]">
                                     <Image
                                         fill
                                         src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
@@ -60,6 +61,14 @@ export default function Actors({ data }: any) {
                     ))}
                 </CarouselContent>
             </Carousel>
+            <div className="hidden w-full justify-end pr-20 md:flex">
+                <Link href="/creative-group">
+                    <button className="flex w-auto items-center gap-2 text-sm underline-offset-2 hover:underline">
+                        {t('viewMoreNews')}
+                        <ArrowRight className="mt-1" />
+                    </button>
+                </Link>
+            </div>
         </section>
     )
 }

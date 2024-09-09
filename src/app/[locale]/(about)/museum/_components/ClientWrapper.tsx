@@ -13,6 +13,7 @@ export default function ClientWrapper({ data }: any) {
     const params = useParams()
     const locale = params.locale
     const [galleryType, setGalleryType] = useState(false)
+    console.log(data)
 
     if (!data) return null
 
@@ -28,7 +29,7 @@ export default function ClientWrapper({ data }: any) {
             <div className="flex w-full flex-col gap-5 md:block">
                 {data.length && (
                     <div className="relative h-[280px] w-full cursor-zoom-in rounded-[4px] border border-white md:float-left md:mr-5 md:h-[400px] md:w-[400px]">
-                        <ReactPhotoViewer data={data} />
+                        <ReactPhotoViewer data={data[0]} />
                     </div>
                 )}
                 {data.length && (

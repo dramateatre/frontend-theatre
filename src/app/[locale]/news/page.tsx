@@ -34,7 +34,7 @@ export default async function page({
     const i18nNamespaces = ['main']
     const { t } = await initTranslations(locale, i18nNamespaces)
     const page = Number(searchParams.page) || 1
-    const pageSize = 10
+    const pageSize = 5
     const data = await fetchData(locale, page, pageSize)
 
     return (

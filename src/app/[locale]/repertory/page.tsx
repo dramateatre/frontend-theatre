@@ -21,7 +21,6 @@ async function fetchData(locale: string, page: number, pageSize: number) {
         })
         return response.data
     } catch (error) {
-        console.error('Error fetching data:', error)
         return []
     }
 }
@@ -37,7 +36,7 @@ export default async function page({
     const { t } = await initTranslations(locale, i18nNamespaces)
 
     const page = Number(searchParams.page) || 1
-    const pageSize = 10
+    const pageSize = 5
     const data = await fetchData(locale, page, pageSize)
 
     return (
@@ -73,24 +72,30 @@ export default async function page({
                             <div className="flex h-auto flex-col justify-between gap-5 bg-[#0f1017] bg-poster-gradient py-3 md:order-2 md:w-[40%] md:py-4 lg:w-[30%]">
                                 <h1 className="text-center text-xl">{item.attributes?.header}</h1>
                                 <div className="flex h-full flex-col justify-center gap-1 px-2 md:px-6">
-                                    <span className="line-clamp-2">
-                                        <span className="text-sm">{t('author')}</span>
-                                        <span className="ml-2 text-sm">
-                                            {item.attributes?.author}
+                                    {item.attributes?.author && (
+                                        <span className="line-clamp-2">
+                                            <span className="text-sm">{t('author')}</span>
+                                            <span className="ml-2 text-sm">
+                                                {item.attributes?.author}
+                                            </span>
                                         </span>
-                                    </span>
-                                    <span className="line-clamp-2">
-                                        <span className="text-sm">{t('director')}</span>
-                                        <span className="ml-2 text-sm">
-                                            {item.attributes?.director}
+                                    )}
+                                    {item.attributes?.director && (
+                                        <span className="line-clamp-2">
+                                            <span className="text-sm">{t('director')}</span>
+                                            <span className="ml-2 text-sm">
+                                                {item.attributes?.director}
+                                            </span>
                                         </span>
-                                    </span>
-                                    <span className="line-clamp-1">
-                                        <span className="text-sm">{t('performance')}</span>
-                                        <span className="ml-2 text-sm">
-                                            {item.attributes?.performance}
+                                    )}
+                                    {item.attributes?.performance && (
+                                        <span className="line-clamp-1">
+                                            <span className="text-sm">{t('performance')}</span>
+                                            <span className="ml-2 text-sm">
+                                                {item.attributes?.performance}
+                                            </span>
                                         </span>
-                                    </span>
+                                    )}
                                     <span className="line-clamp-2">
                                         <span className="text-sm">{t('duration')}</span>
                                         <span className="ml-2 text-sm">
@@ -102,14 +107,18 @@ export default async function page({
                                         </span>
                                     </span>
 
-                                    <span className="line-clamp-2">
-                                        <span className="text-sm">{t('ticketPrice')}</span>
-                                        <span className="ml-2 text-sm">
-                                            {item.attributes?.ticketPrice} ₾
-                                        </span>
-                                    </span>
                                     {item.attributes?.poster && (
                                         <>
+                                            {item.attributes?.ticketPrice && (
+                                                <span className="line-clamp-2">
+                                                    <span className="text-sm">
+                                                        {t('ticketPrice')}
+                                                    </span>
+                                                    <span className="ml-2 text-sm">
+                                                        {item.attributes?.ticketPrice} ₾
+                                                    </span>
+                                                </span>
+                                            )}
                                             {item.attributes?.premiereDate1 && (
                                                 <span className="flex flex-row items-center gap-2">
                                                     <Calendar className="text-base" />
