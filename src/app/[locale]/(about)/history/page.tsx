@@ -21,7 +21,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: 'Batumi Theatre',
             images: [
                 {
-                    url: '/imgs/OldTheatre.jpg', // Updated to use an absolute path
+                    url: '/imgs/OldTheatre.jpg',
                 },
             ],
         },
@@ -38,7 +38,6 @@ async function fetchData(locale: string) {
         })
         return { data: response.data, error: null }
     } catch (error) {
-        console.warn('Error fetching data:', error)
         return {
             data: [],
         }
@@ -104,7 +103,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             {error ? (
                 <div className="mt-4 text-center text-white">{error}</div>
             ) : (
-                <ContentWithToggle data={data[0]?.attributes?.description} />
+                <ContentWithToggle data={data.data} />
             )}
         </div>
     )

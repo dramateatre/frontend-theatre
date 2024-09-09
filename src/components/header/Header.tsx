@@ -24,9 +24,9 @@ export default function Header() {
 
     return (
         <div
-            className={` ${locale === 'en' ? 'text-base' : 'text-base'} bg-header-gradient shadow-xs relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-[#151721] px-6 py-5 backdrop-blur-none md:h-28 md:pr-7 lg:px-20`}
+            className={` ${locale === 'en' ? 'text-base' : 'text-base'} shadow-xs relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-[#151721] bg-header-gradient px-6 py-5 backdrop-blur-none md:h-28 md:pr-7 lg:px-20`}
         >
-            <Link href="/" className="h-full w-auto cursor-pointer">
+            <Link href="/" className="relative h-full w-auto cursor-pointer">
                 <Image src={Logo2} alt="Logo" className="h-full w-full object-cover" />
             </Link>
 
@@ -49,7 +49,7 @@ export default function Header() {
                                 <ArrowDown className="mt-1 fill-white text-xs" />
                             </div>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent className="bg-header-gradient inset-0 mt-3 overflow-hidden rounded-[4px] border-none text-white opacity-100">
+                        <DropdownMenuContent className="inset-0 mt-3 overflow-hidden rounded-[4px] border-none bg-header-gradient text-white opacity-100">
                             <DropdownMenuGroup>
                                 <DropdownMenuItem asChild>
                                     <Link href="/history">
@@ -75,7 +75,7 @@ export default function Header() {
                                 <ArrowDown className="mt-1 fill-white text-xs" />
                             </div>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent className="bg-header-gradient inset-0 mt-3 overflow-hidden rounded-[4px] border-none text-white">
+                        <DropdownMenuContent className="inset-0 mt-3 overflow-hidden rounded-[4px] border-none bg-header-gradient text-white">
                             <DropdownMenuGroup>
                                 <DropdownMenuItem asChild>
                                     <Link href="/administration">

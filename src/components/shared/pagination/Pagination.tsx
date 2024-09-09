@@ -40,22 +40,22 @@ export default function Pagination({ currentPage, totalPages }: any) {
             pageRangeDisplayed={3}
             marginPagesDisplayed={2}
             previousLabel={
-                <div className="flex h-full items-center rounded-full p-1 text-sm hover:bg-slate-200">
-                    <ArrowRight className="h-4 w-4 rotate-180 rounded-full sm:h-5 sm:w-5" />
+                <div className="flex h-full items-center rounded-full p-1 text-sm hover:bg-slate-500">
+                    <ArrowRight className="h-4 w-4 rotate-180 rounded-full" />
                 </div>
             }
             nextLabel={
-                <div className="flex h-full items-center rounded-full p-1 text-sm hover:bg-slate-200">
-                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+                <div className="flex h-full items-center rounded-full p-1 text-sm hover:bg-slate-500">
+                    <ArrowRight className="h-4 w-4" />
                 </div>
             }
             onPageChange={handlePageChange}
             forcePage={page - 1}
-            previousClassName="text-sm"
-            containerClassName="flex flex-row gap-2 w-full justify-center items-center"
-            pageClassName="h-full flex items-center justify-center border border-slate-400 hover:bg-slate-200 rounded-sm cursor-pointer"
-            activeClassName="bg-slate-300"
-            pageLinkClassName="h-7 w-7 lg:w-7 lg:h-6 flex items-center justify-center text-[##484848]"
+            previousClassName="text-sm text-white"
+            containerClassName="flex flex-row gap-2 w-full justify-center items-center text-white"
+            pageClassName="h-full text-white  flex items-center justify-center  border border-slate-400 hover:bg-slate-500 rounded-[50%] cursor-pointer"
+            activeClassName="bg-none text-white"
+            pageLinkClassName="h-7 w-7 lg:w-7 lg:h-6 flex items-center justify-center text-white"
         />
     )
 }

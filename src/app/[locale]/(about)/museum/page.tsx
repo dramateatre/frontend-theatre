@@ -35,7 +35,6 @@ async function fetchData(locale: string) {
         })
         return response.data
     } catch (error) {
-        console.warn('Error fetching data:', error)
         return {
             data: [],
         }
@@ -44,8 +43,6 @@ async function fetchData(locale: string) {
 
 export default async function page({ params: { locale } }: { params: { locale: string } }) {
     const { data } = await fetchData(locale)
-
-    
 
     return <ClientWrapper data={data} />
 }

@@ -3,6 +3,7 @@ import { useParams } from 'next/navigation'
 import { Social } from '../shared/socialIcons/SocialIcons'
 import { HomePhoneCall, Message, PhoneCall } from '../svg'
 import { useTranslation } from 'react-i18next'
+import Link from 'next/link'
 
 export default function Footer() {
     const { t } = useTranslation()
@@ -21,23 +22,24 @@ export default function Footer() {
                 </h1>
                 <div className="grid grid-flow-col grid-cols-2 grid-rows-4 items-center gap-5 text-sm text-white lg:gap-x-20">
                     <span className="cursor-pointer underline-offset-2 hover:underline">
-                        {t('main')}
+                        <Link href="/"> {t('main')}</Link>
+                    </span>
+
+                    <span className="cursor-pointer underline-offset-2 hover:underline">
+                        <Link href="/news"> {t('news')}</Link>
                     </span>
                     <span className="cursor-pointer underline-offset-2 hover:underline">
-                        {t('news')}
+                        <Link href="/repertory"> {t('repertory')}</Link>
                     </span>
                     <span className="cursor-pointer underline-offset-2 hover:underline">
-                        {t('repertory')}
+                        <Link href="/team"> {t('team')}</Link>
+                    </span>
+
+                    <span className="cursor-pointer underline-offset-2 hover:underline">
+                        <Link href="/about"> {t('about')}</Link>
                     </span>
                     <span className="cursor-pointer underline-offset-2 hover:underline">
-                        {t('team')}
-                    </span>
-                    <span className="cursor-pointer underline-offset-2 hover:underline"></span>
-                    <span className="cursor-pointer underline-offset-2 hover:underline">
-                        {t('about')}
-                    </span>
-                    <span className="cursor-pointer underline-offset-2 hover:underline">
-                        {t('contact')}
+                        <Link href="/contact"> {t('contact')}</Link>
                     </span>
                 </div>
                 <div className="flex flex-col">

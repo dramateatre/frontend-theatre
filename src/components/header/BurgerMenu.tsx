@@ -1,5 +1,4 @@
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-
 import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -54,16 +53,93 @@ export function BurgerMenu() {
                         <Accordion type="single" collapsible className="w-full">
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>{t('team')}</AccordionTrigger>
-                                <AccordionContent>{t('troupe')}</AccordionContent>
-                                <AccordionContent>{t('creativeGroup')}</AccordionContent>
-                                <AccordionContent>{t('administration')}</AccordionContent>
+                                <AccordionContent>
+                                    <SheetTrigger asChild>
+                                        <Link href="/troupe">
+                                            <span
+                                                className={
+                                                    isActive(['/troupe', '/en/troupe'])
+                                                        ? 'underline'
+                                                        : ''
+                                                }
+                                            >
+                                                {t('troupe')}
+                                            </span>
+                                        </Link>
+                                    </SheetTrigger>
+                                </AccordionContent>
+                                <AccordionContent>
+                                    <SheetTrigger asChild>
+                                        <Link href="/creative-group">
+                                            <span
+                                                className={
+                                                    isActive([
+                                                        '/creative-group',
+                                                        '/en/creative-group',
+                                                    ])
+                                                        ? 'underline'
+                                                        : ''
+                                                }
+                                            >
+                                                {t('creativeGroup')}
+                                            </span>
+                                        </Link>
+                                    </SheetTrigger>
+                                </AccordionContent>
+                                <AccordionContent>
+                                    <SheetTrigger asChild>
+                                        <Link href="/administration">
+                                            <span
+                                                className={
+                                                    isActive([
+                                                        '/administration',
+                                                        '/en/administration',
+                                                    ])
+                                                        ? 'underline'
+                                                        : ''
+                                                }
+                                            >
+                                                {t('administration')}
+                                            </span>
+                                        </Link>
+                                    </SheetTrigger>
+                                </AccordionContent>
                             </AccordionItem>
                         </Accordion>
+
                         <Accordion type="single" collapsible className="w-full">
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>{t('about')}</AccordionTrigger>
-                                <AccordionContent>{t('theatreHistory')}</AccordionContent>
-                                <AccordionContent>{t('museum')}</AccordionContent>
+                                <AccordionContent>
+                                    <SheetTrigger asChild>
+                                        <Link href="/history">
+                                            <span
+                                                className={
+                                                    isActive(['/history', '/en/history'])
+                                                        ? 'underline'
+                                                        : ''
+                                                }
+                                            >
+                                                {t('theatreHistory')}
+                                            </span>
+                                        </Link>
+                                    </SheetTrigger>
+                                </AccordionContent>
+                                <AccordionContent>
+                                    <SheetTrigger asChild>
+                                        <Link href="/museum">
+                                            <span
+                                                className={
+                                                    isActive(['/museum', '/en/museum'])
+                                                        ? 'underline'
+                                                        : ''
+                                                }
+                                            >
+                                                {t('museum')}
+                                            </span>
+                                        </Link>
+                                    </SheetTrigger>
+                                </AccordionContent>
                             </AccordionItem>
                         </Accordion>
                         <SheetTrigger asChild>
@@ -114,18 +190,10 @@ export function BurgerMenu() {
                         </div>
                         <div className="mt-4 h-[2px] w-full bg-[#DADDE7]"></div>
                         <div className="mt-6 flex w-full flex-row items-center justify-end gap-6">
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://www.facebook.com/Chateauiveri"
-                            >
+                            <a target="_blank" rel="noopener noreferrer" href="#">
                                 <FbIcon className="h-7 w-7 cursor-pointer" />
                             </a>
-                            <a
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://www.instagram.com/chateau.iveri"
-                            >
+                            <a target="_blank" rel="noopener noreferrer" href="#">
                                 <InstaIcon className="h-7 w-7 cursor-pointer" />
                             </a>
                             <a

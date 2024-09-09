@@ -34,8 +34,8 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             description: t('descriptionMain'),
             type: 'website',
             locale: locale,
-            url: 'https://www.chateauiveri.ge',
-            siteName: 'Chateau Iveri',
+            url: 'https://batumitheatre.ge/',
+            siteName: 'Batumi Drama Theatre',
         },
     }
 }

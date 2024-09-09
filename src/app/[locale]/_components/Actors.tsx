@@ -16,7 +16,6 @@ export default function Actors({ data }: any) {
     const isDesktop = useMediaQuery({
         query: '(min-width: 1440px)',
     })
-    console.log(data)
 
     if (!data?.length) return null
 

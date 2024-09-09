@@ -13,7 +13,7 @@ export default function ClientWrapper({ data }: any) {
     const params = useParams()
     const locale = params.locale
     const [galleryType, setGalleryType] = useState(false)
-    console.log(data)
+ 
 
     if (!data) return null
 
