@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import { useParams, useRouter } from 'next/navigation'
 import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
 import ReactGalleryViewer from '@/components/shared/reactPhotoView/ReactGalleryViewer'
+import ReactVideoPlayer from '@/components/shared/reactPhotoView/ReactVideoViewer'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -110,7 +111,9 @@ export default function ClientWrapper({ data }: any) {
                             {!galleryType ? (
                                 <ReactGalleryViewer data={data} />
                             ) : (
-                                <div className="w-full text-center text-white">video</div>
+                                <div>
+                                    <ReactVideoPlayer data={data} />
+                                </div>
                             )}
                         </div>
                     )}

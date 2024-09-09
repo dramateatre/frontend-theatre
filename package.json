@@ -33,6 +33,7 @@
     "react-photo-album": "^3.0.1",
     "react-photo-view": "^1.2.6",
     "react-responsive": "^10.0.0",
+    "react-youtube": "^10.1.0",
     "remark-gfm": "^4.0.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",

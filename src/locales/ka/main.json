@@ -42,5 +42,7 @@
     "stage": "სცენა",
     "smallStage": "პატარა სცენა",
     "bigStage": "დიდი სცენა",
-    "successfullySend": "წარმატებით გაიგზავნა"
+    "successfullySend": "წარმატებით გაიგზავნა",
+    "noVideo": "კონტენტს არ აქვს ვიდეო",
+    "noPhoto": "კონტენტს არ აქვს ფოტო"
 }

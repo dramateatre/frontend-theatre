@@ -10,6 +10,12 @@ import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
+// import ReactVideoPlayer from '@/components/shared/reactPhotoView/ReactVideoViewer'
+import dynamic from 'next/dynamic'
+const ReactVideoPlayer = dynamic(
+    () => import('@/components/shared/reactPhotoView/ReactVideoViewer'),
+    { ssr: false }
+)
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -160,7 +166,7 @@ export default function ClientWrapper({ data }: any) {
                         <span className="text-sm">
                             <BlocksRenderer content={data.attributes?.description} />
                         </span>
-                        {data?.attributes?.gallery?.data && (
+                        {true && (
                             <div className="flex w-full flex-col gap-5 pt-10">
                                 <Button className="text text-center text-2xl font-normal italic tracking-widest">
                                     {t('gallery')}
@@ -202,7 +208,9 @@ export default function ClientWrapper({ data }: any) {
                                         <ReactGalleryViewer data={data} />
                                     </div>
                                 ) : (
-                                    <div className="w-full text-center">video </div>
+                                    <div>
+                                        <ReactVideoPlayer data={data} />
+                                    </div>
                                 )}
                             </div>
                         )}

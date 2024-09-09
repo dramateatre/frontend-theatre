@@ -7,13 +7,13 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
 import { useParams } from 'next/navigation'
+import ReactVideoPlayer from '@/components/shared/reactPhotoView/ReactVideoViewer'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
     const params = useParams()
     const locale = params.locale
     const [galleryType, setGalleryType] = useState(false)
- 
 
     if (!data) return null
 
@@ -80,7 +80,9 @@ export default function ClientWrapper({ data }: any) {
                             <ReactGalleryViewer data={data[0]} />
                         </div>
                     ) : (
-                        <div className="w-full text-center">video </div>
+                        <div>
+                            <ReactVideoPlayer data={data[0]} />
+                        </div>
                     )}
                 </div>
             )}

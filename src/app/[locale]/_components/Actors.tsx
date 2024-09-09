@@ -47,7 +47,7 @@ export default function Actors({ data }: any) {
                                         alt="123123"
                                         className="h-fullw-full object-cover"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90" />
+
                                     <div className="absolute bottom-0 left-0 right-0">
                                         <div className="flex w-full flex-row items-center justify-center gap-1 bg-white/20 pb-2 pt-1">
                                             <h3>{item.attributes && item.attributes.firstname}</h3>

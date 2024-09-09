@@ -42,5 +42,7 @@
     "stage": "Stage",
     "smallStage": "Small stage",
     "bigStage": "Big stage",
-    "successfullySend": "Submitted Successfully"
+    "successfullySend": "Submitted Successfully",
+    "noVideo": "Content don't have video",
+    "noPhoto": "Content don't have photo"
 }
