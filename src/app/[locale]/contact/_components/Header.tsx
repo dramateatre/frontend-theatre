@@ -1,15 +1,36 @@
 'use client'
 
-import { FbIcon, InstaIcon, WhatsappIcon } from '@/components/svg'
+import axiosInstance from '@/AxiosInstance'
+import { FbIcon, HomePhoneCall, InstaIcon, PhoneCall, WhatsappIcon } from '@/components/svg'
 import { useParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 function Header() {
     const { t } = useTranslation()
     const params = useParams()
     const locale = params.locale
+    const [data, setData] = useState<any>([])
+
+    const fetchData = async () => {
+        try {
+            const response = await axiosInstance.get('/contacts', {
+                params: {
+                    locale: locale,
+                },
+            })
+            setData(response.data.data[0])
+        } catch (error) {
+            setData([])
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     return (
-        <section className="flex h-auto w-full flex-col items-center gap-6 px-6 text-white md:gap-10">
+        <section className="flex h-auto w-full flex-col items-center gap-6 px-6 text-white md:gap-10 md:px-7 lg:px-40 xl:px-64">
             <h1
                 className={`text-center ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} pb-5 text-2xl lg:text-4xl`}
             >
@@ -19,47 +40,76 @@ function Header() {
                 <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://www.google.com/maps/dir/?api=1&destination=41.643173265504%2C42.011096477509"
+                    href="https://maps.app.goo.gl/mhWLwYfrvdoQrqj56"
                 >
                     <span className="text-sm underline-offset-4 hover:underline">
                         <span className="font-semibold">{t('address')}: </span>
-                        {t('addressItem')}
+                        <span></span> {data.attributes?.address}
                     </span>
                 </a>
-                <div className="flex flex-row">
-                    <span className="text-sm font-semibold">{t('phone')}: </span>
-                    <a
-                        className="ml-2"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="tel:+55555555"
-                    >
-                        <span className="text-sm underline-offset-4 hover:underline">
-                            +995 555 55 55 55
-                        </span>
-                    </a>
-                    <a
-                        className="ml-2"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="tel:+99555555555"
-                    >
-                        <span className="text-sm underline-offset-4 hover:underline">
-                            +995 55555555
-                        </span>
-                    </a>
-                </div>
 
+                <div className="flex flex-col gap-2">
+                    <div className="flex flex-row items-center gap-4">
+                        <span className="text-sm font-semibold">{t('phone')}: </span>
+                        <a
+                            className="flex flex-row items-center gap-1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={`tel:+995${data.attributes?.mobile1}`}
+                        >
+                            <PhoneCall className="h-4 w-4" />
+                            <span className="text-sm underline-offset-4 hover:underline">
+                                {data.attributes?.mobile1}
+                            </span>
+                        </a>
+                        <a
+                            className="flex flex-row items-center gap-1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={`tel:+995${data.attributes?.mobile2}`}
+                        >
+                            <PhoneCall className="h-4 w-4" />
+                            <span className="text-sm underline-offset-4 hover:underline">
+                                {data.attributes?.mobile2}
+                            </span>
+                        </a>
+                    </div>
+                    <div className="flex flex-row gap-4">
+                        <a
+                            className="flex flex-row items-center gap-1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={`tel:+995${data.attributes?.phone1}`}
+                        >
+                            <HomePhoneCall className="h-4 w-4" />
+                            <span className="text-sm underline-offset-4 hover:underline">
+                                {data.attributes?.phone1}
+                            </span>
+                        </a>
+                        <a
+                            className="flex flex-row items-center gap-1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={`tel:+995${data.attributes?.phone2}`}
+                        >
+                            <HomePhoneCall className="h-4 w-4" />
+                            <span className="text-sm underline-offset-4 hover:underline">
+                                {data.attributes?.phone1}
+                            </span>
+                        </a>
+                    </div>
+                </div>
                 <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="mailto:batumidramatheatre@gmail.com"
+                    href={`mailto:${data.attributes?.email}`}
                 >
-                    <span className="text-sm underline-offset-4 hover:underline md:text-sm">
-                        <span className="font-semibold">{t('email')}: </span>
-                        batumidramatheatre@gmail.com
+                    <span className="flex gap-1 text-sm underline-offset-4 hover:underline">
+                        <span className="font-semibold">{t('address')}: </span>
+                        <span></span> {data.attributes?.email}
                     </span>
                 </a>
+
                 <div className="flex flex-row items-center gap-5">
                     <a target="_blank" rel="noopener noreferrer" href="#">
                         <FbIcon className="h-5 w-5" />

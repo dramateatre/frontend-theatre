@@ -16,6 +16,7 @@ async function fetchData(locale: string, page: number, pageSize: number) {
                     page: page,
                     pageSize: pageSize,
                 },
+                sort: 'date:desc',
             },
         })
         return response.data
@@ -46,63 +47,57 @@ export default async function page({
             >
                 {t('news')}
             </h1>
-            {data?.data
-                ?.sort(
-                    (a: any, b: any) =>
-                        new Date(b.attributes.date).getTime() -
-                        new Date(a.attributes.date).getTime()
-                )
-                .map((item: any, index: number) => (
-                    <Link href={`/news/${item.id}`}>
-                        <div
-                            key={index}
-                            className="relative z-50 flex h-[410px] w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:h-[200px] md:flex-row"
-                        >
-                            <div className="relative min-h-[200px] w-full md:w-[400px]">
-                                <Image
-                                    fill
-                                    src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
-                                    alt="Village"
-                                    className="object-cover object-center"
-                                />
-                            </div>
-                            <div className="flex h-full w-full flex-col items-start justify-between gap-3 bg-[#0f1017] bg-card-gradient px-3 pb-3 pt-3 md:px-6">
-                                <div className="flex w-full flex-col justify-between">
-                                    <h1 className="line-clamp-1 h-7 overflow-hidden text-ellipsis text-center text-base text-white md:text-left md:text-lg">
-                                        {item.attributes.header}
-                                    </h1>
-                                    <div className="my-2 h-[1px] w-full bg-white"></div>
-                                    <div className="line-clamp-7 h-20 overflow-hidden text-ellipsis text-sm text-white">
-                                        <BlocksRenderer content={item.attributes.description} />
-                                    </div>
+            {data?.data.map((item: any, index: number) => (
+                <Link href={`/news/${item.id}`}>
+                    <div
+                        key={index}
+                        className="relative z-50 flex h-[410px] w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:h-[200px] md:flex-row"
+                    >
+                        <div className="relative min-h-[200px] w-full md:w-[400px]">
+                            <Image
+                                fill
+                                src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
+                                alt="Village"
+                                className="object-cover object-center"
+                            />
+                        </div>
+                        <div className="flex h-full w-full flex-col items-start justify-between gap-3 bg-[#0f1017] bg-card-gradient px-3 pb-3 pt-3 md:px-6">
+                            <div className="flex w-full flex-col justify-between">
+                                <h1 className="line-clamp-1 h-7 overflow-hidden text-ellipsis text-center text-base text-white md:text-left md:text-lg">
+                                    {item.attributes.header}
+                                </h1>
+                                <div className="my-2 h-[1px] w-full bg-white"></div>
+                                <div className="line-clamp-7 h-20 overflow-hidden text-ellipsis text-sm text-white">
+                                    <BlocksRenderer content={item.attributes.description} />
                                 </div>
-                                <div className="flex w-full flex-col gap-1">
-                                    <div className="h-[1px] w-full bg-white"></div>
-                                    <div className="flex w-full items-center justify-between">
-                                        <div className="flex gap-2">
-                                            <Calendar />
-                                            <span className="text-sm text-white">
-                                                {new Date(
-                                                    item.attributes.date
-                                                        ? item.attributes.date
-                                                        : item.attributes.publishedAt
-                                                ).toLocaleString('en-US', {
-                                                    year: 'numeric',
-                                                    month: 'numeric',
-                                                    day: 'numeric',
-                                                })}
-                                            </span>
-                                        </div>
-
-                                        <button className="flex flex-row items-center justify-center text-sm text-white underline-offset-2 hover:underline">
-                                            {t('viewMore')}
-                                        </button>
+                            </div>
+                            <div className="flex w-full flex-col gap-1">
+                                <div className="h-[1px] w-full bg-white"></div>
+                                <div className="flex w-full items-center justify-between">
+                                    <div className="flex gap-2">
+                                        <Calendar />
+                                        <span className="text-sm text-white">
+                                            {new Date(
+                                                item.attributes.date
+                                                    ? item.attributes.date
+                                                    : item.attributes.publishedAt
+                                            ).toLocaleString('en-US', {
+                                                year: 'numeric',
+                                                month: 'numeric',
+                                                day: 'numeric',
+                                            })}
+                                        </span>
                                     </div>
+
+                                    <button className="flex flex-row items-center justify-center text-sm text-white underline-offset-2 hover:underline">
+                                        {t('viewMore')}
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </Link>
-                ))}
+                    </div>
+                </Link>
+            ))}
 
             <Pagination
                 currentPage={data?.meta?.pagination?.page}

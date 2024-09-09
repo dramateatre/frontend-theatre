@@ -1,14 +1,26 @@
-'use client'
-import { useParams } from 'next/navigation'
 import { Social } from '../shared/socialIcons/SocialIcons'
 import { HomePhoneCall, Message, PhoneCall } from '../svg'
-import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
+import axiosInstance from '@/AxiosInstance'
+import initTranslations from '@/libs/i18n/i18n'
 
-export default function Footer() {
-    const { t } = useTranslation()
-    const params = useParams()
-    const locale = params.locale
+async function fetchData(locale: string) {
+    try {
+        const response = await axiosInstance.get('/contacts', {
+            params: {
+                locale: locale,
+            },
+        })
+        return response.data
+    } catch (error) {
+        return []
+    }
+}
+
+export default async function Footer({ locale }: any) {
+    const i18nNamespaces = ['main']
+    const { t } = await initTranslations(locale, i18nNamespaces)
+    const data = await fetchData(locale)
 
     return (
         <section
@@ -31,13 +43,7 @@ export default function Footer() {
                     <span className="cursor-pointer underline-offset-2 hover:underline">
                         <Link href="/repertory"> {t('repertory')}</Link>
                     </span>
-                    <span className="cursor-pointer underline-offset-2 hover:underline">
-                        <Link href="/team"> {t('team')}</Link>
-                    </span>
 
-                    <span className="cursor-pointer underline-offset-2 hover:underline">
-                        <Link href="/about"> {t('about')}</Link>
-                    </span>
                     <span className="cursor-pointer underline-offset-2 hover:underline">
                         <Link href="/contact"> {t('contact')}</Link>
                     </span>
@@ -49,7 +55,12 @@ export default function Footer() {
                             <PhoneCall className="h-4 w-4" />
                             <a target="_blank" rel="noopener noreferrer" href="tel:+995577980858">
                                 <span className="text-sm text-white hover:underline">
-                                    577 980 858
+                                    {data?.data[0]?.attributes?.mobile1}
+                                </span>
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="tel:+995577980858">
+                                <span className="text-sm text-white hover:underline">
+                                    {data?.data[0]?.attributes?.mobile2}
                                 </span>
                             </a>
                         </div>
@@ -57,7 +68,12 @@ export default function Footer() {
                             <HomePhoneCall className="h-5 w-5" />
                             <a target="_blank" rel="noopener noreferrer" href="tel:0422 27 31 80 ">
                                 <span className="text-sm text-white hover:underline">
-                                    0422 27 31 80
+                                    {data?.data[0]?.attributes?.phone1}
+                                </span>
+                            </a>
+                            <a target="_blank" rel="noopener noreferrer" href="tel:0422 27 31 80 ">
+                                <span className="text-sm text-white hover:underline">
+                                    {data?.data[0]?.attributes?.phone2}
                                 </span>
                             </a>
                         </div>
@@ -70,7 +86,7 @@ export default function Footer() {
                                 href="mailto:batumidramatheatre@gmail.com"
                             >
                                 <span className="text-sm text-white hover:underline">
-                                    batumidramatheatre@gmail.com
+                                    {data?.data[0]?.attributes?.email}
                                 </span>
                             </a>
                         </div>

@@ -54,7 +54,7 @@ export default function Pagination({ currentPage, totalPages }: any) {
             previousClassName="text-sm text-white"
             containerClassName="flex flex-row gap-2 w-full justify-center items-center text-white"
             pageClassName="h-full text-white  flex items-center justify-center  border border-slate-400 hover:bg-slate-500 rounded-[50%] cursor-pointer"
-            activeClassName="bg-none text-white"
+            activeClassName="bg-slate-500"
             pageLinkClassName="h-7 w-7 lg:w-7 lg:h-6 flex items-center justify-center text-white"
         />
     )
