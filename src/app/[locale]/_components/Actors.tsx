@@ -39,23 +39,29 @@ export default function Actors({ data }: any) {
                             key={index}
                             className="pl-10 sm:basis-1/2 lg:basis-1/3 lg:pl-7 xl:basis-1/5 xl:pl-6"
                         >
-                            <Link href={`/creative-group/${item.id}`}>
-                                <div className="relative flex h-[240px] w-full items-center justify-center overflow-hidden rounded-[8px]">
-                                    <Image
-                                        fill
-                                        src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
-                                        alt="123123"
-                                        className="h-fullw-full object-cover"
-                                    />
+                            <div className="group relative z-10 h-[280px] w-auto cursor-pointer overflow-hidden rounded-[6px] transition-all duration-700 ease-in-out md:h-[280px] md:hover:z-10">
+                                <Image
+                                    fill
+                                    src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
+                                    alt="123123"
+                                    className="h-fullw-full object-cover"
+                                />
 
-                                    <div className="absolute bottom-0 left-0 right-0">
-                                        <div className="flex w-full flex-row items-center justify-center gap-1 bg-white/20 pb-2 pt-1">
-                                            <h3>{item.attributes && item.attributes.firstname}</h3>
-                                            <h3>{item.attributes && item.attributes.lastname}</h3>
-                                        </div>
+                                <div className="absolute bg-gradient-to-t from-black to-transparent opacity-100" />
+                                <div className="absolute inset-0 flex -translate-x-full transform flex-col items-center justify-between bg-black/90 p-4 py-5 transition-transform duration-700 ease-in-out group-hover:translate-x-0">
+                                    <div
+                                        className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} flex flex-row items-start justify-center gap-1 text-xl text-white`}
+                                    >
+                                        <h3>{item.attributes && item.attributes.firstname}</h3>
+                                        <h3>{item.attributes && item.attributes.lastname}</h3>
                                     </div>
+                                    <Link className="w-full" href={`/creative-group/${item.id}`}>
+                                        <div className="flex w-full flex-row items-center justify-center gap-1 rounded-[4px] border px-5 py-2 text-sm text-white hover:bg-white hover:text-black">
+                                            {t('bio')}
+                                        </div>
+                                    </Link>
                                 </div>
-                            </Link>
+                            </div>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
@@ -63,7 +69,7 @@ export default function Actors({ data }: any) {
             <div className="hidden w-full justify-end pr-20 md:flex">
                 <Link href="/creative-group">
                     <button className="flex w-auto items-center gap-2 text-sm underline-offset-2 hover:underline">
-                        {t('viewMoreNews')}
+                        {t('viewMore')}
                         <ArrowRight className="mt-1" />
                     </button>
                 </Link>

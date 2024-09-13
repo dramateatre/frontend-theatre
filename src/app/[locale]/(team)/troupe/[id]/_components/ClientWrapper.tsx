@@ -11,13 +11,13 @@ export default function ClientWrapper({ data }: any) {
     const params = useParams()
     const locale = params.locale
     const [isClient, setIsClient] = useState(false)
-    const setTroupeAlternateLocales = useStore((state) => state.setTroupeAlternateLocales)
+    const setCreativeGroupAlternateLocales = useStore((state) => state.setCreativeGroupAlternateLocales)
 
     useEffect(() => {
         if (data.attributes?.localizations?.data[0]?.id) {
-            setTroupeAlternateLocales(data.attributes.localizations.data[0].id)
+            setCreativeGroupAlternateLocales(data.attributes.localizations.data[0].id)
         } else {
-            setTroupeAlternateLocales(undefined)
+            setCreativeGroupAlternateLocales(undefined)
         }
     }, [])
 

@@ -10,7 +10,7 @@ async function fetchData(locale: string, id?: number) {
                 locale: locale,
             },
         })
-        return response.data.data
+        return response.data
     } catch (error) {
         return []
     }

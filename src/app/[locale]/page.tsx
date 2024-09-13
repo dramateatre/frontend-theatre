@@ -4,6 +4,7 @@ import Poster from './_components/Poster'
 import History from './_components/History'
 import News from './_components/News'
 import axiosInstance from '@/AxiosInstance'
+import ClientWrapper from './_components/ClientWrapper'
 
 async function fetchData(locale: string, page: number, pageSize: number) {
     try {
@@ -62,12 +63,10 @@ export default async function Home({ params: { locale } }: { params: { locale: s
     const creativeGroupData = await fetchCreativeGroup(locale)
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between bg-[#0f1017] pb-10">
-            <Cover />
-            <Poster data={posterData} />
-            <News data={newsData} />
-            <Actors data={creativeGroupData} />
-            <History />
-        </main>
+        <ClientWrapper
+            newsData={newsData}
+            posterData={posterData}
+            creativeGroupData={creativeGroupData}
+        />
     )
 }

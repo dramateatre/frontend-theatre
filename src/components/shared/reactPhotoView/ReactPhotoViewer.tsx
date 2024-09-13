@@ -3,6 +3,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view'
 import 'react-photo-view/dist/react-photo-view.css'
 
 const ReactPhotoViewer = ({ data }: any) => {
+    
     const baseURL = process.env.REACT_APP_BASE_URL || 'https://api.batumitheatre.ge'
     const src = `${baseURL}${data?.attributes?.image?.data?.attributes?.url}`
 
