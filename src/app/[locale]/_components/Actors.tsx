@@ -24,7 +24,7 @@ export default function Actors({ data }: any) {
             <h1
                 className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} px-6 text-left text-2xl text-white md:text-4xl`}
             >
-                {t('creativeGroup')}
+                {t('troupe')}
             </h1>
             <Image src={ActorsIcon} className="h-3 w-auto" alt="Actors icon" />
             <Carousel
@@ -55,7 +55,7 @@ export default function Actors({ data }: any) {
                                         <h3>{item.attributes && item.attributes.firstname}</h3>
                                         <h3>{item.attributes && item.attributes.lastname}</h3>
                                     </div>
-                                    <Link className="w-full" href={`/creative-group/${item.id}`}>
+                                    <Link className="w-full" href={`/troupe/${item.id}`}>
                                         <div className="flex w-full flex-row items-center justify-center gap-1 rounded-[4px] border px-5 py-2 text-sm text-white hover:bg-white hover:text-black">
                                             {t('bio')}
                                         </div>
@@ -67,7 +67,7 @@ export default function Actors({ data }: any) {
                 </CarouselContent>
             </Carousel>
             <div className="hidden w-full justify-end pr-20 md:flex">
-                <Link href="/creative-group">
+                <Link href="/troupe">
                     <button className="flex w-auto items-center gap-2 text-sm underline-offset-2 hover:underline">
                         {t('viewMore')}
                         <ArrowRight className="mt-1" />

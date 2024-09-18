@@ -5,7 +5,7 @@
     "news": "News",
     "repertory": "Repertory",
     "repertories": "Repertories",
-    "team": "Team",
+    "team": "About theatre",
     "about": "About theatre",
     "contact": "Contact",
     "salary": "Salary",
@@ -29,7 +29,7 @@
     "poster": "Poster",
     "viewMore": "View more",
     "viewMoreNews": "View more news",
-    "tickets": "Tickets",
+    "tickets": "Salary / Tickets",
     "gallery": "Gallery",
     "arrowBack": "Back",
     "photo": "Photo",
@@ -45,5 +45,6 @@
     "successfullySend": "Submitted Successfully",
     "noVideo": "Content don't have video",
     "noPhoto": "Content don't have photo",
-    "bio": "Biography"
+    "bio": "Biography",
+    "tour": "Tour"
 }

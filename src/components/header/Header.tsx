@@ -38,36 +38,17 @@ export default function Header() {
                     <Link href="/news">
                         <h1 className="text-white">{t('news')}</h1>
                     </Link>
+                    <Link href="/poster">
+                        <h1 className="text-white">{t('poster')}</h1>
+                    </Link>
                     <Link href="/repertory">
                         <h1 className="text-white">{t('repertory')}</h1>
                     </Link>
 
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <div className="flex cursor-pointer flex-row items-center gap-2">
-                                <span className="text-white outline-none">{t('about')}</span>
-                                <ArrowDown className="mt-1 fill-white text-xs" />
-                            </div>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="inset-0 mt-3 overflow-hidden rounded-[4px] border-none bg-header-gradient text-white opacity-100">
-                            <DropdownMenuGroup>
-                                <DropdownMenuItem asChild>
-                                    <Link href="/history">
-                                        <DropdownMenuLabel className="cursor-pointer">
-                                            {t('theatreHistory')}
-                                        </DropdownMenuLabel>
-                                    </Link>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem asChild>
-                                    <Link href="/museum">
-                                        <DropdownMenuLabel className="cursor-pointer">
-                                            {t('museum')}
-                                        </DropdownMenuLabel>
-                                    </Link>
-                                </DropdownMenuItem>
-                            </DropdownMenuGroup>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                    <Link href="/troupe">
+                        <h1 className="text-white">{t('troupe')}</h1>
+                    </Link>
+
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <div className="flex cursor-pointer flex-row items-center gap-2">
@@ -87,14 +68,29 @@ export default function Header() {
                                 <DropdownMenuItem asChild>
                                     <Link href="/troupe">
                                         <DropdownMenuLabel className="cursor-pointer">
-                                            {t('troupe')}
+                                            {t('სამხატვრო ხელმძღვანელი')}
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>
+
                                 <DropdownMenuItem asChild>
                                     <Link href="/creative-group">
                                         <DropdownMenuLabel className="cursor-pointer">
                                             {t('creativeGroup')}
+                                        </DropdownMenuLabel>
+                                    </Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/history">
+                                        <DropdownMenuLabel className="cursor-pointer">
+                                            {t('theatreHistory')}
+                                        </DropdownMenuLabel>
+                                    </Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/tickets">
+                                        <DropdownMenuLabel className="cursor-pointer">
+                                            {t('tickets')}
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>
@@ -103,9 +99,6 @@ export default function Header() {
                     </DropdownMenu>
                     <Link href="/contact">
                         <h1 className="text-white">{t('contact')}</h1>
-                    </Link>
-                    <Link href="/tickets">
-                        <h1 className="text-white">{t('tickets')}</h1>
                     </Link>
                 </div>
                 <button className="flex gap-4">

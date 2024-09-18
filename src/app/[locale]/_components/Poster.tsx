@@ -110,6 +110,11 @@ export default function Poster({ data }: any) {
                                                         {t('premiere')}
                                                     </span>
                                                 )}
+                                                {item.attributes?.tour && (
+                                                    <span className="ml-3 animate-fade text-sm text-[red]">
+                                                        {t('tour')}
+                                                    </span>
+                                                )}
                                             </span>
                                         )}
                                         {item.attributes?.premiereDate2 && (

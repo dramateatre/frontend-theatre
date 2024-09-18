@@ -43,15 +43,22 @@ async function fetchPoster(locale: string) {
         return []
     }
 }
-async function fetchCreativeGroup(locale: string) {
+async function fetchTroupe(locale: string) {
     try {
-        const response = await axiosInstance.get('/creative-groups', {
+        const response = await axiosInstance.get('/troupes', {
             params: {
                 populate: '*',
                 locale: locale,
             },
         })
-        return response.data.data
+        const data = response.data.data
+
+        for (let i = data.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1))
+            ;[data[i], data[j]] = [data[j], data[i]]
+        }
+
+        return data.slice(0, 5)
     } catch (error) {
         return []
     }
@@ -60,7 +67,7 @@ async function fetchCreativeGroup(locale: string) {
 export default async function Home({ params: { locale } }: { params: { locale: string } }) {
     const newsData = await fetchData(locale, 1, 4)
     const posterData = await fetchPoster(locale)
-    const creativeGroupData = await fetchCreativeGroup(locale)
+    const creativeGroupData = await fetchTroupe(locale)
 
     return (
         <ClientWrapper

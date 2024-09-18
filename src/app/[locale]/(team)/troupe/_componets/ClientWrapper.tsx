@@ -51,7 +51,7 @@ export default function ClientWrapper({ data }: any) {
             <motion.div className="grid h-auto w-full grid-cols-1 gap-10 md:grid-cols-3 md:gap-y-12 lg:grid-cols-4">
                 {data?.data.map((item: any, index: number) => (
                     <motion.div key={index} variants={itemVariants}>
-                        <div className="group relative z-10 h-[350px] w-auto cursor-pointer overflow-hidden rounded-[6px] transition-all duration-700 ease-in-out md:h-[330px] md:hover:z-10">
+                        <div className="group relative z-10 h-[350px] w-auto cursor-pointer overflow-hidden rounded-[6px] transition-all duration-700 ease-in-out md:h-[280px] md:hover:z-10">
                             {item?.attributes?.image?.data && (
                                 <Image
                                     src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}

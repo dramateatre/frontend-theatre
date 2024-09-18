@@ -59,20 +59,7 @@ export default function ClientWrapper({ data }: any) {
                             <p className="py-5 text-sm md:text-base">
                                 <BlocksRenderer content={data?.data?.attributes?.description} />
                             </p>
-                            {data?.data?.attributes?.repertuaris?.data?.length > 0 ? (
-                                <div className="flex flex-col gap-4">
-                                    <h2 className="text-center text-xl">ნათამაშები სპექტაკლები</h2>
-                                    {data?.data.attributes.repertuaris.data.map(
-                                        (item: any, index: any) => (
-                                            <Link key={item.id} href={`/repertory/${item.id}`}>
-                                                <span>
-                                                    {index + 1}. {item.attributes.header}
-                                                </span>
-                                            </Link>
-                                        )
-                                    )}
-                                </div>
-                            ) : null}
+                            
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,9 @@ export default function ClientWrapper({ data }: any) {
     const params = useParams()
     const locale = params.locale
     const [isClient, setIsClient] = useState(false)
-    const setCreativeGroupAlternateLocales = useStore((state) => state.setCreativeGroupAlternateLocales)
+    const setCreativeGroupAlternateLocales = useStore(
+        (state) => state.setCreativeGroupAlternateLocales
+    )
 
     useEffect(() => {
         if (data.attributes?.localizations?.data[0]?.id) {
@@ -50,20 +52,6 @@ export default function ClientWrapper({ data }: any) {
                                     <Paragraph content={data && data?.attributes?.description} />
                                 </div>
                             )}
-                            {data?.attributes?.repertuaris?.data?.length > 0 ? (
-                                <div className="flex flex-col gap-4 pb-10">
-                                    <h2 className="text-center text-xl">ნათამაშები სპექტაკლები</h2>
-                                    {data.attributes.repertuaris.data.map(
-                                        (item: any, index: any) => (
-                                            <Link key={item.id} href={`/repertory/${item.id}`}>
-                                                <span className="cursor-pointer">
-                                                    {index + 1}. {item.attributes.header}
-                                                </span>
-                                            </Link>
-                                        )
-                                    )}
-                                </div>
-                            ) : null}
                         </div>
                     </div>
                 </div>
