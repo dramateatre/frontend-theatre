@@ -10,6 +10,7 @@ import { useParams, useRouter } from 'next/navigation'
 import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
 import ReactGalleryViewer from '@/components/shared/reactPhotoView/ReactGalleryViewer'
 import ReactVideoPlayer from '@/components/shared/reactPhotoView/ReactVideoViewer'
+import { BlogActions } from '@/components/shared/reactShare/ReactShare'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -39,6 +40,7 @@ export default function ClientWrapper({ data }: any) {
         >
             {isClient ? (
                 <div className="h-auto w-full">
+                    <BlogActions />
                     <div className="mb-4 flex w-full justify-between md:justify-end">
                         <button
                             onClick={() => router.back()}

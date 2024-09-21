@@ -9,17 +9,17 @@ import Actors from './Actors'
 import History from './History'
 
 const fadeInVariants = {
-    hidden: { opacity: 0.3 },
+    hidden: { opacity: 0.5 },
     visible: { opacity: 1 },
 }
 
 const slideInLeftVariants = {
-    hidden: { x: -100, opacity: 0.3 },
+    hidden: { x: -100, opacity: 0.5 },
     visible: { x: 0, opacity: 1 },
 }
 
 const slideInRightVariants = {
-    hidden: { x: 100, opacity: 0.3 },
+    hidden: { x: 100, opacity: 0.5 },
     visible: { x: 0, opacity: 1 },
 }
 
@@ -31,7 +31,7 @@ export default function ClientWrapper({ posterData, newsData, creativeGroupData 
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 1 }}
+                transition={{ duration: 0.3 }}
                 variants={fadeInVariants}
             >
                 <Cover />
