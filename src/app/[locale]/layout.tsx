@@ -1,5 +1,5 @@
 import './globals.css'
-import i18nConfig from '@/libs/i18n/i18nConfig'
+
 import { ReactNode } from 'react'
 import initTranslations from '@/libs/i18n/i18n'
 import { dir } from 'i18next'
@@ -23,6 +23,10 @@ const georgian = localFont({
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
     const i18nNamespaces = ['meta']
     const { t } = await initTranslations(locale, i18nNamespaces)
+
+    // Define your production URL here
+    const productionUrl = 'https://batumitheatre.ge'
+
     return {
         title: {
             default: t('default'),
@@ -34,8 +38,16 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             description: t('descriptionMain'),
             type: 'website',
             locale: locale,
-            url: 'https://batumitheatre.ge/',
+            url: productionUrl,
             siteName: 'Batumi Drama Theatre',
+            images: [
+                {
+                    url: `${productionUrl}/opengraph-image.jpg`,
+                    width: 1200,
+                    height: 630,
+                    alt: 'Batumi Drama Theatre',
+                },
+            ],
         },
     }
 }
