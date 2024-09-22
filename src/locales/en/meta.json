@@ -2,7 +2,6 @@
     "default": "Batumi Drama Theatre",
     "historyPage": "History",
     "descriptionHistory": "The first Georgian performance in Batumi was held on 8 (20) July 1879 by the local stage-lovers. This was the foundation of the Georgian theatre in Ajara. The initiator of the performance was Ketevan Zhuruli, wife of the Batumi head of Police. The stage-lovers presented Z. Antonov’s comedy “Has Uncle Got Married?!” ",
-
     "museum": "Museum",
     "descriptionMuseum": "The Batumi Ilia Chavchavadze State Drama Theatre locates a Museum named after Gaioz (Kukuri) Gogiberidze, People’s Artist of Georgia. The museum preserves the exhibits reflecting the creative activities of the theatre, archive materials, photo-video-audio records, personal records of the theatre staff, rehearsal and performance diaries, programs, posters, booklets and albums. ",
     "administration": "Administration",
@@ -13,5 +12,6 @@
     "descriptionTickets": "Buy tickets both at the theater box office and online.",
     "contact": "Contact",
     "descriptionContact": "Batumi Drama Theatre - Rustaveli avenue #1; Small stage- A. Melashvili #32",
-    "succesfullySend": "Successfuyl"
+    "succesfullySend": "Successfuyl",
+    "ticketsExactly": "Tickets"
 }

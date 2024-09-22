@@ -39,19 +39,22 @@ export default function Poster({ data }: any) {
             >
                 <CarouselContent className="py-10 pr-2 lg:px-7 xl:px-10">
                     {data?.data?.map((item: any, index: any) => (
-                        <CarouselItem key={index} className="pl-6 lg:pl-7 xl:pl-10">
+                        <CarouselItem
+                            key={index}
+                            className="flex justify-center pl-6 lg:pl-7 xl:pl-10"
+                        >
                             <div
-                                className={`relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom lg:h-[400px] lg:flex-row`}
+                                className={`relative z-50 flex w-[380px] flex-col overflow-hidden rounded-[16px] shadow-custom md:w-[480px] lg:w-[680px] xl:w-[1300px] xl:flex-row`}
                             >
-                                <div className="relative h-[250px] w-full md:h-[300px] lg:h-full lg:w-[70%]">
+                                <div className="relative h-[180px] w-full md:h-[250px] lg:h-[350px] xl:h-[470px] xl:w-[70%]">
                                     <Image
                                         fill
-                                        className="h-full w-full object-cover object-center"
+                                        className="object-cover"
                                         src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
-                                        alt="Village"
+                                        alt={item?.attributes?.title || 'Theatre Image'}
                                     />
                                 </div>
-                                <div className="flex h-[305px] flex-col justify-center gap-1 bg-[#0f1017] bg-poster-gradient px-4 py-3 lg:order-2 lg:h-auto lg:w-[30%] lg:py-6">
+                                <div className="flex h-[340px] flex-col justify-center gap-1 bg-[#0f1017] bg-poster-gradient px-4 py-3 lg:order-2 lg:h-auto lg:py-6 xl:w-[30%]">
                                     <span className="hidden text-center text-xs md:block">
                                         {item.attributes?.place}
                                     </span>
@@ -59,8 +62,20 @@ export default function Poster({ data }: any) {
                                     <h1 className="text-center text-xl">
                                         {item.attributes?.header}
                                     </h1>
+                                    <div className="flex w-full flex-row justify-center gap-5">
+                                        {item.attributes?.premiere && (
+                                            <span className="ml-3 animate-fade text-sm font-bold text-[red] md:text-lg">
+                                                {t('premiere')}
+                                            </span>
+                                        )}
+                                        {item.attributes?.tour && (
+                                            <span className="ml-3 animate-fade text-sm font-bold text-[red] md:text-lg">
+                                                {t('tour')}
+                                            </span>
+                                        )}
+                                    </div>
 
-                                    <div className="flex h-full flex-col justify-center gap-1 px-2 md:px-6">
+                                    <div className="flex h-full flex-col justify-center gap-1 px-2 md:px-3">
                                         {item.attributes?.author && (
                                             <span className="line-clamp-1 lg:line-clamp-2">
                                                 <span className="text-sm">{t('author')}</span>
@@ -105,16 +120,6 @@ export default function Poster({ data }: any) {
                                                 <span className="text-sm">
                                                     {formatTime(item.attributes?.premiereDate1)}
                                                 </span>
-                                                {item.attributes?.premiere && (
-                                                    <span className="ml-3 animate-fade text-sm text-[red]">
-                                                        {t('premiere')}
-                                                    </span>
-                                                )}
-                                                {item.attributes?.tour && (
-                                                    <span className="ml-3 animate-fade text-sm text-[red]">
-                                                        {t('tour')}
-                                                    </span>
-                                                )}
                                             </span>
                                         )}
                                         {item.attributes?.premiereDate2 && (
@@ -127,11 +132,6 @@ export default function Poster({ data }: any) {
                                                 <span className="text-sm">
                                                     {formatTime(item.attributes?.premiereDate2)}
                                                 </span>
-                                                {item.attributes?.premiere && (
-                                                    <span className="ml-3 animate-fade text-sm text-[red]">
-                                                        {t('premiere')}
-                                                    </span>
-                                                )}
                                             </span>
                                         )}
                                         {item.attributes?.premiereDate3 && (
@@ -144,11 +144,6 @@ export default function Poster({ data }: any) {
                                                 <span className="text-sm">
                                                     {formatTime(item.attributes?.premiereDate3)}
                                                 </span>
-                                                {item.attributes?.premiere && (
-                                                    <span className="ml-3 animate-fade text-sm text-[red]">
-                                                        {t('premiere')}
-                                                    </span>
-                                                )}
                                             </span>
                                         )}
                                         {item.attributes?.premiereDate4 && (
@@ -161,11 +156,6 @@ export default function Poster({ data }: any) {
                                                 <span className="text-sm">
                                                     {formatTime(item.attributes?.premiereDate4)}
                                                 </span>
-                                                {item.attributes?.premiere && (
-                                                    <span className="ml-3 animate-fade text-sm text-[red]">
-                                                        {t('premiere')}
-                                                    </span>
-                                                )}
                                             </span>
                                         )}
                                     </div>
@@ -177,7 +167,16 @@ export default function Poster({ data }: any) {
                                         </button>
 
                                         <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
-                                            <Link href="/tickets">{t('tickets')}</Link>
+                                            <Link
+                                                target="_blank"
+                                                href={
+                                                    item?.attributes?.ticketLink
+                                                        ? item?.attributes?.ticketLink
+                                                        : 'https://biletebi.ge/theatres'
+                                                }
+                                            >
+                                                {t('ticketsExactly')}
+                                            </Link>
                                         </button>
                                     </div>
                                 </div>

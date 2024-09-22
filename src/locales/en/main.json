@@ -46,5 +46,6 @@
     "noVideo": "Content don't have video",
     "noPhoto": "Content don't have photo",
     "bio": "Biography",
-    "tour": "Tour"
+    "tour": "Tour",
+    "copied": "Link copied to clipboard!"
 }

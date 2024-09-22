@@ -1,12 +1,15 @@
+import { CopyLink, Print } from '@/components/svg'
+import { useTranslation } from 'react-i18next'
 import { FacebookShareButton, WhatsappShareButton, EmailShareButton } from 'react-share'
-import { FacebookIcon, TwitterIcon, WhatsappIcon, EmailIcon } from 'react-share'
+import { FacebookIcon, WhatsappIcon, EmailIcon } from 'react-share'
 
 export const BlogActions = () => {
     const pageUrl = window.location.href
+    const { t } = useTranslation()
 
     const copyLink = () => {
         navigator.clipboard.writeText(pageUrl).then(() => {
-            alert('Link copied to clipboard!')
+            alert(t('copied'))
         })
     }
 
@@ -15,10 +18,14 @@ export const BlogActions = () => {
     }
 
     return (
-        <div>
-            <button onClick={copyLink}>Copy Link</button>
-            <button onClick={printContent}>Print</button>
-            <div>
+        <div className="flex flex-row gap-4">
+            <button onClick={copyLink}>
+                <CopyLink className="h-6 w-6 fill-white" />
+            </button>
+            <button onClick={printContent}>
+                <Print className="h-6 w-6 fill-white" />
+            </button>
+            <div className="flex flex-row gap-4">
                 <FacebookShareButton url={pageUrl}>
                     <FacebookIcon size={32} round />
                 </FacebookShareButton>

@@ -1,8 +1,3 @@
-import Actors from './_components/Actors'
-import Cover from './_components/Cover'
-import Poster from './_components/Poster'
-import History from './_components/History'
-import News from './_components/News'
 import axiosInstance from '@/AxiosInstance'
 import ClientWrapper from './_components/ClientWrapper'
 
