@@ -21,10 +21,6 @@ const georgian = localFont({
     variable: '--font-georgian',
 })
 
-export const metadata: Metadata = {
-    metadataBase: new URL('https://batumitheatre.ge'),
-}
-
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
     const i18nNamespaces = ['meta']
     const { t } = await initTranslations(locale, i18nNamespaces)
@@ -42,6 +38,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             url: 'https://batumitheatre.ge',
             siteName: 'Batumi Drama Theatre',
         },
+        metadataBase: new URL('https://batumitheatre.ge'),
     }
 }
 
