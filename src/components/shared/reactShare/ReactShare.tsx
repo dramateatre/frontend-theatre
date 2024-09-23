@@ -20,22 +20,22 @@ export const BlogActions = () => {
     return (
         <div className="flex flex-row gap-4">
             <button onClick={copyLink}>
-                <CopyLink className="h-6 w-6 fill-white" />
+                <CopyLink className="h-5 w-5 fill-white" />
             </button>
             <button onClick={printContent}>
-                <Print className="h-6 w-6 fill-white" />
+                <Print className="h-5 w-5 fill-white" />
             </button>
             <div className="flex flex-row gap-4">
                 <FacebookShareButton url={pageUrl}>
-                    <FacebookIcon size={32} round />
+                    <FacebookIcon size={24} round />
                 </FacebookShareButton>
 
                 <WhatsappShareButton url={pageUrl}>
-                    <WhatsappIcon size={32} round />
+                    <WhatsappIcon size={24} round />
                 </WhatsappShareButton>
 
                 <EmailShareButton url={pageUrl}>
-                    <EmailIcon size={32} round />
+                    <EmailIcon size={24} round />
                 </EmailShareButton>
             </div>
         </div>

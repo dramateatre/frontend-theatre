@@ -99,7 +99,7 @@ export default async function page({
                 </Link>
             ))}
 
-            <Pagination
+            <Pagination  
                 currentPage={data?.meta?.pagination?.page}
                 totalPages={data?.meta?.pagination?.pageCount}
             />

@@ -40,15 +40,8 @@ export default function ClientWrapper({ data }: any) {
         >
             {isClient ? (
                 <div className="h-auto w-full">
-                    <BlogActions />
-                    <div className="mb-4 flex w-full justify-between md:justify-end">
-                        <button
-                            onClick={() => router.back()}
-                            className="flex items-center gap-2 text-sm text-white md:hidden"
-                        >
-                            <ArrowLeft className="h-5 w-5" />
-                            {t('arrowBack')}
-                        </button>
+                    <div className="mb-4 flex w-full justify-between">
+                        <BlogActions />
                         <div className="flex w-auto flex-row items-center justify-end gap-1">
                             <Calendar className="h-5 w-5 text-white" />
                             <span className="text-sm text-white md:text-sm">

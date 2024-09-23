@@ -79,7 +79,7 @@ const ReactVideoPlayer: React.FC<ReactVideoPlayerProps> = ({ data }) => {
                     ))}
                 </div>
             ) : (
-                <div className="flex justify-center py-10">{t('noVideo')}</div>
+                <div className="flex justify-center py-10 text-white">{t('noVideo')}</div>
             )}
         </>
     )

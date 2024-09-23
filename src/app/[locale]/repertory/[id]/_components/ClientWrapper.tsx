@@ -39,8 +39,8 @@ export default function ClientWrapper({ data }: any) {
                 <main
                     className={` ${locale === 'en' ? 'italic' : 'font-georgian'} min-h-screen w-full text-white md:px-7 xl:px-20`}
                 >
-                    <div className="flex h-full flex-col gap-5 md:flex-row md:py-10">
-                        <div className="relative h-[280px] w-full md:float-left md:min-h-[400px] md:min-w-[320px]">
+                    <div className="flex h-full flex-col gap-5 md:py-10 lg:flex-row">
+                        <div className="relative h-[220px] w-full sm:min-h-[300px] md:float-left lg:min-h-[300px] lg:min-w-[600px] xl:min-h-[400px] xl:min-w-[800px]">
                             <ReactPhotoViewer data={data} />
                         </div>
 
@@ -224,7 +224,9 @@ export default function ClientWrapper({ data }: any) {
                     </div>
                 </main>
             ) : (
-                <div>... loading</div>
+                <div className="flex h-screen items-center justify-center text-white">
+                    ... loading
+                </div>
             )}
         </>
     )
