@@ -66,7 +66,7 @@ export default function Header() {
                                     </Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem asChild>
-                                    <Link href="/troupe">
+                                    <Link href="/artistic-director">
                                         <DropdownMenuLabel className="cursor-pointer">
                                             {t('სამხატვრო ხელმძღვანელი')}
                                         </DropdownMenuLabel>
