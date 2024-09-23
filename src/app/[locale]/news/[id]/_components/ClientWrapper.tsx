@@ -11,6 +11,7 @@ import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewe
 import ReactGalleryViewer from '@/components/shared/reactPhotoView/ReactGalleryViewer'
 import ReactVideoPlayer from '@/components/shared/reactPhotoView/ReactVideoViewer'
 import { BlogActions } from '@/components/shared/reactShare/ReactShare'
+import Link from 'next/link'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -42,6 +43,7 @@ export default function ClientWrapper({ data }: any) {
                 <div className="h-auto w-full">
                     <div className="mb-4 flex w-full justify-between">
                         <BlogActions />
+
                         <div className="flex w-auto flex-row items-center justify-end gap-1">
                             <Calendar className="h-5 w-5 text-white" />
                             <span className="text-sm text-white md:text-sm">
@@ -101,6 +103,14 @@ export default function ClientWrapper({ data }: any) {
                                     >
                                         {t('video')}
                                     </button>
+                                    -
+                                    <Link href="#">
+                                        <button
+                                            className={`flex items-center justify-center rounded-[4px] border  px-3 py-1 text-white`}
+                                        >
+                                            {t('article')}
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                             {!galleryType ? (

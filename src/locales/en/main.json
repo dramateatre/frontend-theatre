@@ -47,5 +47,6 @@
     "noPhoto": "Content don't have photo",
     "bio": "Biography",
     "tour": "Tour",
-    "copied": "Link copied to clipboard!"
+    "copied": "Link copied to clipboard!",
+    "article": "Article"
 }

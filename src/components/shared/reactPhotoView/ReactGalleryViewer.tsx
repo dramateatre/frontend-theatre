@@ -80,12 +80,14 @@ const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
                         </PhotoProvider>
                     </div>
                     {!showAll && data.attributes.gallery.data.length > initialItemCount && (
-                        <button
-                            onClick={handleViewMore}
-                            className="mt-4 rounded bg-blue-500 p-2 text-white"
-                        >
-                            {t('viewMore')}
-                        </button>
+                        <div className="flex w-full justify-center">
+                            <button
+                                onClick={handleViewMore}
+                                className="mt-4 w-40 rounded bg-blue-500 p-2 text-white"
+                            >
+                                {t('viewMore')}
+                            </button>
+                        </div>
                     )}
                 </>
             ) : (
