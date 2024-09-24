@@ -6,6 +6,29 @@ import Link from 'next/link'
 import Pagination from '@/components/shared/pagination/Pagination'
 import { Calendar } from '@/components/svg'
 
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+    const i18nNamespaces = ['meta']
+    const { t } = await initTranslations(locale, i18nNamespaces)
+
+    return {
+        title: t('news'),
+        description: t('describeNews'),
+        openGraph: {
+            title: t('news'),
+            description: t('describeNews'),
+            type: 'website',
+            locale: locale,
+            url: 'https://batumitheatre.ge/news',
+            siteName: 'Batumi Theatre',
+            images: [
+                {
+                    url: '/imgs/OldTheatre.jpg',
+                },
+            ],
+        },
+    }
+}
+
 async function fetchData(locale: string, page: number, pageSize: number) {
     try {
         const response = await axiosInstance.get('/news', {
@@ -99,7 +122,7 @@ export default async function page({
                 </Link>
             ))}
 
-            <Pagination  
+            <Pagination
                 currentPage={data?.meta?.pagination?.page}
                 totalPages={data?.meta?.pagination?.pageCount}
             />

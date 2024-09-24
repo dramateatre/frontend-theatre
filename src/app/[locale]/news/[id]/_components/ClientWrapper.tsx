@@ -15,7 +15,6 @@ import Link from 'next/link'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
-    const router = useRouter()
     const params = useParams()
     const locale = params.locale
     const [isClient, setIsClient] = useState(false)
@@ -103,14 +102,18 @@ export default function ClientWrapper({ data }: any) {
                                     >
                                         {t('video')}
                                     </button>
-                                    -
-                                    <Link href="#">
-                                        <button
-                                            className={`flex items-center justify-center rounded-[4px] border  px-3 py-1 text-white`}
-                                        >
-                                            {t('article')}
-                                        </button>
-                                    </Link>
+                                    {data.attributes.article && (
+                                        <>
+                                            -
+                                            <Link target="_blank" href={data.attributes.article}>
+                                                <button
+                                                    className={`flex items-center justify-center rounded-[4px] border px-3 py-1 text-white`}
+                                                >
+                                                    {t('article')}
+                                                </button>
+                                            </Link>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                             {!galleryType ? (
