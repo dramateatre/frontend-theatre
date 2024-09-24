@@ -8,6 +8,7 @@ import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { useMediaQuery } from 'react-responsive'
 import { ArrowRight } from '@/components/svg'
+import NoImage from '@images/NoImage.jpg'
 
 export default function Actors({ data }: any) {
     const { t } = useTranslation()
@@ -42,8 +43,8 @@ export default function Actors({ data }: any) {
                             <div className="group relative z-10 h-[280px] w-auto cursor-pointer overflow-hidden rounded-[6px] transition-all duration-700 ease-in-out md:h-[280px] md:hover:z-10">
                                 <Image
                                     fill
-                                    src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
-                                    alt="123123"
+                                    src={`${process.env.NEXT_PUBLIC_REST_API}${item?.attributes?.image?.data?.attributes?.url || NoImage}`}
+                                    alt={item?.attributes?.image?.data?.attributes?.url}
                                     className="h-fullw-full object-cover"
                                 />
 

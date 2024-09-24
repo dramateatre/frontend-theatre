@@ -1,9 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import React from 'react'
-import Old from '../../../../public/imgs/OldTheatre.jpg'
-import New from '../../../../public/imgs/New.webp'
+import Old from '@images/OldTheatre.jpg'
+import New from '@images/New.webp'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
@@ -13,7 +12,7 @@ export default function History() {
     const params = useParams()
     const locale = params.locale
     return (
-        <div className={`relative flex h-auto w-full py-20 md:pt-10 md:pb-44`}>
+        <div className={`relative flex h-auto w-full py-20 md:pb-44 md:pt-10`}>
             <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-0 md:pl-6 lg:pl-6 xl:pl-32">
                 <div className="relative h-full w-full">
                     <div className="flex h-full w-full flex-row justify-start">

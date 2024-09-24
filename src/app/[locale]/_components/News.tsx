@@ -7,6 +7,7 @@ import { useMediaQuery } from 'react-responsive'
 import { ArrowRight, Calendar } from '@/components/svg'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import Link from 'next/link'
+import NoImage from '@images/NoImage.jpg'
 
 export default function News({ data }: any) {
     const { t } = useTranslation()
@@ -54,8 +55,11 @@ export default function News({ data }: any) {
                                             <div className="h-[200px] w-full">
                                                 <Image
                                                     className="h-full w-full object-cover object-center"
-                                                    src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
-                                                    alt="Village"
+                                                    src={`${process.env.NEXT_PUBLIC_REST_API}${item?.attributes?.image?.data?.attributes?.url || NoImage}`}
+                                                    alt={
+                                                        item?.attributes?.image?.data?.attributes
+                                                            ?.url
+                                                    }
                                                     width={600}
                                                     height={600}
                                                 />
