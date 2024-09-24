@@ -4,14 +4,15 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import { useTranslation } from 'react-i18next'
 import { useEffect, useState } from 'react'
 import { useStore } from '@/zustand/zustand'
-import { ArrowLeft, Calendar, PhotoIcon, VideoIcon } from '@/components/svg'
+import { Calendar, PhotoIcon, VideoIcon } from '@/components/svg'
 import { Button } from '@/components/ui/button'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
 import ReactGalleryViewer from '@/components/shared/reactPhotoView/ReactGalleryViewer'
 import ReactVideoPlayer from '@/components/shared/reactPhotoView/ReactVideoViewer'
 import { BlogActions } from '@/components/shared/reactShare/ReactShare'
 import Link from 'next/link'
+import Loading from '@/app/[locale]/loading'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -127,7 +128,7 @@ export default function ClientWrapper({ data }: any) {
                     )}
                 </div>
             ) : (
-                <div>...loading</div>
+                <Loading />
             )}
         </main>
     )

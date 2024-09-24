@@ -5,6 +5,7 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import Link from 'next/link'
 import Pagination from '@/components/shared/pagination/Pagination'
 import { Calendar } from '@/components/svg'
+import NoImage from '@images/NoImage.jpg'
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
     const i18nNamespaces = ['meta']
@@ -22,7 +23,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: 'Batumi Theatre',
             images: [
                 {
-                    url: '/imgs/OldTheatre.jpg',
+                    url: '/imgs/TheatreHall.jpg',
                 },
             ],
         },
@@ -79,8 +80,8 @@ export default async function page({
                         <div className="relative min-h-[200px] w-full md:w-[400px]">
                             <Image
                                 fill
-                                src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
-                                alt="Village"
+                                src={`${process.env.NEXT_PUBLIC_REST_API}${item?.attributes?.image?.data?.attributes?.url || NoImage}`}
+                                alt={item?.attributes?.image?.data?.attributes?.url}
                                 className="object-cover object-center"
                             />
                         </div>
@@ -111,7 +112,6 @@ export default async function page({
                                             })}
                                         </span>
                                     </div>
-
                                     <button className="flex flex-row items-center justify-center text-sm text-white underline-offset-2 hover:underline">
                                         {t('viewMore')}
                                     </button>

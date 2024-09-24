@@ -7,7 +7,6 @@ import TranslationsProvider from '@/libs/i18n/TranslationsProvider'
 import localFont from 'next/font/local'
 import Footer from '@/components/footer/Footer'
 import Header from '@/components/header/Header'
-import { Metadata } from 'next'
 
 const playwrite = localFont({
     src: '../../../public/fonts/playwrite/PlaywriteAUQLD-Thin.ttf',
@@ -29,10 +28,8 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             default: t('default'),
             template: `%s | ${t('default')}`,
         },
-        description: t('descriptionMain'),
         openGraph: {
             title: t('default'),
-            description: t('descriptionMain'),
             type: 'website',
             locale: locale,
             url: 'https://batumitheatre.ge',
