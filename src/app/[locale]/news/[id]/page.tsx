@@ -17,17 +17,15 @@ export async function generateMetadata({
 
     return {
         title: data.attributes.header || t('historyPage'),
-        description: data.attributes.description || t('descriptionAbout'),
         openGraph: {
             title: data.attributes.header || t('historyPage'),
-            description: data.attributes.description || t('descriptionHistory'),
             type: 'website',
             locale: locale,
             url: `https://batumitheatre.ge/news/${data.id}`,
             siteName: 'Batumi Theatre',
             images: [
                 {
-                    url: data.attributes.image.data.attributes.url,
+                    url: `https://api.batumitheatre.ge${data.attributes.image.data.attributes.url}`,
                 },
             ],
         },
