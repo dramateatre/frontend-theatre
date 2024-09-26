@@ -52,31 +52,31 @@ export default function Header() {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <div className="flex cursor-pointer flex-row items-center gap-2">
-                                <span className="text-white outline-none">{t('team')}</span>
+                                <span className="text-white outline-none">{t('თეატრი')}</span>
                                 <ArrowDown className="mt-1 fill-white text-xs" />
                             </div>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="inset-0 mt-3 overflow-hidden rounded-[4px] border-none bg-header-gradient text-white">
                             <DropdownMenuGroup>
                                 <DropdownMenuItem asChild>
-                                    <Link href="/administration">
+                                    <Link href="/director">
                                         <DropdownMenuLabel className="cursor-pointer">
-                                            {t('administration')}
+                                            {t('დირექტორი')}
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem asChild>
-                                    <Link href="/artistic-director">
+                                    <Link href="/creative-group">
                                         <DropdownMenuLabel className="cursor-pointer">
-                                            {t('სამხატვრო ხელმძღვანელი')}
+                                            {t('შემოქმედებით სამსახური')}
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>
 
                                 <DropdownMenuItem asChild>
-                                    <Link href="/creative-group">
+                                    <Link href="/administration">
                                         <DropdownMenuLabel className="cursor-pointer">
-                                            {t('creativeGroup')}
+                                            {t('ადმინისტრაცია')}
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>
