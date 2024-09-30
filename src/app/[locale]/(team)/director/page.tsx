@@ -3,7 +3,7 @@ import ClientWrapper from './_components/ClientWrapper'
 
 async function fetchData(locale: string) {
     try {
-        const response = await axiosInstance.get('/artistic-directors', {
+        const response = await axiosInstance.get('/directors', {
             params: {
                 populate: '*',
                 locale: locale,
@@ -17,8 +17,6 @@ async function fetchData(locale: string) {
 
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
     const data = await fetchData(locale)
-
- 
 
     return <ClientWrapper data={data} />
 }

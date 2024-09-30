@@ -13,7 +13,7 @@ import {
     DropdownMenuItem,
     DropdownMenuLabel,
 } from '../ui/dropdown-menu'
-import { ArrowDown } from '../svg'
+import { ArrowDown, Logo } from '../svg'
 import Image from 'next/image'
 import Logo2 from '@images/Logo.png'
 
@@ -26,9 +26,12 @@ export default function Header() {
         <div
             className={` ${locale === 'en' ? 'text-base' : 'text-base'} shadow-xs relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-[#151721] bg-header-gradient px-6 py-5 backdrop-blur-none md:h-28 md:pr-7 lg:px-20`}
         >
-            <Link href="/" className="relative h-12 w-24 cursor-pointer md:h-full md:w-auto">
-                <Image src={Logo2} alt="Logo" className="h-full w-full object-cover" />
-            </Link>
+            {/* <Link href="/" className="relative h-12 w-24 cursor-pointer md:h-full md:w-auto"> */}
+            {/* <Image src={Logo2} alt="Logo" className="h-full w-full object-cover" /> */}
+
+            <Logo className="mt-10 fill-[#f5f5f6] text-[280px]" />
+
+            {/* </Link> */}
 
             <div className="flex flex-row gap-4">
                 <div className="hidden gap-4 md:flex">
