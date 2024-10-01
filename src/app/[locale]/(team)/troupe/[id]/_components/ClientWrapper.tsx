@@ -3,9 +3,9 @@
 import { useParams } from 'next/navigation'
 import AvatarImage from './AvatarImage'
 import Paragraph from './Paragraph'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useStore } from '@/zustand/zustand'
+import { motion } from 'framer-motion'
 
 export default function ClientWrapper({ data }: any) {
     const params = useParams()
@@ -21,18 +21,38 @@ export default function ClientWrapper({ data }: any) {
         } else {
             setCreativeGroupAlternateLocales(undefined)
         }
-    }, [])
+    }, [data, setCreativeGroupAlternateLocales])
 
     useEffect(() => {
         setIsClient(true)
     }, [])
+
+    // Animation variants for falling from below and standing up
+    const fallAndStandUpVariants = {
+        hidden: { opacity: 0, y: 100 }, // Starts off-screen below
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: 'spring',
+                stiffness: 60,
+                damping: 10,
+                duration: 0.8, // Adjust the speed of the fall
+            },
+        },
+    }
 
     return (
         <main
             className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full justify-center overflow-hidden text-white md:py-10`}
         >
             {isClient ? (
-                <div className="flex w-full flex-col items-center">
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={fallAndStandUpVariants}
+                    className="flex w-full flex-col items-center"
+                >
                     <div className="mb-10 hidden flex-row items-center gap-2 rounded-[6px] border bg-[#0f1017] bg-card-gradient px-7 py-1 shadow-custom md:flex">
                         <span className="my-1 text-lg">{data?.attributes?.firstname}</span>
                         <span className="my-1 text-lg">{data?.attributes?.lastname}</span>
@@ -49,12 +69,12 @@ export default function ClientWrapper({ data }: any) {
                             <div className="h-[1px] w-full bg-white md:hidden"></div>
                             {data?.attributes?.description && (
                                 <div className="py-5 text-sm md:text-base">
-                                    <Paragraph content={data && data?.attributes?.description} />
+                                    <Paragraph content={data?.attributes?.description} />
                                 </div>
                             )}
                         </div>
                     </div>
-                </div>
+                </motion.div>
             ) : null}
         </main>
     )

@@ -49,10 +49,10 @@ export default function Poster({ data }: any) {
         )
     }
 
-    if (!data.data.length) return null
+    if (!data?.data?.length) return null
 
     return (
-        <section className={`${locale === 'en' ? 'italic' : 'font-georgian'} w-full text-white`}>
+        <section className={`} w-full text-white`}>
             <div className="flex w-full flex-row justify-center pt-10">
                 <h1
                     className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} texet-center text-3xl tracking-[20px]`}

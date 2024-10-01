@@ -48,7 +48,7 @@ export default async function page({
     return (
         <section className="min-h-screen w-full px-6 py-10 md:px-7 lg:px-20 xl:px-40">
             <div
-                className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex w-full flex-col items-center gap-16 text-white`}
+                className={`flex w-full flex-col items-center gap-16 text-white`}
             >
                 <div className="flex w-full flex-row justify-center">
                     <h1

@@ -13,7 +13,7 @@ const fadeInVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }, // smooth easing
+        transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }, // smooth easing
     },
 }
 
@@ -27,7 +27,7 @@ const slideInLeftVariants = {
             type: 'spring',
             stiffness: 80,
             damping: 20,
-            duration: 0.7,
+            duration: 0.5,
         },
     },
 }
@@ -37,7 +37,7 @@ const actorsVariants = {
     visible: {
         opacity: 1,
         rotateX: 0,
-        transition: { duration: 0.8, ease: 'easeOut' },
+        transition: { duration: 0.5, ease: 'easeOut' },
     },
 }
 
@@ -51,7 +51,7 @@ const slideInRightVariants = {
             type: 'spring',
             stiffness: 80,
             damping: 20,
-            duration: 0.7,
+            duration: 0.5,
         },
     },
 }

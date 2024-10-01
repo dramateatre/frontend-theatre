@@ -36,9 +36,7 @@ export default function ClientWrapper({ data }: any) {
     return (
         <>
             {isClient ? (
-                <main
-                    className={` ${locale === 'en' ? 'italic' : 'font-georgian'} min-h-screen w-full text-white md:px-7 xl:px-20`}
-                >
+                <main className={`min-h-screen w-full text-white md:px-7 xl:px-20`}>
                     <div className="flex h-full flex-col gap-5 md:py-10 lg:flex-row">
                         <div className="relative h-[220px] w-full sm:min-h-[300px] md:float-left lg:min-h-[300px] lg:min-w-[600px] xl:min-h-[400px] xl:min-w-[800px]">
                             <ReactPhotoViewer data={data} />

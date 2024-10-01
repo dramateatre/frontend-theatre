@@ -1,20 +1,26 @@
 import Image from 'next/image'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import 'react-photo-view/dist/react-photo-view.css'
+import NoImage from '@images/NoImage.jpg'
 
 const ReactPhotoViewer = ({ data }: any) => {
-    const baseURL = process.env.REACT_APP_BASE_URL || 'https://api.batumitheatre.ge'
-    const src = `${baseURL}${data?.attributes?.image?.data?.attributes?.url}`
+    // Check if NoImage is StaticImageData and get its src as a string
+    const noImageSrc = typeof NoImage === 'string' ? NoImage : NoImage.src
+
+    const imageUrl = data?.attributes?.image?.data?.attributes?.url
+        ? `${process.env.NEXT_PUBLIC_REST_API}/${data.attributes.image.data.attributes.url}`
+        : noImageSrc // Fallback to NoImage src
 
     return (
         <PhotoProvider>
-            <PhotoView src={src}>
-                <div className="h-full w-full">
+            <PhotoView src={imageUrl}>
+                <div className="relative h-full w-full">
                     <Image
-                        src={src}
-                        fill
+                        src={imageUrl}
+                        alt="Image preview"
+                        layout="fill"
                         objectFit="cover"
-                        alt="w-full h-full object-contain object-center cursor-zoom-in  rounded-[4px]"
+                        className="h-full w-full cursor-zoom-in rounded-[4px] object-cover object-center"
                     />
                 </div>
             </PhotoView>

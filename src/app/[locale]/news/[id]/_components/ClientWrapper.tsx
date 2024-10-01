@@ -13,6 +13,7 @@ import ReactVideoPlayer from '@/components/shared/reactPhotoView/ReactVideoViewe
 import { BlogActions } from '@/components/shared/reactShare/ReactShare'
 import Link from 'next/link'
 import Loading from '@/app/[locale]/loading'
+import { motion } from 'framer-motion'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -35,6 +36,23 @@ export default function ClientWrapper({ data }: any) {
         setIsClient(true)
     }, [])
 
+    // Animation variants
+    const slideInVariants = {
+        hidden: (direction: string) => ({
+            x: direction === 'left' ? -100 : 100, // Slide from left or right
+            opacity: 0,
+        }),
+        visible: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.5, // Animation duration
+                type: 'spring',
+                stiffness: 100,
+            },
+        },
+    }
+
     return (
         <main
             className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative min-h-screen w-full overflow-hidden p-5 pb-10 md:px-7 md:pb-20 lg:px-20`}
@@ -55,19 +73,43 @@ export default function ClientWrapper({ data }: any) {
                             </span>
                         </div>
                     </div>
-                    <h1 className="text-center text-lg text-white md:mb-4 md:text-xl">
-                        {data?.attributes?.header}
-                    </h1>
-                    <div className="my-4 h-[1px] w-full bg-white"></div>
-                    <div className="relative h-[280px] w-full cursor-zoom-in overflow-hidden rounded-[4px] md:float-left md:mr-8 md:h-[350px] md:w-[400px] lg:w-[500px]">
-                        <ReactPhotoViewer data={data} />
-                    </div>
 
-                    <div className="w-full pt-5 md:p-0">
+                    {/* Header with animation */}
+                    <motion.h1
+                        className="text-center text-lg text-white md:mb-4 md:text-xl"
+                        initial="hidden"
+                        animate="visible"
+                        custom="left" // custom value for direction
+                        variants={slideInVariants}
+                    >
+                        {data?.attributes?.header}
+                    </motion.h1>
+
+                    <div className="my-4 h-[1px] w-full bg-white"></div>
+
+                    {/* Photo viewer with animation */}
+                    <motion.div
+                        className="relative h-[280px] w-full cursor-zoom-in overflow-hidden rounded-[4px] md:float-left md:mr-8 md:h-[350px] md:w-[400px] lg:w-[500px]"
+                        initial="hidden"
+                        animate="visible"
+                        custom="left" // Animation direction
+                        variants={slideInVariants}
+                    >
+                        <ReactPhotoViewer data={data} />
+                    </motion.div>
+
+                    {/* Description with animation */}
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        custom="right" // Animation direction for description
+                        variants={slideInVariants}
+                        className="w-full pt-5 md:p-0"
+                    >
                         <p className="text-sm text-white md:text-base">
                             <BlocksRenderer content={data?.attributes?.description} />
                         </p>
-                    </div>
+                    </motion.div>
 
                     {data.attributes?.gallery?.data && (
                         <div className="flex w-full flex-col gap-5 pt-10">

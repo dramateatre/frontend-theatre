@@ -83,7 +83,7 @@ const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
                         <div className="flex w-full justify-center">
                             <button
                                 onClick={handleViewMore}
-                                className="mt-4 w-40 rounded bg-blue-500 p-2 text-white"
+                                className="mt-4 w-40 rounded border-white border hover:text-black hover:bg-white p-2 text-white"
                             >
                                 {t('viewMore')}
                             </button>

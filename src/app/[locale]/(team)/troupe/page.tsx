@@ -38,7 +38,7 @@ export default async function Page({
     searchParams: { [key: string]: string | string[] | undefined }
 }) {
     const page = Number(searchParams.page) || 1
-    const pageSize = 12
+    const pageSize = 100
     const data = await fetchData(locale, page, pageSize)
 
     return <ClientWrapper data={data} />
