@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import 'react-photo-view/dist/react-photo-view.css'
+import NoImage from '@images/NoImage.jpg'
 
 interface GalleryItem {
     id: number
@@ -37,10 +38,10 @@ const useWindowWidth = () => {
 }
 
 const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
-    const baseURL = process.env.REACT_APP_BASE_URL || 'https://api.batumitheatre.ge'
-    const { t } = useTranslation()
+    const baseURL = process.env.REACT_APP_BASE_URL
     const [showAll, setShowAll] = useState(false)
     const windowWidth = useWindowWidth()
+    const { t } = useTranslation()
 
     const handleViewMore = () => {
         setShowAll(true)
@@ -51,8 +52,8 @@ const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
     const initialItemCount = isMobile ? 4 : 5
 
     const imagesToShow = showAll
-        ? data.attributes.gallery?.data
-        : data.attributes.gallery?.data?.slice(0, initialItemCount)
+        ? data?.attributes?.gallery?.data
+        : data?.attributes?.gallery?.data?.slice(0, initialItemCount)
 
     return (
         <>
@@ -71,7 +72,7 @@ const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
                                     <PhotoView key={item.id} src={src}>
                                         <img
                                             src={srcThumbnail}
-                                            className="h-[150px] w-full cursor-zoom-in rounded-[4px]   object-cover object-center md:h-[200px]"
+                                            className="h-[150px] w-full cursor-zoom-in rounded-[4px] object-cover object-center md:h-[200px]"
                                             alt={`Photo ${item.id}`}
                                         />
                                     </PhotoView>
@@ -83,7 +84,7 @@ const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
                         <div className="flex w-full justify-center">
                             <button
                                 onClick={handleViewMore}
-                                className="mt-4 w-40 rounded border-white border hover:text-black hover:bg-white p-2 text-white"
+                                className="mt-4 w-40 rounded border border-white p-2 text-white hover:bg-white hover:text-black"
                             >
                                 {t('viewMore')}
                             </button>

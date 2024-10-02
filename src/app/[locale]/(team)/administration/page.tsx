@@ -22,7 +22,6 @@ async function fetchData(locale: string) {
         })
         return response.data.data
     } catch (error) {
-    
         return []
     }
 }
@@ -33,7 +32,7 @@ export default async function page({ params: { locale } }: { params: { locale: s
 
     return (
         <main
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex h-auto w-full flex-col items-center gap-6 py-5 text-white md:min-h-screen md:gap-10 md:py-10`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full flex-col items-center gap-6 py-5 text-white md:min-h-screen md:gap-10 md:py-10`}
         >
             <h1
                 className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-xl tracking-wider md:text-2xl`}

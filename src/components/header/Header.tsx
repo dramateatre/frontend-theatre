@@ -24,10 +24,8 @@ export default function Header() {
             className={` ${locale === 'en' ? 'text-base' : 'text-base'} shadow-xs relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-[#151721] bg-header-gradient px-6 py-5 backdrop-blur-none md:h-28 md:pr-7 lg:px-20`}
         >
             <Link href="/">
-                <Logo className="mt-5 text-[180px] md:mt-10 md:text-[270px]" />
+                <Logo className="mt-5 fill-[#eeededee] text-[180px] md:mt-10 md:text-[270px]" />
             </Link>
-
-            {/* </Link> */}
 
             <div className="flex flex-row gap-4">
                 <div className="hidden gap-4 md:flex">
