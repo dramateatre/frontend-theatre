@@ -53,7 +53,7 @@ export default function Poster({ data }: any) {
 
     return (
         <section className={`} w-full text-white`}>
-            <div className="flex w-full flex-row justify-center pt-10">
+            <div className="flex w-full flex-row justify-center pt-5">
                 <h1
                     className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-xl tracking-[5px] md:text-3xl`}
                 >

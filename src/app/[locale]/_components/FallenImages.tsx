@@ -47,7 +47,7 @@ const FallenImages = ({ images = [OldTheatre, Theatre1, Theatre2, TheatreHall, N
             {isClient ? (
                 <section className="flex w-full flex-col pt-10">
                     <h1
-                        className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} mb-8 text-center text-xl md:text-3xl tracking-[5px] text-white`}
+                        className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} mb-8 text-center text-xl tracking-[5px] text-white md:text-3xl`}
                     >
                         {t('theatreHistory')}
                     </h1>
@@ -87,7 +87,7 @@ const FallenImages = ({ images = [OldTheatre, Theatre1, Theatre2, TheatreHall, N
                             </motion.div>
                         ))}
                     </div>
-                    <div className="hidden w-full justify-end pr-20 md:flex">
+                    <div className="flex w-full justify-center md:flex md:justify-end md:pr-20">
                         <Link href="/history">
                             <button className="flex w-auto items-center gap-2 text-sm text-white underline-offset-2 hover:underline">
                                 {t('viewMore')}

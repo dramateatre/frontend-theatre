@@ -21,12 +21,12 @@ export default function ClientWrapper({ data }: any) {
         >
             <h1 className="text-xl tracking-widest md:text-2xl">{t('artisticDirector')}</h1>
             {isClient ? (
-                <div className="mt-10 flex w-full flex-col items-center md:w-4/5">
+                <div className="mt-2 flex w-full flex-col items-center md:w-4/5">
                     <div className="mb-10 hidden flex-row items-center gap-2 rounded-[6px] border bg-[#0f1017] bg-card-gradient px-7 py-1 shadow-custom md:flex">
                         <span className="my-1 text-lg">{data[0]?.attributes?.name}</span>
                         <span className="my-1 text-lg">{data[0]?.attributes?.lastname}</span>
                     </div>
-                    <div className="h-auto w-full overflow-hidden bg-[#0f1017] bg-card-gradient shadow-custom md:w-full md:rounded-[4px]">
+                    <div className="h-auto  border border-slate-100 w-full overflow-hidden bg-[#0f1017] bg-card-gradient shadow-custom md:w-full md:rounded-[4px]">
                         <div className="relative mr-5 h-[250px] w-full md:float-left md:h-[300px] md:w-[300px] lg:w-[400px]">
                             <AvatarImage data={data[0]} />
                         </div>

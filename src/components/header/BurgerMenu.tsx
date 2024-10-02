@@ -17,13 +17,24 @@ export function BurgerMenu() {
             <SheetTrigger asChild>
                 <BurgerIcon className="block h-6 w-6 cursor-pointer fill-slate-500 lg:hidden" />
             </SheetTrigger>
-            <SheetContent className="bg-[#0f1017] text-white">
+            <SheetContent className="overflow-y-auto bg-[#0f1017] text-white">
                 <div className="flex h-full w-full flex-col justify-between pt-5">
                     <div className="flex flex-col gap-5 text-sm">
                         <SheetTrigger asChild>
                             <Link href="/">
                                 <span className={isActive(['/', '/en']) ? 'underline' : ''}>
                                     {t('main')}
+                                </span>
+                            </Link>
+                        </SheetTrigger>
+                        <SheetTrigger asChild>
+                            <Link href="/poster">
+                                <span
+                                    className={
+                                        isActive(['/poster', '/en/poster']) ? 'underline' : ''
+                                    }
+                                >
+                                    {t('poster')}
                                 </span>
                             </Link>
                         </SheetTrigger>
@@ -49,21 +60,31 @@ export function BurgerMenu() {
                                 </span>
                             </Link>
                         </SheetTrigger>
-
+                        <SheetTrigger asChild>
+                            <Link href="/contact">
+                                <span
+                                    className={
+                                        isActive(['/contact', '/en/contact']) ? 'underline' : ''
+                                    }
+                                >
+                                    {t('contact')}
+                                </span>
+                            </Link>
+                        </SheetTrigger>
                         <Accordion type="single" collapsible className="w-full">
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>{t('team')}</AccordionTrigger>
                                 <AccordionContent>
                                     <SheetTrigger asChild>
-                                        <Link href="/troupe">
+                                        <Link href="/director">
                                             <span
                                                 className={
-                                                    isActive(['/troupe', '/en/troupe'])
+                                                    isActive(['/director', '/en/director'])
                                                         ? 'underline'
                                                         : ''
                                                 }
                                             >
-                                                {t('troupe')}
+                                                {t('directorCompany')}
                                             </span>
                                         </Link>
                                     </SheetTrigger>
@@ -104,12 +125,6 @@ export function BurgerMenu() {
                                         </Link>
                                     </SheetTrigger>
                                 </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-
-                        <Accordion type="single" collapsible className="w-full">
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger>{t('about')}</AccordionTrigger>
                                 <AccordionContent>
                                     <SheetTrigger asChild>
                                         <Link href="/history">
@@ -127,45 +142,25 @@ export function BurgerMenu() {
                                 </AccordionContent>
                                 <AccordionContent>
                                     <SheetTrigger asChild>
-                                        <Link href="/museum">
+                                        <Link href="/tickets">
                                             <span
                                                 className={
-                                                    isActive(['/museum', '/en/museum'])
+                                                    isActive(['/ticket', '/en/ticket'])
                                                         ? 'underline'
                                                         : ''
                                                 }
                                             >
-                                                {t('museum')}
+                                                {t('tickets')}
                                             </span>
                                         </Link>
                                     </SheetTrigger>
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
-                        <SheetTrigger asChild>
-                            <Link href="/contact">
-                                <span
-                                    className={
-                                        isActive(['/contact', '/en/contact']) ? 'underline' : ''
-                                    }
-                                >
-                                    {t('contact')}
-                                </span>
-                            </Link>
-                        </SheetTrigger>
-                        <SheetTrigger asChild>
-                            <Link href="/tickets">
-                                <span
-                                    className={
-                                        isActive(['/tickets', '/en/tickets']) ? 'underline' : ''
-                                    }
-                                >
-                                    {t('tickets')}
-                                </span>
-                            </Link>
-                        </SheetTrigger>
                     </div>
+
                     <div className="flex flex-col pb-0">
+                        <div className="my-2 h-[1px] w-full bg-slate-200"></div>
                         <div className="flex w-full flex-row items-center">
                             <PhoneCall className="h-4 w-4 fill-[#484848]" />
                             <a
@@ -188,7 +183,7 @@ export function BurgerMenu() {
                                 batumidramatheatre@gmail.com
                             </a>
                         </div>
-                        <div className="mt-4 h-[2px] w-full bg-[#DADDE7]"></div>
+
                         <div className="mt-6 flex w-full flex-row items-center justify-end gap-6">
                             <a target="_blank" rel="noopener noreferrer" href="#">
                                 <FbIcon className="h-7 w-7 cursor-pointer" />

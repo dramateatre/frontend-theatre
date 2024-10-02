@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import React from 'react'
 import LangChoose from './LangChoose'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
@@ -14,8 +13,6 @@ import {
     DropdownMenuLabel,
 } from '../ui/dropdown-menu'
 import { ArrowDown, Logo } from '../svg'
-import Image from 'next/image'
-import Logo2 from '@images/Logo.png'
 
 export default function Header() {
     const { t } = useTranslation()
@@ -26,10 +23,9 @@ export default function Header() {
         <div
             className={` ${locale === 'en' ? 'text-base' : 'text-base'} shadow-xs relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-[#151721] bg-header-gradient px-6 py-5 backdrop-blur-none md:h-28 md:pr-7 lg:px-20`}
         >
-            {/* <Link href="/" className="relative h-12 w-24 cursor-pointer md:h-full md:w-auto"> */}
-            {/* <Image src={Logo2} alt="Logo" className="h-full w-full object-cover" /> */}
-
-            <Logo className="mt-5 fill-[#f5f5f6] text-[160px] md:mt-10 md:text-[270px]" />
+            <Link href="/">
+                <Logo className="mt-5 text-[180px] md:mt-10 md:text-[270px]" />
+            </Link>
 
             {/* </Link> */}
 
@@ -55,7 +51,7 @@ export default function Header() {
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <div className="flex cursor-pointer flex-row items-center gap-2">
-                                <span className="text-white outline-none">{t('თეატრი')}</span>
+                                <span className="text-white outline-none">{t('theatre')}</span>
                                 <ArrowDown className="mt-1 fill-white text-xs" />
                             </div>
                         </DropdownMenuTrigger>
