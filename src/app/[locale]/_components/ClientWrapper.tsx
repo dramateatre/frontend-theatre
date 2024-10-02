@@ -6,7 +6,6 @@ import Cover from './Cover'
 import Poster from './Poster'
 import News from './News'
 import Actors from './Actors'
-import History from './History'
 import FallenImages from './FallenImages'
 
 // Updated fadeIn with a quicker and snappier spring transition
@@ -112,7 +111,7 @@ export default function ClientWrapper({ posterData, newsData, creativeGroupData 
                 viewport={{ once: true, amount: 0.4 }}
                 variants={fadeInVariants}
             >
-                <History />
+                <FallenImages />
             </motion.div>
         </main>
     )

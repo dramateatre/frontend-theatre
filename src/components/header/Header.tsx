@@ -29,7 +29,7 @@ export default function Header() {
             {/* <Link href="/" className="relative h-12 w-24 cursor-pointer md:h-full md:w-auto"> */}
             {/* <Image src={Logo2} alt="Logo" className="h-full w-full object-cover" /> */}
 
-            <Logo className="mt-10 fill-[#f5f5f6] text-[280px]" />
+            <Logo className="mt-5 fill-[#f5f5f6] text-[160px] md:mt-10 md:text-[270px]" />
 
             {/* </Link> */}
 

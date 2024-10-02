@@ -15,7 +15,7 @@ export default function News({ data }: any) {
     const locale = params.locale
 
     const isDesktop = useMediaQuery({
-        query: '(min-width: 768px)',
+        query: '(min-width: 1280px)',
     })
 
     if (!data?.data?.length) return null
@@ -26,7 +26,7 @@ export default function News({ data }: any) {
         >
             <div className="flex w-full flex-row justify-center">
                 <h1
-                    className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} texet-center text-3xl tracking-[5px]`}
+                    className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-xl tracking-[5px] md:text-3xl`}
                 >
                     {t('news')}
                 </h1>
@@ -48,7 +48,7 @@ export default function News({ data }: any) {
                             .map((item: any, index: number) => (
                                 <CarouselItem
                                     key={index}
-                                    className="pl-6 md:basis-1/2 lg:basis-1/4 lg:pl-10"
+                                    className="pl-6 md:basis-1/3 lg:pl-10 xl:basis-1/4"
                                 >
                                     <Link href={`/news/${item.id}`}>
                                         <div className="relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom">

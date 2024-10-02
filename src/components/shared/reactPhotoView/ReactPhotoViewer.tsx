@@ -20,7 +20,7 @@ const ReactPhotoViewer = ({ data }: any) => {
                         alt="Image preview"
                         layout="fill"
                         objectFit="cover"
-                        className="h-full w-full cursor-zoom-in rounded-[4px] object-cover object-center"
+                        className="h-full w-full cursor-zoom-in border border-slate-200 rounded-[4px] object-cover object-center"
                     />
                 </div>
             </PhotoView>

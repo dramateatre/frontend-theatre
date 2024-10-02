@@ -71,7 +71,7 @@ const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
                                     <PhotoView key={item.id} src={src}>
                                         <img
                                             src={srcThumbnail}
-                                            className="h-[150px] w-full cursor-zoom-in rounded-[4px] border object-cover object-center md:h-[200px]"
+                                            className="h-[150px] w-full cursor-zoom-in rounded-[4px]   object-cover object-center md:h-[200px]"
                                             alt={`Photo ${item.id}`}
                                         />
                                     </PhotoView>
