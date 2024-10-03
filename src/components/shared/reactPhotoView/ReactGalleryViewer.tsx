@@ -38,7 +38,7 @@ const useWindowWidth = () => {
 }
 
 const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
-    const baseURL = process.env.REACT_APP_BASE_URL
+    const baseURL = process.env.NEXT_PUBLIC_REST_API
     const [showAll, setShowAll] = useState(false)
     const windowWidth = useWindowWidth()
     const { t } = useTranslation()
