@@ -24,24 +24,22 @@ import ClientWrapper from './_components/ClientWrapper'
 //     }
 // }
 
-// async function fetchData() {
-//     try {
-//         const response = await axiosInstance.get('/galeries', {
-//             params: {
-//                 populate: '*',
-//                 sort: 'date:desc',
-//             },
-//         })
-//         return response.data
-//     } catch (error) {
-//         return []
-//     }
-// }
+async function fetchData() {
+    try {
+        const response = await axiosInstance.get('/galleries', {
+            params: {
+                populate: '*',
+            },
+        })
+        return response.data
+    } catch (error) {
+        return []
+    }
+}
 
 export default async function page() {
-    // const data = await fetchData()
+    const data = await fetchData()
 
-    // console.log(data)
-
-    return <div>123</div>
+  
+    return <ClientWrapper data={data} />
 }

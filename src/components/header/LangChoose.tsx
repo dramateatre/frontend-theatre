@@ -5,6 +5,7 @@ import { useStore } from '@/zustand/zustand'
 
 import { useParams, usePathname, useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
+import { EnglishFlag, GeorgianFlag } from '../svg'
 
 type LangChooseProps = {
     className: string
@@ -53,7 +54,13 @@ const LangChoose = ({ className, spanClassname }: LangChooseProps) => {
     return (
         <>
             <div className={`${className}`} onClick={handleLangSwitch}>
-                <span className={`${spanClassname}`}>{newLocale === 'ka' ? 'GEO' : 'ENG'}</span>
+                <span className={`${spanClassname}`}>
+                    {newLocale === 'ka' ? (
+                        <EnglishFlag className="h-6 w-6" />
+                    ) : (
+                        <GeorgianFlag className="h-6 w-6" />
+                    )}
+                </span>
             </div>
         </>
     )

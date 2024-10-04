@@ -61,6 +61,30 @@ export function BurgerMenu() {
                             </Link>
                         </SheetTrigger>
                         <SheetTrigger asChild>
+                            <Link href="/artistic-director">
+                                <span
+                                    className={
+                                        isActive(['/artistic-director', '/en/artistic-director'])
+                                            ? 'underline'
+                                            : ''
+                                    }
+                                >
+                                    {t('aritsticDir')}
+                                </span>
+                            </Link>
+                        </SheetTrigger>
+                        <SheetTrigger asChild>
+                            <Link href="/troupe">
+                                <span
+                                    className={
+                                        isActive(['/troupe', '/en/troupe']) ? 'underline' : ''
+                                    }
+                                >
+                                    {t('troupe')}
+                                </span>
+                            </Link>
+                        </SheetTrigger>
+                        <SheetTrigger asChild>
                             <Link href="/contact">
                                 <span
                                     className={
@@ -71,7 +95,8 @@ export function BurgerMenu() {
                                 </span>
                             </Link>
                         </SheetTrigger>
-                        <Accordion type="single" collapsible className="w-full">
+
+                        <Accordion type="single" collapsible className="w-full overflow-y-auto">
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>{t('team')}</AccordionTrigger>
                                 <AccordionContent>
@@ -151,6 +176,21 @@ export function BurgerMenu() {
                                                 }
                                             >
                                                 {t('tickets')}
+                                            </span>
+                                        </Link>
+                                    </SheetTrigger>
+                                </AccordionContent>
+                                <AccordionContent>
+                                    <SheetTrigger asChild>
+                                        <Link href="/gallery">
+                                            <span
+                                                className={
+                                                    isActive(['/gallery', '/en/gallery'])
+                                                        ? 'underline'
+                                                        : ''
+                                                }
+                                            >
+                                                {t('gallery')}
                                             </span>
                                         </Link>
                                     </SheetTrigger>

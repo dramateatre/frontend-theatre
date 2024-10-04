@@ -35,7 +35,7 @@ export default function ClientWrapper({ data }: any) {
                         <span className="my-1 text-lg">{data?.data?.attributes?.firstname}</span>
                         <span className="my-1 text-lg">{data?.data?.attributes?.lastname}</span>
                     </div>
-                    <div className="h-auto w-full overflow-hidden border-slate-100 bg-[#0f1017] bg-card-gradient pb-5 shadow-custom md:w-full md:rounded-[4px] md:border">
+                    <div className="h-auto w-full overflow-hidden bg-[#0f1017] bg-card-gradient pb-5 shadow-custom md:w-full md:rounded-[4px]">
                         <div className="relative mr-5 h-[250px] w-full md:float-left md:h-[300px] md:w-[300px] lg:w-[400px]">
                             <AvatarImage data={data?.data} />
                         </div>

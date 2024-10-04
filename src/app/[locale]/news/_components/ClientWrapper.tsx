@@ -43,8 +43,6 @@ export default function ClientWrapper({ data, page, pageSize }: any) {
             </h1>
             {data?.data.map((item: any, index: number) => (
                 <Link href={`/news/${item.id}`} key={item.id}>
-                    {' '}
-                    {/* Ensure to set key to item.id */}
                     <motion.div
                         className="relative z-50 flex h-[410px] w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:h-[200px] md:flex-row"
                         initial="hidden" // Set the initial state
@@ -61,7 +59,7 @@ export default function ClientWrapper({ data, page, pageSize }: any) {
                                 className="object-cover object-center"
                             />
                         </div>
-                        <div className="flex h-full w-full flex-col items-start justify-between gap-3 bg-[#0f1017] bg-card-gradient px-3 pb-3 pt-3 md:px-6">
+                        <div className="flex h-full w-full flex-col items-start justify-between gap-3 bg-[#8a8989] bg-opacity-10 bg-card-gradient px-3 pb-3 pt-3 md:px-6">
                             <div className="flex w-full flex-col justify-between">
                                 <h1 className="line-clamp-1 h-7 overflow-hidden text-ellipsis text-center text-base text-white md:text-left md:text-lg">
                                     {item.attributes.header}

@@ -1,11 +1,10 @@
 'use client'
 
-import axiosInstance from '@/AxiosInstance'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { useParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export default function Contact() {
@@ -31,8 +30,6 @@ export default function Contact() {
             setResult(data.message)
         }
     }
-
-   
 
     return (
         <section className="h-auto w-full px-6 md:px-7 lg:px-40 xl:px-64">

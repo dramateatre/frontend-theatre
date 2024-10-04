@@ -21,7 +21,7 @@ export default function Header() {
 
     return (
         <div
-            className={` ${locale === 'en' ? 'text-base' : 'text-base'} shadow-xs relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-[#151721] bg-header-gradient px-6 py-5 backdrop-blur-none md:h-28 md:pr-7 lg:px-20`}
+            className={` ${locale === 'en' ? 'text-base' : 'text-base'} relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-gradient-to-r from-[#a3abb8] via-[#383f4d] to-[#0b0c10] px-6 py-5 text-white md:h-28 md:pr-7 lg:px-20`}
         >
             <Link href="/">
                 <Logo className="mt-5 fill-[#eeededee] text-[180px] md:mt-10 md:text-[270px]" />
@@ -32,11 +32,11 @@ export default function Header() {
                     <Link href="/">
                         <h1 className="text-white">{t('main')}</h1>
                     </Link>
-                    <Link href="/poster">
-                        <h1 className="text-white">{t('poster')}</h1>
-                    </Link>
                     <Link href="/news">
                         <h1 className="text-white">{t('news')}</h1>
+                    </Link>
+                    <Link href="/poster">
+                        <h1 className="text-white">{t('poster')}</h1>
                     </Link>
                     <Link href="/repertory">
                         <h1 className="text-white">{t('repertory')}</h1>
@@ -82,12 +82,20 @@ export default function Header() {
                                     </Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem asChild>
+                                    <Link href="/gallery">
+                                        <DropdownMenuLabel className="cursor-pointer">
+                                            {t('gallery')}
+                                        </DropdownMenuLabel>
+                                    </Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
                                     <Link href="/history">
                                         <DropdownMenuLabel className="cursor-pointer">
                                             {t('theatreHistory')}
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>
+
                                 <DropdownMenuItem asChild>
                                     <Link href="/tickets">
                                         <DropdownMenuLabel className="cursor-pointer">

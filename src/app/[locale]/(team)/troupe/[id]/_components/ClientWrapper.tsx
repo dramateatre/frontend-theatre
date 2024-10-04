@@ -6,8 +6,11 @@ import Paragraph from './Paragraph'
 import { useEffect, useState } from 'react'
 import { useStore } from '@/zustand/zustand'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import Link from 'next/link'
 
 export default function ClientWrapper({ data }: any) {
+    const { t } = useTranslation()
     const params = useParams()
     const locale = params.locale
     const [isClient, setIsClient] = useState(false)
@@ -57,11 +60,23 @@ export default function ClientWrapper({ data }: any) {
                         <span className="my-1 text-lg">{data?.attributes?.firstname}</span>
                         <span className="my-1 text-lg">{data?.attributes?.lastname}</span>
                     </div>
+
                     <div className="h-full w-full overflow-hidden rounded-[4px] bg-[#0f1017] bg-opacity-10 bg-card-gradient shadow-custom md:w-2/3">
                         <div className="relative mr-5 h-[250px] w-full md:float-left md:h-[300px] md:w-[400px]">
                             <AvatarImage data={data} />
                         </div>
-                        <div className="w-full px-3">
+                        <div className="relative w-full px-3">
+                            <div className="absolute right-4 top-3">
+                                {data.attributes.article && (
+                                    <Link target="_blank" href={data.attributes.article}>
+                                        <button
+                                            className={`flex items-center justify-center rounded-[4px] border px-3 py-1 text-sm text-white hover:bg-slate-200 hover:text-black`}
+                                        >
+                                            {t('article')}
+                                        </button>
+                                    </Link>
+                                )}
+                            </div>
                             <div className="flex flex-row items-center justify-center gap-2 py-2 md:hidden">
                                 <span className="my-1 text-lg">{data?.attributes?.firstname}</span>
                                 <span className="my-1 text-lg">{data?.attributes?.lastname}</span>

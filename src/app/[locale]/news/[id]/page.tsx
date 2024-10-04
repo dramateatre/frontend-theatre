@@ -13,8 +13,6 @@ export async function generateMetadata({
     // Fetch data
     const data = await fetchData(locale, id)
 
-    console.log(data.attributes.image.data.attributes.url)
-
     return {
         title: data.attributes.header || t('historyPage'),
         openGraph: {
