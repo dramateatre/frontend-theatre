@@ -32,14 +32,17 @@ export default function Header() {
                     <Link href="/">
                         <h1 className="text-white">{t('main')}</h1>
                     </Link>
-                    <Link href="/news">
-                        <h1 className="text-white">{t('news')}</h1>
-                    </Link>
                     <Link href="/poster">
                         <h1 className="text-white">{t('poster')}</h1>
                     </Link>
+                    <Link href="/news">
+                        <h1 className="text-white">{t('news')}</h1>
+                    </Link>
                     <Link href="/repertory">
                         <h1 className="text-white">{t('repertory')}</h1>
+                    </Link>
+                    <Link href="/artistic-director">
+                        <h1 className="text-white">{t('aritsticDir')}</h1>
                     </Link>
 
                     <Link href="/troupe">
@@ -58,21 +61,15 @@ export default function Header() {
                                 <DropdownMenuItem asChild>
                                     <Link href="/director">
                                         <DropdownMenuLabel className="cursor-pointer">
-                                            {t('დირექტორი')}
+                                            {t('directorCompany')}
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>
-                                <DropdownMenuItem asChild>
-                                    <Link href="/artistic-director">
-                                        <DropdownMenuLabel className="cursor-pointer">
-                                            {t('სამხატვრო ხელმ.')}
-                                        </DropdownMenuLabel>
-                                    </Link>
-                                </DropdownMenuItem>
+
                                 <DropdownMenuItem asChild>
                                     <Link href="/creative-group">
                                         <DropdownMenuLabel className="cursor-pointer">
-                                            {t('შემოქმედებით სამსახური')}
+                                            {t('creativeGroup')}
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>
@@ -80,7 +77,7 @@ export default function Header() {
                                 <DropdownMenuItem asChild>
                                     <Link href="/administration">
                                         <DropdownMenuLabel className="cursor-pointer">
-                                            {t('ადმინისტრაცია')}
+                                            {t('administration')}
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>

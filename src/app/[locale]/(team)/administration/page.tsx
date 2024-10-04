@@ -32,49 +32,54 @@ export default async function page({ params: { locale } }: { params: { locale: s
 
     return (
         <main
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full flex-col items-center gap-6 py-5 text-white md:min-h-screen md:gap-10 md:py-10`}
+            className={`min-h-screen px-4 py-8 md:px-8 md:py-16 ${locale === 'en' ? 'italic' : 'font-georgian'}`}
         >
-            <h1
-                className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-xl tracking-wider md:text-2xl`}
-            >
-                {t('administration')}
-            </h1>
+            <div className="mx-auto max-w-4xl">
+                <h1
+                    className={`mb-8 text-center text-xl text-white md:text-3xl ${
+                        locale === 'en' ? 'font-playwrite' : 'font-georgian'
+                    }`}
+                >
+                    {t('administration')}
+                </h1>
 
-            <div className="h-auto w-full border-t border-white bg-opacity-100 bg-card-gradient md:w-2/3 md:border-x">
-                {data?.map((item: any, index: any) => (
-                    <div
-                        key={index}
-                        className="flex w-full flex-col gap-2 pt-5 text-sm md:text-base"
-                    >
-                        <div className="flex flex-row items-start gap-4 px-3 md:items-center md:px-10">
-                            <div className="flex flex-row items-center gap-2">
-                                <span>{item.attributes.firstname}</span>
-                                <span>{item.attributes.lastname}</span>
+                <div className="overflow-hidden rounded-[6px] bg-[#8a8989] bg-opacity-10 bg-card-gradient shadow-xl">
+                    {data?.map((item: any, index: any) => (
+                        <div
+                            key={index}
+                            className="border-b border-blue-200 border-opacity-30 p-6 last:border-b-0"
+                        >
+                            <div className="mb-4 flex flex-col justify-between md:flex-row md:items-center">
+                                <div className="mb-2 flex items-center md:mb-0">
+                                    <span className="text-lg font-semibold text-white">
+                                        {item.attributes.firstname} {item.attributes.lastname}
+                                    </span>
+                                </div>
+                                <span className="text-blue-200">{item.attributes.position}</span>
                             </div>
-                            <span>-</span>
-                            <span>{item.attributes.position}</span>
+                            <div className="flex flex-col gap-4 sm:flex-row">
+                                {item.attributes.email && (
+                                    <a
+                                        href={`mailto:${item.attributes.email}`}
+                                        className="flex items-center text-blue-100 transition-colors duration-200 hover:text-white"
+                                    >
+                                        <EmailSms className="mr-2 h-5 w-5" />
+                                        <span>{item.attributes.email}</span>
+                                    </a>
+                                )}
+                                {item.attributes.phone && (
+                                    <a
+                                        href={`tel:${item.attributes.phone}`}
+                                        className="flex items-center text-blue-100 transition-colors duration-200 hover:text-white"
+                                    >
+                                        <PhoneCall className="mr-2 h-4 w-4" />
+                                        <span>{item.attributes.phone}</span>
+                                    </a>
+                                )}
+                            </div>
                         </div>
-                        <div className="flex flex-row gap-4 px-3 md:px-10">
-                            <a
-                                href={`mailto:${item.attributes.email}`}
-                                className="flex cursor-pointer flex-row items-center gap-1"
-                            >
-                                <EmailSms className="h-5 w-5" />
-                                <span>{item.attributes.email}</span>
-                            </a>
-                            <span>-</span>
-
-                            <a
-                                href={`tel:${item.attributes.phone}`}
-                                className="flex cursor-pointer flex-row items-center gap-1"
-                            >
-                                <PhoneCall className="h-3 w-3" />
-                                <span>{item.attributes.phone}</span>
-                            </a>
-                        </div>
-                        <div className="h-[1px] w-full bg-slate-200"></div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </main>
     )

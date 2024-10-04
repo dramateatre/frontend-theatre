@@ -1,10 +1,9 @@
 'use client'
 
 import { EmailSms, PhoneCall } from '@/components/svg'
-import Link from 'next/link'
-
 import { useParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
+import Link from 'next/link'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -13,56 +12,63 @@ export default function ClientWrapper({ data }: any) {
 
     return (
         <main
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex h-auto w-full flex-col items-center gap-6 px-6 py-5 text-white md:min-h-screen md:gap-10 md:px-32 md:py-10`}
+            className={`min-h-screen px-4 py-8 md:px-8 md:py-16 ${locale === 'en' ? 'italic' : 'font-georgian'}`}
         >
-            <h1
-                className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-xl tracking-wider md:text-2xl`}
-            >
-                {t('creativeGroup')}
-            </h1>
+            <div className="mx-auto max-w-4xl">
+                <h1
+                    className={`mb-8 text-center text-xl text-white md:text-3xl ${
+                        locale === 'en' ? 'font-playwrite' : 'font-georgian'
+                    }`}
+                >
+                    {t('creativeGroup')}
+                </h1>
 
-            <div className="grid h-auto w-full flex-col gap-x-20 gap-y-10 border-white bg-opacity-100 px-3 md:w-full md:grid-cols-2">
-                {data?.map((item: any, index: any) => (
-                    <div
-                        key={index}
-                        className="relative grid w-full grid-cols-1 items-center justify-start gap-3 rounded-[4px] border bg-card-gradient px-3 py-3 pt-5 text-sm md:text-base"
-                    >
-                        <span className="text-center font-bold">{item.attributes.position}</span>
-                        <div className="h-[1px] w-full bg-slate-200"></div>
-
-                        <div className="flex flex-row justify-start gap-2 md:justify-center">
-                            <span>{item.attributes.firstname}</span>
-                            <span>{item.attributes.lastname}</span>
-                        </div>
-                        <div className="flex flex-col justify-start  md:justify-center gap-3 md:flex-row">
-                            {item.attributes.email && (
-                                <a
-                                    href={`mailto:${item.attributes.email}`}
-                                    className="flex cursor-pointer flex-row items-center justify-start gap-1"
-                                >
-                                    <EmailSms className="h-5 w-5" />
-                                    <span>{item.attributes.email}</span>
-                                </a>
-                            )}
-                            {item.attributes.phone && (
-                                <a
-                                    href={`tel:${item.attributes.phone}`}
-                                    className="flex cursor-pointer flex-row items-center justify-start gap-1"
-                                >
-                                    <PhoneCall className="h-3 w-3" />
-                                    <span>{item.attributes.phone}</span>
-                                </a>
-                            )}
-                        </div>
-                        {item.attributes.description && (
-                            <div className="flex flex-row justify-end">
-                                <Link href={`/creative-group/${item.id}`}>
-                                    <button className="hover:underline">{t('viewMore')}</button>
-                                </Link>
+                <div className="overflow-hidden rounded-[6px] bg-[#8a8989] bg-opacity-10 bg-card-gradient shadow-xl">
+                    {data?.map((item: any, index: any) => (
+                        <div
+                            key={index}
+                            className="border-b border-blue-200 border-opacity-30 p-6 last:border-b-0"
+                        >
+                            <div className="mb-4 flex flex-col justify-between md:flex-row md:items-center">
+                                <div className="mb-2 flex items-center md:mb-0">
+                                    {item.attributes.description ? (
+                                        <Link href={`/creative-group/${item.id}`}>
+                                            <span className="cursor-pointer text-lg font-semibold text-white transition-colors duration-200 hover:text-blue-200">
+                                                {item.attributes.firstname}{' '}
+                                                {item.attributes.lastname}
+                                            </span>
+                                        </Link>
+                                    ) : (
+                                        <span className="text-lg font-semibold text-white">
+                                            {item.attributes.firstname} {item.attributes.lastname}
+                                        </span>
+                                    )}
+                                </div>
+                                <span className="text-blue-200">{item.attributes.position}</span>
                             </div>
-                        )}
-                    </div>
-                ))}
+                            <div className="flex flex-col gap-4 sm:flex-row">
+                                {item.attributes.email && (
+                                    <a
+                                        href={`mailto:${item.attributes.email}`}
+                                        className="flex items-center text-blue-100 transition-colors duration-200 hover:text-white"
+                                    >
+                                        <EmailSms className="mr-2 h-5 w-5" />
+                                        <span>{item.attributes.email}</span>
+                                    </a>
+                                )}
+                                {item.attributes.phone && (
+                                    <a
+                                        href={`tel:${item.attributes.phone}`}
+                                        className="flex items-center text-blue-100 transition-colors duration-200 hover:text-white"
+                                    >
+                                        <PhoneCall className="mr-2 h-4 w-4" />
+                                        <span>{item.attributes.phone}</span>
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </main>
     )
