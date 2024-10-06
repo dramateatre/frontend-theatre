@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import NoImage from '@images/NoImage.jpg'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -40,12 +41,21 @@ export default function ClientWrapper({ data }: any) {
                                 className={`relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:w-[480px] lg:w-[680px] xl:w-[1300px] xl:flex-row`}
                             >
                                 <div className="relative h-[180px] w-full md:h-[250px] lg:h-[350px] xl:h-[470px] xl:w-[70%]">
-                                    <Image
-                                        fill
-                                        className="object-cover"
-                                        src={`https://api.batumitheatre.ge${item?.attributes?.image?.data?.attributes?.url}`}
-                                        alt={item?.attributes?.title || 'Theatre Image'}
-                                    />
+                                    {item?.attributes?.image?.data?.attributes?.url ? (
+                                        <Image
+                                            fill
+                                            className="object-cover"
+                                            src={`${process.env.NEXT_PUBLIC_REST_API}${item?.attributes?.image?.data?.attributes?.url}`}
+                                            alt={item?.attributes?.title || 'Theatre Image'}
+                                        />
+                                    ) : (
+                                        <Image
+                                            fill
+                                            className="object-cover"
+                                            src={NoImage}
+                                            alt="No Image Available"
+                                        />
+                                    )}
                                 </div>
                                 <div className="flex h-[340px] w-full flex-col justify-center gap-1 bg-[#0f1017] bg-poster-gradient px-3 py-3 lg:order-2 lg:h-auto lg:py-6 xl:w-[30%]">
                                     <span className="hidden text-center text-xs md:block">
@@ -87,23 +97,27 @@ export default function ClientWrapper({ data }: any) {
                                                 </span>
                                             </span>
                                         )}
-                                        <span className="line-clamp-1 lg:line-clamp-2">
-                                            <span className="text-sm">{t('duration')}</span>
-                                            <span className="ml-2 text-sm">
-                                                {item.attributes?.duration
-                                                    ?.split(':')
-                                                    .slice(0, 2)
-                                                    .join(':')}{' '}
-                                                {t('hour')}
+                                        {item.attributes?.duration && (
+                                            <span className="line-clamp-1 lg:line-clamp-2">
+                                                <span className="text-sm">{t('duration')}</span>
+                                                <span className="ml-2 text-sm">
+                                                    {item.attributes?.duration
+                                                        ?.split(':')
+                                                        .slice(0, 2)
+                                                        .join(':')}{' '}
+                                                    {t('hour')}
+                                                </span>
                                             </span>
-                                        </span>
+                                        )}
 
-                                        <span className="line-clamp-1 lg:line-clamp-2">
-                                            <span className="text-sm">{t('ticketPrice')}</span>
-                                            <span className="ml-2 text-sm">
-                                                {item.attributes?.ticketPrice} ₾
+                                        {item.attributes?.ticketPrice && (
+                                            <span className="line-clamp-1 lg:line-clamp-2">
+                                                <span className="text-sm">{t('ticketPrice')}</span>
+                                                <span className="ml-2 text-sm">
+                                                    {item.attributes?.ticketPrice} ₾
+                                                </span>
                                             </span>
-                                        </span>
+                                        )}
                                         {item.attributes?.poster && (
                                             <div className="mt-2 grid grid-cols-2 items-center justify-center gap-1 md:gap-2">
                                                 {item.attributes?.premiereDate1 && (

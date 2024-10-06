@@ -14,25 +14,22 @@ export default function ClientWrapper({ data }: any) {
     const params = useParams()
     const locale = params.locale
     const [isClient, setIsClient] = useState(false)
-    const setCreativeGroupAlternateLocales = useStore(
-        (state) => state.setCreativeGroupAlternateLocales
-    )
+    const setTroupeAlternateLocales = useStore((state) => state.setTroupeAlternateLocales)
 
     useEffect(() => {
         if (data.attributes?.localizations?.data[0]?.id) {
-            setCreativeGroupAlternateLocales(data.attributes.localizations.data[0].id)
+            setTroupeAlternateLocales(data.attributes.localizations.data[0].id)
         } else {
-            setCreativeGroupAlternateLocales(undefined)
+            setTroupeAlternateLocales(undefined)
         }
-    }, [data, setCreativeGroupAlternateLocales])
+    }, [data, setTroupeAlternateLocales])
 
     useEffect(() => {
         setIsClient(true)
     }, [])
 
-    // Animation variants for falling from below and standing up
     const fallAndStandUpVariants = {
-        hidden: { opacity: 0, y: 100 }, // Starts off-screen below
+        hidden: { opacity: 0, y: 100 },
         visible: {
             opacity: 1,
             y: 0,
@@ -40,7 +37,7 @@ export default function ClientWrapper({ data }: any) {
                 type: 'spring',
                 stiffness: 60,
                 damping: 10,
-                duration: 0.8, // Adjust the speed of the fall
+                duration: 0.8,
             },
         },
     }

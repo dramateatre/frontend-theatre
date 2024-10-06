@@ -3,7 +3,6 @@
 import { EmailSms, PhoneCall } from '@/components/svg'
 import { useParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
-import Link from 'next/link'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -31,18 +30,9 @@ export default function ClientWrapper({ data }: any) {
                         >
                             <div className="mb-4 flex flex-col justify-between md:flex-row md:items-center">
                                 <div className="mb-2 flex items-center md:mb-0">
-                                    {item.attributes.description ? (
-                                        <Link href={`/creative-group/${item.id}`}>
-                                            <span className="cursor-pointer text-lg font-semibold text-white transition-colors duration-200 hover:text-blue-200">
-                                                {item.attributes.firstname}{' '}
-                                                {item.attributes.lastname}
-                                            </span>
-                                        </Link>
-                                    ) : (
-                                        <span className="text-lg font-semibold text-white">
-                                            {item.attributes.firstname} {item.attributes.lastname}
-                                        </span>
-                                    )}
+                                    <span className="text-lg font-semibold text-white">
+                                        {item.attributes.firstname} {item.attributes.lastname}
+                                    </span>
                                 </div>
                                 <span className="text-blue-200">{item.attributes.position}</span>
                             </div>

@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import NoImage from '@images/NoImage.jpg'
@@ -13,28 +12,26 @@ export default function ClientWrapper({ data }: any) {
     const locale = params.locale as string
     const { t } = useTranslation()
 
-    // Container animation for staggered appearance
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1, // Faster stagger
-                duration: 0.4, // Faster container transition
+                staggerChildren: 0.1,
+                duration: 0.4,
                 ease: 'easeInOut',
             },
         },
     }
 
-    // Individual item animation
     const itemVariants = {
         hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.4, // Faster item appearance
-                ease: 'easeOut', // Smoother easing
+                duration: 0.4,
+                ease: 'easeOut',
             },
         },
     }
@@ -55,7 +52,7 @@ export default function ClientWrapper({ data }: any) {
                 <motion.div className="grid h-auto w-full grid-cols-1 gap-10 md:grid-cols-3 md:gap-y-12 lg:grid-cols-5">
                     {data?.data.map((item: any, index: number) => (
                         <motion.div key={index} variants={itemVariants}>
-                            <div className="group relative z-10 h-[350px] w-auto cursor-pointer overflow-hidden rounded-[6px] transition-all duration-500 ease-in-out md:h-[230px]">
+                            <div className="group relative z-10 h-[250px] w-auto cursor-pointer overflow-hidden rounded-[6px] transition-all duration-500 ease-in-out md:h-[230px]">
                                 {item?.attributes?.image?.data && (
                                     <Image
                                         src={`${process.env.NEXT_PUBLIC_REST_API}${item?.attributes?.image?.data?.attributes?.url || NoImage}`}
