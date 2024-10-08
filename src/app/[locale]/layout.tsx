@@ -36,6 +36,9 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: 'Batumi Drama Theatre',
         },
         metadataBase: new URL('https://batumitheatre.ge'),
+        verification: {
+            google: 'IDq7rtIsZBTOESBgUPUfaML9M6hFcLStq0bheT9VhnU',
+        },
     }
 }
 
