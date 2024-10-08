@@ -54,5 +54,6 @@
     "directorCompany": "დირექტორი",
     "artisticDirector": "სამხატვრო ხელმძღვანელი",
     "theatre": "თეატრი",
-    "aritsticDir": "სამხატვრო ხელმ."
+    "aritsticDir": "სამხატვრო ხელმ.",
+    "noPoster": "ამ დროისთვის აფიშაზე რეპერტუარი არ არის"
 }

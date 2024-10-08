@@ -53,5 +53,6 @@
     "directorCompany": "Director",
     "artisticDirector": "Artistic Director",
     "theatre": "Theatre",
-    "aritsticDir": "Artistic director"
+    "aritsticDir": "Artistic director",
+    "noPoster": "At the moment, there is no repertoire on the poster"
 }
