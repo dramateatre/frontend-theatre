@@ -21,7 +21,7 @@ export default function Header() {
 
     return (
         <div
-            className={` ${locale === 'en' ? 'text-base' : 'text-base'} relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-gradient-to-r from-[#a3abb8] via-[#383f4d] to-[#0b0c10] px-6 py-5 text-white md:h-28 md:px-5 xl:px-10`}
+            className={` ${locale === 'en' ? 'text-base' : 'text-base'} relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-gradient-to-r from-[#b3bac6] via-[#656d79] to-[#191b22] px-6 py-5 text-white md:h-28 md:px-5 xl:px-10`}
         >
             <Link href="/">
                 <Logo className="mt-5 fill-[#eeededee] text-[180px] md:mt-10 md:text-[200px] xl:text-[270px]" />
