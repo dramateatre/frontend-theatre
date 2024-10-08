@@ -40,6 +40,5 @@ async function fetchData() {
 export default async function page() {
     const data = await fetchData()
 
-  
     return <ClientWrapper data={data} />
 }
