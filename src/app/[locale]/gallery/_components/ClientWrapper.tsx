@@ -36,9 +36,6 @@ export default function ClientWrapper({ data }: any) {
         },
     }
 
-    // Check if the image data is available and is an array
-    const images = data?.data[0]?.attributes?.image?.data || []
-
     return (
         <>
             <h1
@@ -53,31 +50,18 @@ export default function ClientWrapper({ data }: any) {
                 className="flex min-h-screen w-full flex-col justify-between gap-10 px-12 py-5 text-white md:px-7 md:py-16 lg:px-20"
             >
                 <motion.div className="grid h-auto w-full grid-cols-1 gap-10 md:grid-cols-3 md:gap-y-12 lg:grid-cols-5">
-                    {images.length > 0 ? (
-                        images.map((image: any, index: number) => (
-                            <motion.div key={index} variants={itemVariants}>
-                                <div className="group relative z-10 h-[350px] w-auto cursor-pointer overflow-hidden rounded-[6px] transition-all duration-500 ease-in-out md:h-[230px]">
-                                    <Image
-                                        src={`${process.env.NEXT_PUBLIC_REST_API}${image.attributes.url}`}
-                                        alt={`Gallery Image ${index + 1}`}
-                                        className="h-full w-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-110"
-                                        layout="fill"
-                                    />
-                                </div>
-                            </motion.div>
-                        ))
-                    ) : (
-                        <motion.div variants={itemVariants}>
+                    {data?.data[0]?.attributes?.image?.data.map((image: any, index: number) => (
+                        <motion.div key={index} variants={itemVariants}>
                             <div className="group relative z-10 h-[350px] w-auto cursor-pointer overflow-hidden rounded-[6px] transition-all duration-500 ease-in-out md:h-[230px]">
                                 <Image
-                                    src={NoImage}
-                                    alt="No image available"
+                                    src={`${process.env.NEXT_PUBLIC_REST_API}${image.attributes.url}`}
+                                    alt={`Gallery Image ${index + 1}`}
                                     className="h-full w-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-110"
                                     layout="fill"
                                 />
                             </div>
                         </motion.div>
-                    )}
+                    ))}
                 </motion.div>
             </motion.main>
         </>
