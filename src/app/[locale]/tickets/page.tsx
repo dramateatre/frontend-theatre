@@ -40,8 +40,6 @@ export default async function Page({ params: { locale } }: { params: { locale: s
     const { t } = await initTranslations(locale, i18nNamespaces)
     const data = await fetchData(locale)
 
-    if (!data.data.length) return null
-
     return (
         <main className="flex min-h-screen w-full justify-center px-6 py-10 md:px-7 lg:px-40 xl:px-64">
             <div className="relative h-full w-full rounded-[10px] bg-[#0f1017] bg-opacity-100 bg-card-gradient shadow-custom">
@@ -49,17 +47,19 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                     <div className="h-[1px] w-3/5 bg-white lg:w-4/5"></div>
                     <span className="ml-4 text-xl uppercase text-white">{t('boxOffice')}</span>
                 </div>
-                <div className="flex h-auto w-full flex-col items-end gap-5 px-5 pb-5 pt-20 md:px-20">
-                    <div className="mb-6 flex h-auto w-full flex-col gap-5 text-white">
-                        {data?.data[0]?.attributes?.description && (
-                            <span className="text-sm">
-                                <BlocksRenderer content={data.data[0].attributes.description} />
-                            </span>
-                        )}
-                        <h2 className="text-center text-xl">{t('stage')}</h2>
-                        <PhotoViewers data={data.data} />
+                {data?.data && (
+                    <div className="flex h-auto w-full flex-col items-end gap-5 px-5 pb-5 pt-20 md:px-20">
+                        <div className="mb-6 flex h-auto w-full flex-col gap-5 text-white">
+                            {data?.data[0]?.attributes?.description && (
+                                <span className="text-sm">
+                                    <BlocksRenderer content={data.data[0].attributes.description} />
+                                </span>
+                            )}
+                            <h2 className="text-center text-xl">{t('stage')}</h2>
+                            <PhotoViewers data={data.data} />
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </main>
     )

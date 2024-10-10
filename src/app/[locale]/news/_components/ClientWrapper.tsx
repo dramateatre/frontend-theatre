@@ -34,14 +34,14 @@ export default function ClientWrapper({ data, page, pageSize }: any) {
 
     return (
         <main
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex w-full flex-col justify-center gap-10 bg-[#0f1017] px-6 pb-20 pt-10 md:px-7 lg:px-20 xl:px-48`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full flex-col items-center gap-10 bg-[#0f1017] px-6 pb-20 pt-10 md:px-7 lg:px-20 xl:px-48`}
         >
             <h1
                 className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-3xl tracking-[5px] text-white`}
             >
                 {t('news')}
             </h1>
-            {data?.data.map((item: any, index: number) => (
+            {data?.data?.map((item: any, index: number) => (
                 <Link href={`/news/${item.id}`} key={item.id}>
                     <motion.div
                         className="relative z-50 flex h-[410px] w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:h-[200px] md:flex-row"
@@ -95,10 +95,12 @@ export default function ClientWrapper({ data, page, pageSize }: any) {
                     </motion.div>
                 </Link>
             ))}
-            <Pagination
-                currentPage={data?.meta?.pagination?.page}
-                totalPages={data?.meta?.pagination?.pageCount}
-            />
+            {data?.meta?.pagination && (
+                <Pagination
+                    currentPage={data?.meta?.pagination?.page}
+                    totalPages={data?.meta?.pagination?.pageCount}
+                />
+            )}
         </main>
     )
 }

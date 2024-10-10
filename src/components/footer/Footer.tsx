@@ -55,12 +55,12 @@ export default async function Footer({ locale }: any) {
                             <PhoneCall className="h-4 w-4" />
                             <a target="_blank" rel="noopener noreferrer" href="tel:+995577980858">
                                 <span className="text-sm text-white hover:underline">
-                                    {data?.data[0]?.attributes?.mobile1}
+                                    {data?.data && data?.data[0]?.attributes?.mobile1}
                                 </span>
                             </a>
                             <a target="_blank" rel="noopener noreferrer" href="tel:+995577980858">
                                 <span className="text-sm text-white hover:underline">
-                                    {data?.data[0]?.attributes?.mobile2}
+                                    {data?.data && data?.data[0]?.attributes?.mobile2}
                                 </span>
                             </a>
                         </div>
@@ -68,12 +68,12 @@ export default async function Footer({ locale }: any) {
                             <HomePhoneCall className="h-5 w-5" />
                             <a target="_blank" rel="noopener noreferrer" href="tel:0422 27 31 80 ">
                                 <span className="text-sm text-white hover:underline">
-                                    {data?.data[0]?.attributes?.phone1}
+                                    {data?.data && data?.data[0]?.attributes?.phone1}
                                 </span>
                             </a>
                             <a target="_blank" rel="noopener noreferrer" href="tel:0422 27 31 80 ">
                                 <span className="text-sm text-white hover:underline">
-                                    {data?.data[0]?.attributes?.phone2}
+                                    {data?.data && data?.data[0]?.attributes?.phone2}
                                 </span>
                             </a>
                         </div>
@@ -86,7 +86,7 @@ export default async function Footer({ locale }: any) {
                                 href="mailto:batumidramatheatre@gmail.com"
                             >
                                 <span className="text-sm text-white hover:underline">
-                                    {data?.data[0]?.attributes?.email}
+                                    {data?.data && data?.data[0]?.attributes?.email}
                                 </span>
                             </a>
                         </div>

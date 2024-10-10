@@ -245,10 +245,12 @@ export default function ClientWrapper({ data }: any) {
                             </div>
                         ))}
 
-                        <Pagination
-                            currentPage={data?.meta?.pagination?.page}
-                            totalPages={data?.meta?.pagination?.pageCount}
-                        />
+                        {data?.meta?.pagination && (
+                            <Pagination
+                                currentPage={data?.meta?.pagination?.page}
+                                totalPages={data?.meta?.pagination?.pageCount}
+                            />
+                        )}
                     </div>
                 </section>
             )}

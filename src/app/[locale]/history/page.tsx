@@ -52,7 +52,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
 
     return (
         <div
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative flex h-auto w-full flex-col py-5 md:pt-16`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative flex h-auto w-full flex-col py-5 md:py-16`}
         >
             <div className="grid w-full grid-cols-1 gap-5 md:grid-cols-2 md:gap-0 md:pl-6 lg:pl-6 xl:pl-32">
                 <div className="relative h-full w-full">
