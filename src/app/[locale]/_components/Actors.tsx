@@ -2,7 +2,13 @@
 
 import Image from 'next/image'
 import ActorsIcon from '@images/ActorsIcon.png'
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from '@/components/ui/carousel'
 import { useTranslation } from 'react-i18next'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
@@ -21,9 +27,9 @@ export default function Actors({ data }: any) {
     if (!data?.length) return null
 
     return (
-        <section className="flex w-full flex-col items-center gap-5 text-center text-sm text-white lg:gap-10">
+        <section className="flex w-full flex-col items-center gap-5 text-center text-sm text-white">
             <h1
-                className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} px-6 text-center text-xl tracking-[5px] text-white md:text-4xl`}
+                className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} px-6 text-center text-3xl tracking-[5px] text-white md:text-4xl`}
             >
                 {t('troupe')}
             </h1>
@@ -34,13 +40,13 @@ export default function Actors({ data }: any) {
                 }}
                 className="flex w-full justify-center"
             >
-                <CarouselContent className="w-full py-5 pr-16 lg:pr-7 xl:pl-6 xl:pr-10">
+                <CarouselContent className="w-full py-5 md:px-8">
                     {data.map((item: any, index: any) => (
                         <CarouselItem
                             key={index}
-                            className="pl-10 sm:basis-1/2 lg:basis-1/3 lg:pl-7 xl:basis-1/5 xl:pl-6"
+                            className="sm:basis-1/2 lg:basis-1/3 xl:basis-1/5"
                         >
-                            <div className="group relative z-10 h-[250px] w-auto border-slate-700 border cursor-pointer overflow-hidden rounded-[8px] transition-all duration-700 ease-in-out md:h-[280px] md:hover:z-10">
+                            <div className="group relative z-10 h-[250px] w-auto shadow-xl cursor-pointer overflow-hidden rounded-[8px] border border-slate-700 transition-all duration-700 ease-in-out md:h-[280px] md:hover:z-10">
                                 <Image
                                     fill
                                     src={`${process.env.NEXT_PUBLIC_REST_API}${item?.attributes?.image?.data?.attributes?.url || NoImage}`}
@@ -66,6 +72,8 @@ export default function Actors({ data }: any) {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
+                <CarouselPrevious className="-top-10 xl:hidden" />
+                <CarouselNext className="-top-10 xl:hidden" />
             </Carousel>
             <div className="hidden w-full justify-end pr-20 md:flex">
                 <Link href="/troupe">
