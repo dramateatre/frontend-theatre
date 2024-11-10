@@ -41,7 +41,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
     const data = await fetchData(locale)
 
     return (
-        <main className="flex min-h-screen w-full justify-center px-6 py-10 md:px-7 lg:px-40 xl:px-64">
+        <main className="flex min-h-screen w-full justify-center bg-[#1a1b2f] px-6 py-10 md:px-7 lg:px-40 xl:px-64">
             <div className="relative h-full w-full rounded-[10px] bg-[#0f1017] bg-opacity-100 bg-card-gradient shadow-custom">
                 <div className="absolute right-6 top-8 flex h-auto w-full flex-row items-center md:right-7 lg:right-64">
                     <div className="h-[1px] w-3/5 bg-white lg:w-4/5"></div>

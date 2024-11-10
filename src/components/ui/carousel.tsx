@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react'
- 
+
 import { cn } from '@/utils/cn'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft } from '../svg'
@@ -140,7 +140,7 @@ const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
         const { carouselRef, orientation } = useCarousel()
 
         return (
-            <div ref={carouselRef} className="w-full overflow-hidden pr-6">
+            <div ref={carouselRef} className="w-full overflow-hidden pr-4">
                 <div
                     ref={ref}
                     className={cn(
@@ -187,10 +187,10 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
                 variant={variant}
                 size={size}
                 className={cn(
-                    'absolute hidden h-8 w-8 rounded-full md:flex',
+                    'absolute flex h-8 w-8 rounded-full',
                     orientation === 'horizontal'
-                        ? 'left-12 top-1/2 -translate-y-1/2'
-                        : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
+                        ? 'left-20 -translate-y-1/2 md:left-12 md:top-1/2'
+                        : 'left-20 -translate-x-1/2 rotate-90 md:-top-12 md:left-1/2',
                     className
                 )}
                 disabled={!canScrollPrev}
@@ -215,10 +215,10 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
                 variant={variant}
                 size={size}
                 className={cn(
-                    'absolute hidden h-8 w-8 rounded-full md:flex',
+                    'absolute flex h-8 w-8 rounded-full',
                     orientation === 'horizontal'
-                        ? 'right-12 top-1/2 -translate-y-1/2'
-                        : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
+                        ? 'right-20 -translate-y-1/2 md:right-12 md:top-1/2'
+                        : 'right-20 -translate-x-1/2 rotate-90 md:-bottom-12 md:left-1/2',
                     className
                 )}
                 disabled={!canScrollNext}
@@ -226,7 +226,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
                 {...props}
             >
                 <ArrowRight className="h-4 w-4" />
-          
+
                 <span className="sr-only">Next slide</span>
             </Button>
         )

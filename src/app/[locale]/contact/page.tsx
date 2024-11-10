@@ -22,7 +22,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 }
 export default async function page() {
     return (
-        <main className="flex h-auto w-full flex-col gap-14 pt-10">
+        <main className="flex h-auto w-full flex-col gap-14 pt-10 bg-[#1a1b2f]">
             <Header />
             <Contact />
             <Location />

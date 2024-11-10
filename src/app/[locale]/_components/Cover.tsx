@@ -7,8 +7,8 @@ export default function Cover() {
     const params = useParams()
     const locale = params.locale
     return (
-        <section className="relative h-screen w-full border-b border-black bg-main-cover bg-cover bg-no-repeat md:h-[550px] md:min-h-screen md:bg-top xl:px-20">
-            <div className="absolute inset-0 h-full w-full bg-black opacity-20"></div>
+        <section className="relative h-screen w-full bg-main-cover bg-cover bg-no-repeat md:h-[550px] md:min-h-screen md:bg-top xl:px-20">
+            <div className="absolute inset-0 h-full w-full  opacity-20"></div>
             <div className="relative z-10 flex h-full flex-col items-center justify-center text-white">
                 <h1
                     className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-2xl leading-10 lg:text-5xl`}

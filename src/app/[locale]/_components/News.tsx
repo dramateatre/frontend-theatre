@@ -26,7 +26,7 @@ export default function News({ data }: any) {
         >
             <div className="flex w-full flex-row justify-center">
                 <h1
-                    className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-xl tracking-[5px] md:text-3xl`}
+                    className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} text-center text-xl tracking-[5px] md:text-4xl`}
                 >
                     {t('news')}
                 </h1>

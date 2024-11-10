@@ -47,7 +47,7 @@ export default async function page({
     const data = await fetchData(locale, page, pageSize)
 
     return (
-        <section className="min-h-screen w-full px-6 py-10 md:px-7 lg:px-20 xl:px-40">
+        <section className="min-h-screen w-full bg-[#1a1b2f] px-6 py-10 md:px-7 lg:px-20 xl:px-40">
             {data?.data?.length ? (
                 <div className={`flex w-full flex-col items-center gap-16 text-white`}>
                     <div className="flex w-full flex-row justify-center">

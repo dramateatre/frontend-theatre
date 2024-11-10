@@ -44,7 +44,7 @@ export default function ClientWrapper({ data }: any) {
 
     return (
         <main
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full justify-center overflow-hidden text-white md:py-10`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full justify-center overflow-hidden bg-[#1a1b2f] text-white md:py-10`}
         >
             {isClient ? (
                 <motion.div
@@ -53,12 +53,12 @@ export default function ClientWrapper({ data }: any) {
                     variants={fallAndStandUpVariants}
                     className="flex w-full flex-col items-center"
                 >
-                    <div className="mb-10 hidden flex-row items-center gap-2 rounded-[6px] border bg-[#0f1017] bg-card-gradient px-7 py-1 shadow-custom md:flex">
+                    <div className="mb-10 hidden flex-row items-center gap-2 rounded-[6px] border bg-[#0f1017] bg-poster-gradient px-7 py-1 shadow-custom md:flex">
                         <span className="my-1 text-lg">{data?.attributes?.firstname}</span>
                         <span className="my-1 text-lg">{data?.attributes?.lastname}</span>
                     </div>
 
-                    <div className="h-full w-full overflow-hidden rounded-[4px] bg-[#0f1017] bg-opacity-10 bg-card-gradient shadow-custom md:w-2/3">
+                    <div className="h-full w-full overflow-hidden rounded-[4px] bg-[#0f1017] bg-poster-gradient shadow-xl md:w-2/3">
                         <div className="relative mr-5 h-[250px] w-full md:float-left md:h-[300px] md:w-[400px]">
                             <AvatarImage data={data} />
                         </div>

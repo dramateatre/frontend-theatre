@@ -37,7 +37,7 @@ export default function ClientWrapper({ data }: any) {
     }
 
     return (
-        <>
+        <div className="bg-[#1a1b2f]">
             <h1
                 className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} pt-5 text-center text-2xl tracking-widest text-white md:pt-10 md:text-2xl`}
             >
@@ -65,6 +65,6 @@ export default function ClientWrapper({ data }: any) {
                         ))}
                 </motion.div>
             </motion.main>
-        </>
+        </div>
     )
 }

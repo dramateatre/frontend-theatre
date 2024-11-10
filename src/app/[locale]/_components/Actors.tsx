@@ -23,7 +23,7 @@ export default function Actors({ data }: any) {
     return (
         <section className="flex w-full flex-col items-center gap-5 text-center text-sm text-white lg:gap-10">
             <h1
-                className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} px-6 text-center text-xl tracking-[5px] text-white md:text-3xl`}
+                className={`${locale === 'en' ? 'font-playwrite' : 'font-georgian'} px-6 text-center text-xl tracking-[5px] text-white md:text-4xl`}
             >
                 {t('troupe')}
             </h1>
@@ -40,7 +40,7 @@ export default function Actors({ data }: any) {
                             key={index}
                             className="pl-10 sm:basis-1/2 lg:basis-1/3 lg:pl-7 xl:basis-1/5 xl:pl-6"
                         >
-                            <div className="group relative z-10 h-[250px] w-auto cursor-pointer overflow-hidden rounded-[6px] transition-all duration-700 ease-in-out md:h-[280px] md:hover:z-10">
+                            <div className="group relative z-10 h-[250px] w-auto border-slate-700 border cursor-pointer overflow-hidden rounded-[8px] transition-all duration-700 ease-in-out md:h-[280px] md:hover:z-10">
                                 <Image
                                     fill
                                     src={`${process.env.NEXT_PUBLIC_REST_API}${item?.attributes?.image?.data?.attributes?.url || NoImage}`}

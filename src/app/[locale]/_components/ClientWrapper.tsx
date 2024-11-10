@@ -58,7 +58,7 @@ const slideInRightVariants = {
 
 export default function ClientWrapper({ posterData, newsData, creativeGroupData }: any) {
     return (
-        <main className="flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-[#0f1017] pb-10">
+        <main className="flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-[#1a1b2f] pb-10">
             {/* Cover fadeIn */}
             <motion.div
                 className="w-full"

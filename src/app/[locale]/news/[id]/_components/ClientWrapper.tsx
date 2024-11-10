@@ -55,7 +55,7 @@ export default function ClientWrapper({ data }: any) {
 
     return (
         <main
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative min-h-screen w-full overflow-hidden p-5 pb-10 md:px-7 md:pb-20 lg:px-20`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} relative bg-[#1a1b2f] min-h-screen w-full overflow-hidden p-5 pb-10 md:px-7 md:pb-20 lg:px-20`}
         >
             {isClient ? (
                 <div className="h-auto w-full">
