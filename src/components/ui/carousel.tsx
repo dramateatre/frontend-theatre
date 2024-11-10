@@ -189,8 +189,8 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
                 className={cn(
                     'absolute flex h-8 w-8 rounded-full',
                     orientation === 'horizontal'
-                        ? 'left-20 -translate-y-1/2 md:left-12 md:top-1/2'
-                        : 'left-20 -translate-x-1/2 rotate-90 md:-top-12 md:left-1/2',
+                        ? 'left-8 -translate-y-1/2 md:left-12 md:top-1/2'
+                        : 'left-8 -translate-x-1/2 rotate-90 md:-top-12 md:left-1/2',
                     className
                 )}
                 disabled={!canScrollPrev}
@@ -217,8 +217,8 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
                 className={cn(
                     'absolute flex h-8 w-8 rounded-full',
                     orientation === 'horizontal'
-                        ? 'right-20 -translate-y-1/2 md:right-12 md:top-1/2'
-                        : 'right-20 -translate-x-1/2 rotate-90 md:-bottom-12 md:left-1/2',
+                        ? 'right-8 -translate-y-1/2 md:right-12 md:top-1/2'
+                        : 'right-8 -translate-x-1/2 rotate-90 md:-bottom-12 md:left-1/2',
                     className
                 )}
                 disabled={!canScrollNext}

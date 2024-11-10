@@ -80,7 +80,7 @@ export default function Poster({ data }: any) {
                                         alt={item?.attributes?.title}
                                     />
                                 </div>
-                                <div className="flex h-[400px] w-full flex-col justify-center gap-1 bg-[#0f1017] bg-poster-gradient px-4 py-4 lg:order-2 lg:h-auto lg:py-8 xl:w-[30%]">
+                                <div className="flex h-[400px] w-full flex-col justify-center gap-1 bg-[#0f1017] bg-poster-gradient px-4 py-4 lg:order-2 xl:h-auto lg:py-8 xl:w-[30%]">
                                     <span className="hidden text-center text-base md:block">
                                         {item.attributes?.place}
                                     </span>
