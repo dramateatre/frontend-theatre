@@ -59,19 +59,19 @@ export default function ClientWrapper({ data, page, pageSize }: any) {
                                     className="object-cover object-center"
                                 />
                             </div>
-                            <div className="flex h-full w-full flex-col items-start justify-between gap-3 bg-[#8a8989] bg-opacity-10 bg-card-gradient px-3 pb-3 pt-3 md:px-6">
+                            <div className="flex h-full w-full flex-col items-start justify-between gap-3 bg-[#8a8989] bg-opacity-10 bg-card-gradient pb-3 pt-3 md:px-6">
                                 <div className="flex w-full flex-col justify-between">
-                                    <h1 className="line-clamp-1 h-7 overflow-hidden text-ellipsis text-center text-base text-white md:text-left md:text-lg">
+                                    <h1 className="line-clamp-1 h-7 overflow-hidden text-ellipsis px-3 text-center text-base text-white md:px-0 md:text-left md:text-lg">
                                         {item.attributes.header}
                                     </h1>
                                     <div className="my-2 h-[1px] w-full bg-white"></div>
-                                    <div className="line-clamp-8 h-20 overflow-hidden text-ellipsis text-sm text-white">
+                                    <div className="line-clamp-8 h-20 overflow-hidden text-ellipsis px-3 text-sm text-white md:px-0">
                                         <BlocksRenderer content={item.attributes.description} />
                                     </div>
                                 </div>
                                 <div className="flex w-full flex-col gap-1">
                                     <div className="h-[1px] w-full bg-white"></div>
-                                    <div className="flex w-full items-center justify-between">
+                                    <div className="mt-1 flex w-full items-center justify-between px-3 md:mt-0 md:px-0">
                                         <div className="flex gap-2">
                                             <Calendar />
                                             <span className="text-sm text-white">

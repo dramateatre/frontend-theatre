@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
 import ReactVideoPlayer from '@/components/shared/reactPhotoView/ReactVideoViewer'
+import Link from 'next/link'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -36,7 +37,9 @@ export default function ClientWrapper({ data }: any) {
     return (
         <>
             {isClient ? (
-                <main className={`min-h-screen w-full pb-10 pt-5 text-white md:px-7 xl:px-20 bg-[#1a1b2f]`}>
+                <main
+                    className={`min-h-screen w-full bg-[#1a1b2f] pb-10 pt-5 text-white md:px-7 xl:px-20`}
+                >
                     <div className="flex h-full flex-col gap-5 md:py-10 lg:flex-row">
                         <div className="relative h-[220px] w-full sm:min-h-[300px] md:float-left lg:min-h-[300px] lg:min-w-[600px] xl:min-h-[400px] xl:min-w-[800px]">
                             <ReactPhotoViewer data={data} />
@@ -159,6 +162,20 @@ export default function ClientWrapper({ data }: any) {
                                                     </span>
                                                 )}
                                             </span>
+                                        )}
+                                        {data.attributes.poster && (
+                                            <button className="w-full rounded-[16px] my-4 bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white md:w-1/2">
+                                                <Link
+                                                    target="_blank"
+                                                    href={
+                                                        data?.attributes?.ticketLink
+                                                            ? data?.attributes?.ticketLink
+                                                            : 'https://biletebi.ge/theatres'
+                                                    }
+                                                >
+                                                    {t('ticketsExactly')}
+                                                </Link>
+                                            </button>
                                         )}
                                     </>
                                 )}
