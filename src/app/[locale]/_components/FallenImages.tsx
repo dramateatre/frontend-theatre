@@ -47,7 +47,7 @@ const FallenImages = ({ images = [OldTheatre, Theatre1, Theatre2, TheatreHall, N
             {isClient ? (
                 <section className="flex w-full flex-col pt-10">
                     <h1
-                        className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} mb-8 text-center text-xl tracking-[5px] text-white md:text-3xl`}
+                        className={` ${locale === 'en' ? 'font-playwrite' : 'font-georgian'} mb-8 text-center text-3xl tracking-[5px] text-white md:text-4xl`}
                     >
                         {t('theatreHistory')}
                     </h1>
