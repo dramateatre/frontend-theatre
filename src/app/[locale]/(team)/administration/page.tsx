@@ -36,7 +36,7 @@ export default async function page({ params: { locale } }: { params: { locale: s
         >
             <div className="mx-auto max-w-4xl">
                 <h1
-                    className={`mb-8 text-center text-xl text-white md:text-3xl ${
+                    className={`mb-8 text-center text-2xl text-white md:text-3xl ${
                         locale === 'en' ? 'font-playwrite' : 'font-georgian'
                     }`}
                 >

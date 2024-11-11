@@ -9,8 +9,6 @@ import { useTranslation } from 'react-i18next'
 
 export default function Contact() {
     const [result, setResult] = useState('')
-    const params = useParams()
-    const locale = params.locale
     const { t } = useTranslation()
 
     const onSubmit = async (event: any) => {

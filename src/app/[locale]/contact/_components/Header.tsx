@@ -37,88 +37,96 @@ function Header() {
                 {t('batumiTheatre')}
             </h1>
             <div className="grid grid-cols-1 gap-x-4 gap-y-3 text-sm md:grid-cols-2 md:gap-y-4">
-                <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://maps.app.goo.gl/mhWLwYfrvdoQrqj56"
-                >
-                    <span className="text-sm underline-offset-4 hover:underline">
-                        <span className="font-semibold">{t('address')}: </span>
-                        <span></span> {data.attributes?.address}
-                    </span>
-                </a>
-
+                <span className="text-sm underline-offset-4 hover:underline">
+                    <span className="font-semibold">{t('address')}: </span>
+                    <span></span> {data.attributes?.address}
+                </span>
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-row items-center gap-4">
                         <span className="text-sm font-semibold">{t('phone')}: </span>
-                        <a
-                            className="flex flex-row items-center gap-1"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={`tel:+995${data.attributes?.mobile1}`}
-                        >
-                            <PhoneCall className="h-4 w-4" />
-                            <span className="text-sm underline-offset-4 hover:underline">
-                                {data.attributes?.mobile1}
-                            </span>
-                        </a>
-                        <a
-                            className="flex flex-row items-center gap-1"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={`tel:+995${data.attributes?.mobile2}`}
-                        >
-                            <PhoneCall className="h-4 w-4" />
-                            <span className="text-sm underline-offset-4 hover:underline">
-                                {data.attributes?.mobile2}
-                            </span>
-                        </a>
+                        {data.attributes?.mobile1 && (
+                            <a
+                                className="flex flex-row items-center gap-1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={`tel:+995${data.attributes?.mobile1}`}
+                            >
+                                <PhoneCall className="h-4 w-4" />
+                                <span className="text-sm underline-offset-4 hover:underline">
+                                    {data.attributes?.mobile1}
+                                </span>
+                            </a>
+                        )}
+                        {data.attributes?.mobile2 && (
+                            <a
+                                className="flex flex-row items-center gap-1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={`tel:+995${data.attributes?.mobile2}`}
+                            >
+                                <PhoneCall className="h-4 w-4" />
+                                <span className="text-sm underline-offset-4 hover:underline">
+                                    {data.attributes?.mobile2}
+                                </span>
+                            </a>
+                        )}
                     </div>
                     <div className="flex flex-row gap-4">
-                        <a
-                            className="flex flex-row items-center gap-1"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={`tel:+995${data.attributes?.phone1}`}
-                        >
-                            <HomePhoneCall className="h-4 w-4" />
-                            <span className="text-sm underline-offset-4 hover:underline">
-                                {data.attributes?.phone1}
-                            </span>
-                        </a>
-                        <a
-                            className="flex flex-row items-center gap-1"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={`tel:+995${data.attributes?.phone2}`}
-                        >
-                            <HomePhoneCall className="h-4 w-4" />
-                            <span className="text-sm underline-offset-4 hover:underline">
-                                {data.attributes?.phone1}
-                            </span>
-                        </a>
+                        {data.attributes?.phone1 && (
+                            <a
+                                className="flex flex-row items-center gap-1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={`tel:+995${data.attributes?.phone1}`}
+                            >
+                                <HomePhoneCall className="h-4 w-4" />
+                                <span className="text-sm underline-offset-4 hover:underline">
+                                    {data.attributes?.phone1}
+                                </span>
+                            </a>
+                        )}
+                        {data.attributes?.phone2 && (
+                            <a
+                                className="flex flex-row items-center gap-1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={`tel:+995${data.attributes?.phone2}`}
+                            >
+                                <HomePhoneCall className="h-4 w-4" />
+                                <span className="text-sm underline-offset-4 hover:underline">
+                                    {data.attributes?.phone1}
+                                </span>
+                            </a>
+                        )}
                     </div>
                 </div>
-                <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={`mailto:${data.attributes?.email}`}
-                >
-                    <span className="flex gap-1 text-sm underline-offset-4 hover:underline">
-                        <span className="font-semibold">{t('address')}: </span>
-                        <span></span> {data.attributes?.email}
-                    </span>
-                </a>
+                {data.attributes?.email && (
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={`mailto:${data.attributes?.email}`}
+                    >
+                        <span className="flex gap-1 text-sm underline-offset-4 hover:underline">
+                            <span className="font-semibold">{t('address')}: </span>
+                            <span></span> {data.attributes?.email}
+                        </span>
+                    </a>
+                )}
 
                 <div className="flex flex-row items-center gap-5">
-                    <a target="_blank" rel="noopener noreferrer" href="#">
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.facebook.com/BatumiDrama"
+                    >
                         <FbIcon className="h-5 w-5" />
                     </a>
-                    <a target="_blank" rel="noopener noreferrer" href="#">
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.instagram.com/batumitheatre/?hl=en"
+                    >
                         <InstaIcon className="h-5 w-5" />
-                    </a>
-                    <a target="_blank" rel="noopener noreferrer" href="#">
-                        <WhatsappIcon className="h-5 w-5" />
                     </a>
                 </div>
             </div>

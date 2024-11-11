@@ -21,10 +21,10 @@ export default function EnhancedDirectorProfile({ data }: any) {
         <main
             className={`${
                 locale === 'en' ? 'italic' : 'font-georgian'
-            } relative flex min-h-screen w-full flex-col items-center gap-8 overflow-hidden bg-gradient-to-b from-[#0f1017] to-[#1a1b2e] px-4 py-10 text-white md:px-20 md:py-16`}
+            } relative flex min-h-screen w-full flex-col items-center gap-8 overflow-hidden bg-[#1a1b2f] px-4 py-10 text-white md:px-20 md:py-16`}
         >
             {isClient && data[0]?.attributes && (
-                <div className="min-h-screen w-full max-w-4xl rounded-[6px] bg-[#0f1017] bg-card-gradient p-6 shadow-2xl transition-all duration-300 hover:shadow-blue-900/20 md:p-8">
+                <div className="min-h-screen w-full max-w-4xl rounded-[6px] border border-slate-700 bg-[#0f1017] bg-card-gradient p-6 shadow-2xl transition-all duration-300 hover:shadow-blue-900/20 md:p-8">
                     <div className="mb-6 flex flex-col items-center justify-between gap-4 md:flex-row">
                         <div className="text-center md:text-left">
                             <h2 className="text-2xl font-bold md:text-3xl">
