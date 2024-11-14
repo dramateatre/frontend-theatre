@@ -1,6 +1,8 @@
 import axiosInstance from '@/AxiosInstance'
-import { EmailSms, PhoneCall } from '@/components/svg'
+import { ArrowRight, EmailSms, PhoneCall } from '@/components/svg'
 import initTranslations from '@/libs/i18n/i18n'
+
+import Link from 'next/link'
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
     const i18nNamespaces = ['meta']
@@ -32,7 +34,7 @@ export default async function page({ params: { locale } }: { params: { locale: s
 
     return (
         <main
-            className={`min-h-screen px-4 py-8 md:px-8 md:py-16 ${locale === 'en' ? 'italic' : 'font-georgian'}`}
+            className={`min-h-screen bg-[#1a1b2f] px-4 py-8 md:px-8 md:py-16 ${locale === 'en' ? 'italic' : 'font-georgian'}`}
         >
             <div className="mx-auto max-w-4xl">
                 <h1
@@ -50,10 +52,12 @@ export default async function page({ params: { locale } }: { params: { locale: s
                             className="border-b border-blue-200 border-opacity-30 p-6 last:border-b-0"
                         >
                             <div className="mb-4 flex flex-col justify-between md:flex-row md:items-center">
-                                <div className="mb-2 flex items-center md:mb-0">
-                                    <span className="text-lg font-semibold text-white">
-                                        {item.attributes.firstname} {item.attributes.lastname}
-                                    </span>
+                                <div className="mb-2 flex flex-row items-center md:mb-0">
+                                    <Link href={`/administration/${item.id}`}>
+                                        <span className="text-lg font-semibold text-white underline-offset-2 hover:underline">
+                                            {item.attributes.firstname} {item.attributes.lastname}
+                                        </span>
+                                    </Link>
                                 </div>
                                 <span className="text-blue-200">{item.attributes.position}</span>
                             </div>

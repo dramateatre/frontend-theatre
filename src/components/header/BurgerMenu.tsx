@@ -180,21 +180,6 @@ export function BurgerMenu() {
                                         </Link>
                                     </SheetTrigger>
                                 </AccordionContent>
-                                <AccordionContent>
-                                    <SheetTrigger asChild>
-                                        <Link href="/gallery">
-                                            <span
-                                                className={
-                                                    isActive(['/gallery', '/en/gallery'])
-                                                        ? 'underline'
-                                                        : ''
-                                                }
-                                            >
-                                                {t('gallery')}
-                                            </span>
-                                        </Link>
-                                    </SheetTrigger>
-                                </AccordionContent>
                             </AccordionItem>
                         </Accordion>
                     </div>

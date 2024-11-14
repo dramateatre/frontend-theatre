@@ -1,6 +1,7 @@
 'use client'
 
 import { EmailSms, PhoneCall } from '@/components/svg'
+import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 
@@ -11,7 +12,7 @@ export default function ClientWrapper({ data }: any) {
 
     return (
         <main
-            className={`min-h-screen px-4 py-8 md:px-8 md:py-16 ${locale === 'en' ? 'italic' : 'font-georgian'}`}
+            className={`min-h-screen bg-[#1a1b2f] px-4 py-8 md:px-8 md:py-16 ${locale === 'en' ? 'italic' : 'font-georgian'}`}
         >
             <div className="mx-auto max-w-4xl">
                 <h1
@@ -30,9 +31,11 @@ export default function ClientWrapper({ data }: any) {
                         >
                             <div className="mb-4 flex flex-col justify-between md:flex-row md:items-center">
                                 <div className="mb-2 flex items-center md:mb-0">
-                                    <span className="text-lg font-semibold text-white">
-                                        {item.attributes.firstname} {item.attributes.lastname}
-                                    </span>
+                                    <Link href={`/creative-group/${item?.id}`}>
+                                        <span className="text-lg font-semibold text-white underline-offset-2 hover:underline">
+                                            {item.attributes.firstname} {item.attributes.lastname}
+                                        </span>
+                                    </Link>
                                 </div>
                                 <span className="text-blue-200">{item.attributes.position}</span>
                             </div>

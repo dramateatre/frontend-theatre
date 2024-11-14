@@ -81,13 +81,7 @@ export default function Header() {
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>
-                                <DropdownMenuItem asChild>
-                                    <Link href="/gallery">
-                                        <DropdownMenuLabel className="cursor-pointer">
-                                            {t('gallery')}
-                                        </DropdownMenuLabel>
-                                    </Link>
-                                </DropdownMenuItem>
+
                                 <DropdownMenuItem asChild>
                                     <Link href="/history">
                                         <DropdownMenuLabel className="cursor-pointer">

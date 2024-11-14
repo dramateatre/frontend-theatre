@@ -10,7 +10,7 @@ const ReactPhotoViewer = ({ data }: any) => {
     const imageUrl = data?.attributes?.image?.data?.attributes?.url
         ? `${process.env.NEXT_PUBLIC_REST_API}/${data.attributes.image.data.attributes.url}`
         : noImageSrc // Fallback to NoImage src
-
+    console.log(data)
     return (
         <PhotoProvider>
             <PhotoView src={imageUrl}>
@@ -20,7 +20,7 @@ const ReactPhotoViewer = ({ data }: any) => {
                         alt="Image preview"
                         layout="fill"
                         objectFit="cover"
-                        className="h-full w-full cursor-zoom-in  object-cover object-center"
+                        className="h-full w-full cursor-zoom-in object-cover object-center"
                     />
                 </div>
             </PhotoView>
