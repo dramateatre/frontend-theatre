@@ -11,7 +11,7 @@ async function fetchData(locale: string, page: number, pageSize: number) {
                     page: page,
                     pageSize: pageSize,
                 },
-                sort: 'createdAt:desc',
+                sort: 'publicationDate:desc',
             },
         })
         return response.data
