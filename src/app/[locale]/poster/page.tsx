@@ -60,7 +60,7 @@ export default async function page({
 
                     {data?.data?.map((item: any, index: any) => (
                         <div
-                            className={`relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-custom md:w-[480px] lg:w-[680px] xl:w-[1300px] xl:flex-row`}
+                            className={`relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-xl md:w-[480px] lg:w-[680px] xl:w-[1300px] xl:flex-row`}
                         >
                             <div className="relative h-[180px] w-full md:h-[250px] lg:h-[350px] xl:h-[470px] xl:w-[70%]">
                                 <Image
@@ -103,6 +103,14 @@ export default async function page({
                                             <span className="text-sm">{t('director')}</span>
                                             <span className="ml-2 text-sm">
                                                 {item.attributes?.director}
+                                            </span>
+                                        </span>
+                                    )}
+                                    {item.attributes?.scene && (
+                                        <span className="line-clamp-1 lg:line-clamp-2">
+                                            <span className="text-sm">{t('scene')}</span>
+                                            <span className="ml-2 text-sm">
+                                                {item.attributes?.scene}
                                             </span>
                                         </span>
                                     )}

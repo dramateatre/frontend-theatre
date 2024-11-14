@@ -64,6 +64,14 @@ export default function ClientWrapper({ data }: any) {
                                         </span>
                                     </span>
                                 )}
+                                {data.attributes?.scene && data.attributes?.poster && (
+                                    <span className="line-clamp-1 lg:line-clamp-2">
+                                        <span className="text-base">{t('scene')}</span>
+                                        <span className="ml-2 text-base">
+                                            {data.attributes?.scene}
+                                        </span>
+                                    </span>
+                                )}
                                 {data.attributes?.performance && (
                                     <span className="line-clamp-1">
                                         <span className="text-base">{t('performance')}</span>
@@ -164,7 +172,7 @@ export default function ClientWrapper({ data }: any) {
                                             </span>
                                         )}
                                         {data.attributes.poster && (
-                                            <button className="w-full rounded-[16px] my-4 bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white md:w-1/2">
+                                            <button className="my-4 w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white md:w-1/2">
                                                 <Link
                                                     target="_blank"
                                                     href={
