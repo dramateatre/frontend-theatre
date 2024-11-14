@@ -103,7 +103,9 @@ export default async function Footer({ locale }: any) {
 
             <div className="mt-6 hidden h-[1px] w-full bg-white md:block"></div>
             <div className="flex flex-row items-center justify-center py-4 md:justify-center">
-                <p className="text-[10px] text-white">Copyrighyt 2024</p>
+                <p className="text-[10px] text-white">
+                    "© Digital Port LLC. All rights reserved."
+                </p>
             </div>
         </section>
     )
