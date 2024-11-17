@@ -31,6 +31,7 @@ async function fetchPoster(locale: string) {
                         $eq: true,
                     },
                 },
+                sort: 'publicationDate:desc',
             },
         })
         return response.data
