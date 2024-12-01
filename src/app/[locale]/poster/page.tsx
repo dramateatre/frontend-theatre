@@ -7,6 +7,7 @@ import { formatDate } from '@/utils/formatDate'
 import { formatTime } from '@/utils/formatTime'
 import Link from 'next/link'
 import NoImage from '@images/NoImage.jpg'
+import { MapPin } from 'lucide-react'
 
 async function fetchData(locale: string, page: number, pageSize: number) {
     try {
@@ -62,7 +63,7 @@ export default async function page({
                         <div
                             className={`relative z-50 flex w-full flex-col overflow-hidden rounded-[16px] shadow-xl md:w-[480px] lg:w-[680px] xl:w-[1300px] xl:flex-row`}
                         >
-                            <div className="relative h-[180px] w-full md:h-[250px] lg:h-[350px] xl:h-[470px] xl:w-[70%]">
+                            <div className="relative h-[200px] w-full md:h-[250px] lg:h-[350px] xl:h-[470px] xl:w-[70%]">
                                 <Image
                                     fill
                                     className="object-cover"
@@ -71,10 +72,9 @@ export default async function page({
                                 />
                             </div>
                             <div className="flex h-[340px] w-full flex-col justify-center gap-1 bg-[#0f1017] bg-poster-gradient px-3 py-3 lg:order-2 lg:h-auto lg:py-6 xl:w-[30%]">
-                                <span className="hidden text-center text-xs md:block">
-                                    {item.attributes?.place}
-                                </span>
-
+                                <div className="flex items-center justify-center gap-1 text-center text-sm">
+                                    <MapPin className="h-3 w-3" /> - {item.attributes?.place}
+                                </div>
                                 <h1 className="text-center text-xl">{item.attributes?.header}</h1>
                                 <div className="flex w-full flex-row justify-center gap-5">
                                     {item.attributes?.premiere && (
@@ -88,7 +88,6 @@ export default async function page({
                                         </span>
                                     )}
                                 </div>
-
                                 <div className="flex h-full flex-col justify-center gap-1 md:px-3">
                                     {item.attributes?.author && (
                                         <span className="line-clamp-1 lg:line-clamp-2">
@@ -106,14 +105,14 @@ export default async function page({
                                             </span>
                                         </span>
                                     )}
-                                    {item.attributes?.scene && (
+                                    {/* {item.attributes?.scene && (
                                         <span className="line-clamp-1 lg:line-clamp-2">
                                             <span className="text-sm">{t('scene')}</span>
                                             <span className="ml-2 text-sm">
                                                 {item.attributes?.scene}
                                             </span>
                                         </span>
-                                    )}
+                                    )} */}
                                     <span className="line-clamp-1 lg:line-clamp-2">
                                         <span className="text-sm">{t('duration')}</span>
                                         <span className="ml-2 text-sm">
@@ -207,22 +206,25 @@ export default async function page({
                                     </div>
                                 </div>
                                 <div className="flex w-full flex-row gap-5 px-5 pt-1 md:pt-4 lg:gap-3">
-                                    <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
-                                        <Link href={`/repertory/${item.id}`}>{t('viewMore')}</Link>
-                                    </button>
+                                    <Link className="w-full" href={`/repertory/${item.id}`}>
+                                        <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
+                                            {t('viewMore')}
+                                        </button>
+                                    </Link>
 
-                                    <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
-                                        <Link
-                                            target="_blank"
-                                            href={
-                                                item?.attributes?.ticketLink
-                                                    ? item?.attributes?.ticketLink
-                                                    : 'https://biletebi.ge/theatres'
-                                            }
-                                        >
+                                    <Link
+                                        className="w-full"
+                                        target="_blank"
+                                        href={
+                                            item?.attributes?.ticketLink
+                                                ? item?.attributes?.ticketLink
+                                                : 'https://biletebi.ge/theatres'
+                                        }
+                                    >
+                                        <button className="w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white">
                                             {t('ticketsExactly')}
-                                        </Link>
-                                    </button>
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

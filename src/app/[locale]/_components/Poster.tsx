@@ -15,6 +15,7 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import NoImage from '@images/NoImage.jpg'
+import { MapPin } from 'lucide-react'
 
 export default function Poster({ data }: any) {
     const { t } = useTranslation()
@@ -63,6 +64,7 @@ export default function Poster({ data }: any) {
             <Carousel
                 opts={{
                     watchDrag: data?.data?.length > 1,
+                    skipSnaps: true,
                 }}
                 className="flex justify-center"
             >
@@ -74,16 +76,17 @@ export default function Poster({ data }: any) {
                             >
                                 <div className="relative h-[230px] w-full md:h-[250px] lg:h-[350px] xl:h-[450px] xl:w-[70%]">
                                     <Image
-                                        fill
-                                        className="object-cover"
+                                        width={680}
+                                        height={450}
+                                        className="h-full w-full object-cover"
                                         src={`${process.env.NEXT_PUBLIC_REST_API}${item?.attributes?.image?.data?.attributes?.url || NoImage}`}
                                         alt={item?.attributes?.title}
                                     />
                                 </div>
                                 <div className="flex h-[400px] w-full flex-col justify-center gap-1 bg-[#0f1017] bg-poster-gradient px-4 py-4 lg:order-2 lg:py-8 xl:h-auto xl:w-[30%]">
-                                    <span className="hidden text-center text-sm md:block">
-                                        {item.attributes?.place}
-                                    </span>
+                                    <div className="flex items-center justify-center gap-1 text-center text-sm">
+                                        <MapPin className="h-3 w-3" /> - {item.attributes?.place}
+                                    </div>
 
                                     <h1 className="text-center text-xl">
                                         {item.attributes?.header}
@@ -118,14 +121,14 @@ export default function Poster({ data }: any) {
                                                 </span>
                                             </span>
                                         )}
-                                        {item.attributes?.scene && (
+                                        {/* {item.attributes?.scene && (
                                             <span className="line-clamp-1 lg:line-clamp-2">
                                                 <span className="text-sm">{t('scene')}</span>
                                                 <span className="ml-2 text-sm">
                                                     {item.attributes?.scene}
                                                 </span>
                                             </span>
-                                        )}
+                                        )} */}
                                         <span className="line-clamp-1 lg:line-clamp-2">
                                             <span className="text-sm">{t('duration')}</span>
                                             <span className="ml-2 text-sm">
