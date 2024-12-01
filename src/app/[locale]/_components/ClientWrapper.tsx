@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import { motion } from 'framer-motion'
 import Cover from './Cover'
 import Poster from './Poster'
@@ -8,16 +7,13 @@ import News from './News'
 import Actors from './Actors'
 import FallenImages from './FallenImages'
 
-// Updated fadeIn with a quicker and snappier spring transition
 const fadeInVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }, // smooth easing
+        transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
     },
 }
-
-// Slide in left with spring effect for a snappier movement
 const slideInLeftVariants = {
     hidden: { x: -150, opacity: 0 },
     visible: {
@@ -41,7 +37,6 @@ const actorsVariants = {
     },
 }
 
-// Slide in right with similar spring effect
 const slideInRightVariants = {
     hidden: { x: 150, opacity: 0 },
     visible: {
@@ -58,8 +53,7 @@ const slideInRightVariants = {
 
 export default function ClientWrapper({ posterData, newsData, creativeGroupData }: any) {
     return (
-        <main className="flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-[#1a1b2f] pb-10">
-            {/* Cover fadeIn */}
+        <main className="flex min-h-screen w-full flex-col items-center justify-between gap-10 overflow-hidden bg-[#1a1b2f] pb-10">
             <motion.div
                 className="w-full"
                 initial="hidden"
@@ -69,19 +63,15 @@ export default function ClientWrapper({ posterData, newsData, creativeGroupData 
             >
                 <Cover />
             </motion.div>
-
-            {/* Poster slideIn from left */}
             <motion.div
                 className="w-full"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.4 }}
+                viewport={{ once: true, amount: 0.1 }}
                 variants={slideInLeftVariants}
             >
                 <Poster data={posterData} />
             </motion.div>
-
-            {/* News slideIn from right */}
             <motion.div
                 className="w-full"
                 initial="hidden"
@@ -91,8 +81,6 @@ export default function ClientWrapper({ posterData, newsData, creativeGroupData 
             >
                 <News data={newsData} />
             </motion.div>
-
-            {/* Actors slideIn from left */}
             <motion.div
                 className="w-full"
                 initial="hidden"
@@ -102,8 +90,6 @@ export default function ClientWrapper({ posterData, newsData, creativeGroupData 
             >
                 <Actors data={creativeGroupData} />
             </motion.div>
-
-            {/* History fadeIn */}
             <motion.div
                 className="w-full"
                 initial="hidden"
