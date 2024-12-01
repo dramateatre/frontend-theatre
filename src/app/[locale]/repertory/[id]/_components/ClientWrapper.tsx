@@ -47,7 +47,7 @@ export default function ClientWrapper({ data }: any) {
 
                         <div className="flex h-full w-full flex-col justify-between gap-5 px-6 py-3 md:px-0 md:py-0">
                             <h1 className="text-center text-xl">{data.attributes?.header}</h1>
-                            <div className="flex h-full flex-col justify-center gap-1 px-2">
+                            <div className="flex h-full flex-col justify-center gap-2 px-2 md:gap-3">
                                 {data.attributes?.author && (
                                     <span className="line-clamp-2">
                                         <span className="text-base">{t('author')}</span>
@@ -90,103 +90,6 @@ export default function ClientWrapper({ data }: any) {
                                         {t('hour')}
                                     </span>
                                 </span>
-
-                                {data.attributes?.poster && (
-                                    <>
-                                        {data.attributes?.ticketPrice && (
-                                            <span className="line-clamp-2">
-                                                <span className="text-base">
-                                                    {t('ticketPrice')}
-                                                </span>
-                                                <span className="ml-2 text-base">
-                                                    {data.attributes?.ticketPrice} ₾
-                                                </span>
-                                            </span>
-                                        )}
-                                        {data.attributes?.premiereDate1 && (
-                                            <span className="datas-center flex flex-row gap-2">
-                                                <Calendar className="text-base" />
-                                                <span className="text-base">
-                                                    {formatDate(data.attributes?.premiereDate1)}
-                                                </span>
-                                                <Clock className="fill-zinc-300 text-base" />
-                                                <span className="text-base">
-                                                    {formatTime(data.attributes?.premiereDate1)}
-                                                </span>
-                                                {data.attributes?.premiere && (
-                                                    <span className="ml-3 animate-fade text-base text-[red]">
-                                                        {t('premiere')}
-                                                    </span>
-                                                )}
-                                            </span>
-                                        )}
-                                        {data.attributes?.premiereDate2 && (
-                                            <span className="datas-center flex flex-row gap-2">
-                                                <Calendar className="text-base" />
-                                                <span className="text-base">
-                                                    {formatDate(data.attributes?.premiereDate2)}
-                                                </span>
-                                                <Clock className="fill-zinc-300 text-base" />
-                                                <span className="text-base">
-                                                    {formatTime(data.attributes?.premiereDate2)}
-                                                </span>
-                                                {data.attributes?.premiere && (
-                                                    <span className="ml-3 animate-fade text-base text-[red]">
-                                                        {t('premiere')}
-                                                    </span>
-                                                )}
-                                            </span>
-                                        )}
-                                        {data.attributes?.premiereDate3 && (
-                                            <span className="datas-center flex flex-row gap-2">
-                                                <Calendar className="text-base" />
-                                                <span className="text-base">
-                                                    {formatDate(data.attributes?.premiereDate3)}
-                                                </span>
-                                                <Clock className="fill-zinc-300 text-base" />
-                                                <span className="text-base">
-                                                    {formatTime(data.attributes?.premiereDate3)}
-                                                </span>
-                                                {data.attributes?.premiere && (
-                                                    <span className="ml-3 animate-fade text-base text-[red]">
-                                                        {t('premiere')}
-                                                    </span>
-                                                )}
-                                            </span>
-                                        )}
-                                        {data.attributes?.premiereDate4 && (
-                                            <span className="datas-center flex flex-row gap-2">
-                                                <Calendar className="text-base" />
-                                                <span className="text-base">
-                                                    {formatDate(data.attributes?.premiereDate4)}
-                                                </span>
-                                                <Clock className="fill-zinc-300 text-base" />
-                                                <span className="text-base">
-                                                    {formatTime(data.attributes?.premiereDate4)}
-                                                </span>
-                                                {data.attributes?.premiere && (
-                                                    <span className="ml-3 animate-fade text-base text-[red]">
-                                                        {t('premiere')}
-                                                    </span>
-                                                )}
-                                            </span>
-                                        )}
-                                        {data.attributes.poster && (
-                                            <button className="my-4 w-full rounded-[16px] bg-gradient-to-r from-[#6d595962] to-[#467575] py-[6px] text-sm text-white md:w-1/2">
-                                                <Link
-                                                    target="_blank"
-                                                    href={
-                                                        data?.attributes?.ticketLink
-                                                            ? data?.attributes?.ticketLink
-                                                            : 'https://biletebi.ge/theatres'
-                                                    }
-                                                >
-                                                    {t('ticketsExactly')}
-                                                </Link>
-                                            </button>
-                                        )}
-                                    </>
-                                )}
                             </div>
                         </div>
                     </div>
