@@ -49,7 +49,7 @@ export default function ClientWrapper({ data }: any) {
 
     return (
         <main
-            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full flex-col justify-center gap-5 overflow-hidden text-white md:gap-10 md:px-7 md:py-10 lg:bg-[#1a1b2f] xl:px-20`}
+            className={` ${locale === 'en' ? 'italic' : 'font-georgian'} flex min-h-screen w-full flex-col justify-center gap-5 overflow-hidden pb-20 text-white md:gap-10 md:px-7 md:pt-10 lg:bg-[#1a1b2f] xl:px-20`}
         >
             {isClient ? (
                 <motion.div
@@ -67,18 +67,7 @@ export default function ClientWrapper({ data }: any) {
                         <div className="relative mr-5 h-[250px] w-full md:float-left md:h-[300px] md:w-[400px]">
                             <AvatarImage data={data} />
                         </div>
-                        <div className="relative w-full px-3">
-                            <div className="absolute right-4 top-3">
-                                {data?.attributes?.article && (
-                                    <Link target="_blank" href={data?.attributes?.article}>
-                                        <button
-                                            className={`flex items-center justify-center rounded-[4px] border px-3 py-1 text-sm text-white hover:bg-slate-200 hover:text-black`}
-                                        >
-                                            {t('article')}
-                                        </button>
-                                    </Link>
-                                )}
-                            </div>
+                        <div className="relative w-full px-3 pb-6">
                             <div className="flex flex-row items-center justify-center gap-2 py-2 md:hidden">
                                 <span className="my-1 text-lg">{data?.attributes?.firstname}</span>
                                 <span className="my-1 text-lg">{data?.attributes?.lastname}</span>
@@ -100,7 +89,7 @@ export default function ClientWrapper({ data }: any) {
                         {t('gallery')}
                     </Button>
                     <div className="flex w-full items-center justify-between md:text-lg">
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-3">
                             <button
                                 onClick={() => setGalleryType(false)}
                                 className="mt-1 h-8 w-6 md:mt-2 md:h-8 md:w-10"
@@ -115,7 +104,7 @@ export default function ClientWrapper({ data }: any) {
                             </button>
                         </div>
 
-                        <div className="flex items-center gap-2 text-base tracking-widest md:text-base">
+                        <div className="flex items-center gap-1 text-sm tracking-widest md:gap-2 md:text-base">
                             <button
                                 onClick={() => setGalleryType(false)}
                                 className={`${!galleryType ? 'border-black bg-white text-black' : 'bg-none'} flex items-center justify-center rounded-[4px] border px-3 py-1`}
@@ -129,6 +118,18 @@ export default function ClientWrapper({ data }: any) {
                             >
                                 {t('video')}
                             </button>
+                            {data.attributes.article && (
+                                <>
+                                    -
+                                    <Link target="_blank" href={data.attributes.article}>
+                                        <button
+                                            className={`flex items-center justify-center rounded-[4px] border px-3 py-1 text-white`}
+                                        >
+                                            {t('article')}
+                                        </button>
+                                    </Link>
+                                </>
+                            )}
                         </div>
                     </div>
                     {!galleryType ? (

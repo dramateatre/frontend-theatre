@@ -48,7 +48,7 @@ const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
 
     const isMobile = windowWidth < 768 // Assuming 768px as the breakpoint for mobile
 
-    const initialItemCount = isMobile ? 4 : 5
+    const initialItemCount = isMobile ? 4 : 6
 
     const imagesToShow = showAll
         ? data?.attributes?.gallery?.data
@@ -59,8 +59,8 @@ const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
             {data?.attributes?.gallery?.data?.length ? (
                 <>
                     <div
-                        className={`relative mt-10 grid w-full gap-2 md:gap-10 ${
-                            isMobile ? 'grid-cols-2' : 'grid-cols-5'
+                        className={`relative mt-10 grid w-full gap-2 md:gap-6 ${
+                            isMobile ? 'grid-cols-2' : 'grid-cols-6'
                         }`}
                     >
                         <PhotoProvider>
@@ -71,7 +71,7 @@ const ReactGalleryViewer: React.FC<ReactGalleryViewerProps> = ({ data }) => {
                                     <PhotoView key={item.id} src={src}>
                                         <img
                                             src={srcThumbnail}
-                                            className="h-[150px] w-full cursor-zoom-in rounded-[4px] object-cover object-center md:h-[200px]"
+                                            className="h-[150px] w-full cursor-zoom-in rounded-[4px] overflow-hidden border border-white object-cover object-center md:h-[180px]"
                                             alt={`Photo ${item.id}`}
                                         />
                                     </PhotoView>

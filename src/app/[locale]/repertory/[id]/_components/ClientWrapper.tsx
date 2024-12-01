@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ReactPhotoViewer from '@/components/shared/reactPhotoView/ReactPhotoViewer'
 import ReactVideoPlayer from '@/components/shared/reactPhotoView/ReactVideoViewer'
+import Link from 'next/link'
 
 export default function ClientWrapper({ data }: any) {
     const { t } = useTranslation()
@@ -102,7 +103,7 @@ export default function ClientWrapper({ data }: any) {
                                     {t('gallery')}
                                 </Button>
                                 <div className="flex w-full items-center justify-between md:text-lg">
-                                    <div className="flex items-center gap-5">
+                                    <div className="flex items-center gap-3">
                                         <button
                                             onClick={() => setGalleryType(false)}
                                             className="mt-1 h-8 w-6 md:mt-2 md:h-8 md:w-10"
@@ -117,7 +118,7 @@ export default function ClientWrapper({ data }: any) {
                                         </button>
                                     </div>
 
-                                    <div className="flex items-center gap-2 text-base tracking-widest md:text-base">
+                                    <div className="flex items-center  gap-1 md:gap-2 tracking-widest text-sm md:text-base">
                                         <button
                                             onClick={() => setGalleryType(false)}
                                             className={`${!galleryType ? 'border-black bg-white text-black' : 'bg-none'} flex items-center justify-center rounded-[4px] border px-3 py-1`}
@@ -131,6 +132,21 @@ export default function ClientWrapper({ data }: any) {
                                         >
                                             {t('video')}
                                         </button>
+                                        {data.attributes.article && (
+                                            <>
+                                                -
+                                                <Link
+                                                    target="_blank"
+                                                    href={data.attributes.article}
+                                                >
+                                                    <button
+                                                        className={`flex items-center justify-center rounded-[4px] border px-3 py-1 text-white`}
+                                                    >
+                                                        {t('article')}
+                                                    </button>
+                                                </Link>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                                 {!galleryType ? (

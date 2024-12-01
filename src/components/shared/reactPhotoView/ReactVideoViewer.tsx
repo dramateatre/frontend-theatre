@@ -58,7 +58,7 @@ const VideoPlayer: React.FC<{ url: string }> = ({ url }) => {
     }
 
     return (
-        <div className="relative aspect-video w-full">
+        <div className="relative aspect-video w-full overflow-hidden rounded-[4px] border border-white">
             {isPlaying ? (
                 <YouTube className="h-full w-full" videoId={videoId} opts={opts} />
             ) : (
@@ -70,10 +70,12 @@ const VideoPlayer: React.FC<{ url: string }> = ({ url }) => {
 
 const ReactVideoPlayer: React.FC<ReactVideoPlayerProps> = ({ data }) => {
     const { t } = useTranslation()
+
+    console.log(data)
     return (
         <>
             {data?.attributes?.video?.videoLinks?.length ? (
-                <div className="relative mt-10 grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-5">
+                <div className="relative mt-10 grid w-full grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:grid-cols-5">
                     {data.attributes.video.videoLinks.map((url: string, index: number) => (
                         <VideoPlayer key={index} url={url} />
                     ))}
