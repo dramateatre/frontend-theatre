@@ -4,13 +4,12 @@ import 'react-photo-view/dist/react-photo-view.css'
 import NoImage from '@images/NoImage.jpg'
 
 const ReactPhotoViewer = ({ data }: any) => {
-    // Check if NoImage is StaticImageData and get its src as a string
     const noImageSrc = typeof NoImage === 'string' ? NoImage : NoImage.src
 
     const imageUrl = data?.attributes?.image?.data?.attributes?.url
         ? `${process.env.NEXT_PUBLIC_REST_API}/${data.attributes.image.data.attributes.url}`
-        : noImageSrc // Fallback to NoImage src
-    console.log(data)
+        : noImageSrc 
+   
     return (
         <PhotoProvider>
             <PhotoView src={imageUrl}>

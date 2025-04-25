@@ -1,10 +1,10 @@
 'use client'
 
 import { useTranslation } from 'react-i18next'
-import AvatarImage from './AvatarImage'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 export default function EnhancedDirectorProfile({ data }: any) {
     const { t } = useTranslation()
@@ -33,11 +33,16 @@ export default function EnhancedDirectorProfile({ data }: any) {
                             <p className="mt-2 text-blue-300">{t('directorCompany')}</p>
                         </div>
                         <div className="relative h-48 w-48 overflow-hidden rounded-full border-2 border-slate-700 shadow-lg md:h-64 md:w-64">
-                            <AvatarImage data={data[0]} />
+                            <Image
+                                objectFit="cover"
+                                layout="fill"
+                                src={`${process.env.NEXT_PUBLIC_REST_API}/${data[0].attributes.image.data[0].attributes.url}`}
+                                alt="Director"
+                            />
                         </div>
                     </div>
 
-                    {data[0].attributes?.description && (
+                    {data[0]?.attributes?.description && (
                         <div className="mt-6 space-y-4 text-sm leading-relaxed md:text-base">
                             <BlocksRenderer content={data[0].attributes?.description} />
                         </div>

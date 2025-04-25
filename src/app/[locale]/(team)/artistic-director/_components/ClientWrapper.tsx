@@ -24,13 +24,13 @@ export default function EnhancedDirectorProfile({ data }: any) {
             } relative flex min-h-screen w-full flex-col items-center gap-8 overflow-hidden bg-[#1a1b2f] px-4 py-10 text-white md:px-20 md:py-16`}
         >
             {isClient && data[0]?.attributes && (
-                <div className="min-h-screen w-full max-w-4xl rounded-[6px] border border-slate-700 bg-[#0f1017] bg-card-gradient p-6 shadow-2xl transition-all duration-300 hover:shadow-blue-900/20 md:p-8">
+                <div className="h-auto w-full max-w-4xl rounded-[6px] border border-slate-700 bg-[#0f1017] bg-card-gradient p-6 shadow-2xl transition-all duration-300 hover:shadow-blue-900/20 md:p-8">
                     <div className="mb-6 flex flex-col items-center justify-between gap-4 md:flex-row">
                         <div className="text-center md:text-left">
                             <h2 className="text-2xl font-bold md:text-3xl">
                                 {data[0]?.attributes?.firstname} {data[0]?.attributes?.lastname}
                             </h2>
-                            <p className="mt-2 text-blue-300">{t('artisticDirector')}</p>
+                            <p className="mt-2 text-blue-300">{t('deputyDirector')}</p>
                         </div>
                         <div className="relative h-48 w-48 overflow-hidden rounded-full border-2 border-slate-700 shadow-lg md:h-64 md:w-64">
                             <AvatarImage data={data[0]} />

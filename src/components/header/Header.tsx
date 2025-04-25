@@ -41,8 +41,8 @@ export default function Header() {
                     <Link href="/repertory">
                         <h1 className="text-white">{t('repertory')}</h1>
                     </Link>
-                    <Link href="/artistic-director">
-                        <h1 className="text-white">{t('aritsticDir')}</h1>
+                    <Link href="/director">
+                        <h1 className="text-white">{t('directorCompany')}</h1>
                     </Link>
 
                     <Link href="/troupe">
@@ -59,9 +59,9 @@ export default function Header() {
                         <DropdownMenuContent className="inset-0 mt-3 overflow-hidden rounded-[4px] border-none bg-header-gradient text-white">
                             <DropdownMenuGroup>
                                 <DropdownMenuItem asChild>
-                                    <Link href="/director">
+                                    <Link href="/artistic-director">
                                         <DropdownMenuLabel className="cursor-pointer">
-                                            {t('directorCompany')}
+                                            {t('deputyDirector')}
                                         </DropdownMenuLabel>
                                     </Link>
                                 </DropdownMenuItem>

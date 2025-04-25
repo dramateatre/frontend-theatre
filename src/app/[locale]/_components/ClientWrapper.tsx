@@ -5,7 +5,8 @@ import Cover from './Cover'
 import Poster from './Poster'
 import News from './News'
 import Actors from './Actors'
-import FallenImages from './FallenImages'
+import ModernTheatreGallery from './FallenImages'
+import TheatreCarousel from './FallenImages'
 
 const fadeInVariants = {
     hidden: { opacity: 0 },
@@ -97,7 +98,7 @@ export default function ClientWrapper({ posterData, newsData, creativeGroupData 
                 viewport={{ once: true, amount: 0.4 }}
                 variants={fadeInVariants}
             >
-                <FallenImages />
+                <TheatreCarousel />
             </motion.div>
         </main>
     )

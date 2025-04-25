@@ -61,15 +61,13 @@ export function BurgerMenu() {
                             </Link>
                         </SheetTrigger>
                         <SheetTrigger asChild>
-                            <Link href="/artistic-director">
+                            <Link href="/director">
                                 <span
                                     className={
-                                        isActive(['/artistic-director', '/en/artistic-director'])
-                                            ? 'underline'
-                                            : ''
+                                        isActive(['/director', '/en/director']) ? 'underline' : ''
                                     }
                                 >
-                                    {t('aritsticDir')}
+                                    {t('directorCompany')}
                                 </span>
                             </Link>
                         </SheetTrigger>
@@ -101,15 +99,18 @@ export function BurgerMenu() {
                                 <AccordionTrigger>{t('team')}</AccordionTrigger>
                                 <AccordionContent>
                                     <SheetTrigger asChild>
-                                        <Link href="/director">
+                                        <Link href="/artistic-director">
                                             <span
                                                 className={
-                                                    isActive(['/director', '/en/director'])
+                                                    isActive([
+                                                        '/artistic-director',
+                                                        '/en/artistic-director',
+                                                    ])
                                                         ? 'underline'
                                                         : ''
                                                 }
                                             >
-                                                {t('directorCompany')}
+                                                {t('deputyDirector')}
                                             </span>
                                         </Link>
                                     </SheetTrigger>
