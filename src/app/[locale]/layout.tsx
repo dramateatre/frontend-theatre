@@ -15,7 +15,7 @@ const playwrite = localFont({
 })
 
 const georgian = localFont({
-    src: '../../../public/fonts/georgian/arial_geo-italic.ttf',
+    src: '../../../public/fonts/geo2.ttf',
     display: 'swap',
     variable: '--font-georgian',
 })

@@ -21,13 +21,13 @@ export default function Header() {
 
     return (
         <div
-            className={` ${locale === 'en' ? 'text-base' : 'text-base'} relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-gradient-to-r from-[#b3bac6] via-[#656d79] to-[#191b22] px-6 py-5 text-white md:h-28 md:px-5 xl:px-10`}
+            className={`relative z-50 flex h-20 w-full flex-row items-center justify-between gap-4 bg-gradient-to-r from-[#b3bac6] via-[#656d79] to-[#191b22] px-6 py-5 font-georgian tracking-widest text-white md:h-28 md:px-5 md:text-xl xl:px-10 xl:text-2xl`}
         >
             <Link href="/">
                 <Logo className="mt-5 fill-[#eeededee] text-[180px] md:mt-10 md:text-[200px] xl:text-[270px]" />
             </Link>
 
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-6">
                 <div className="hidden gap-4 lg:flex">
                     <Link href="/">
                         <h1 className="text-white">{t('main')}</h1>

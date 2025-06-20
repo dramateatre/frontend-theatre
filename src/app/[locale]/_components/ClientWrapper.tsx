@@ -5,7 +5,6 @@ import Cover from './Cover'
 import Poster from './Poster'
 import News from './News'
 import Actors from './Actors'
-import ModernTheatreGallery from './FallenImages'
 import TheatreCarousel from './FallenImages'
 
 const fadeInVariants = {

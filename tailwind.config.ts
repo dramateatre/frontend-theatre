@@ -32,7 +32,7 @@ module.exports = {
             },
             backgroundImage: {
                 'footer-cover': "url('/imgs/FooterCover.jpg')",
-                'main-cover': "url('/imgs/Cover.png')",
+                'main-cover': "url('/imgs/NewCover.jpg')",
                 'bg-body': "url('/imgs/BgBody.jpg')",
                 'bg-cov': "url('/imgs/bg-cov.jpg')",
                 'bg-test': "url('/imgs/Test.jpg')",

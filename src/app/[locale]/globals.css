@@ -51,3 +51,7 @@ body {
             rgba(9, 11, 17, 0) 100%
         );
 }
+
+.font-geo2 {
+    font-family: var(--font-geo2), Arial, sans-serif;
+}
